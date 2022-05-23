@@ -34,7 +34,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 	if(!msg)
 		msg = typing_input(src.mob, "", "ooc \"text\"")
 
-	msg = trim(sanitize(copytext(msg, 1, MAX_MESSAGE_LEN)))
+	msg = trim(sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN)))
 	if(!msg)
 		return
 
@@ -131,7 +131,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 
 	if(!check_rights(R_SERVER))	return
 
-	GLOB.normal_ooc_colour = DEFAULT_PLAYER_OOC_COLOUR 
+	GLOB.normal_ooc_colour = DEFAULT_PLAYER_OOC_COLOUR
 	message_admins("[key_name_admin(usr)] has reset the default player OOC color")
 	log_admin("[key_name(usr)] has reset the default player OOC color")
 
@@ -190,7 +190,7 @@ GLOBAL_VAR_INIT(admin_ooc_colour, "#b82e00")
 	if(!msg)
 		msg = typing_input(src.mob, "Local OOC, seen only by those in view.", "looc \"text\"")
 
-	msg = trim(sanitize(copytext(msg, 1, MAX_MESSAGE_LEN)))
+	msg = trim(sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN)))
 	if(!msg)
 		return
 

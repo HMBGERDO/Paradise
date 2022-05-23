@@ -69,10 +69,10 @@
 
 //Returns null if there is any bad text in the string
 /proc/reject_bad_text(text, max_length=512)
-	if(length(text) > max_length)	return			//message too long
+	if(length_char(text) > max_length)	return			//message too long
 	var/non_whitespace = 0
-	for(var/i=1, i<=length(text), i++)
-		switch(text2ascii(text,i))
+	for(var/i=1, i<=length_char(text), i++)
+		switch(text2ascii_char(text,i))
 			if(62,60,92,47)	return			//rejects the text if it contains these bad characters: <, >, \ or /
 			if(127 to 255)	return			//rejects weird letters like �
 			if(0 to 31)		return			//more weird stuff
@@ -105,25 +105,25 @@
 /proc/reject_bad_name(t_in, allow_numbers=0, max_length=MAX_NAME_LEN)
 	// Decode so that names with characters like < are still rejected
 	t_in = html_decode(t_in)
-	if(!t_in || length(t_in) > max_length)
+	if(!t_in || length_char(t_in) > max_length)
 		return //Rejects the input if it is null or if it is longer than the max length allowed
 
 	var/number_of_alphanumeric	= 0
 	var/last_char_group			= 0
 	var/t_out = ""
 
-	for(var/i=1, i<=length(t_in), i++)
-		var/ascii_char = text2ascii(t_in,i)
+	for(var/i=1, i<=length_char(t_in), i++)
+		var/ascii_char = text2ascii_char(t_in,i)
 		switch(ascii_char)
-			// A  .. Z
-			if(65 to 90)			//Uppercase Letters
+			// A  .. Z А .. Я, Ё
+			if(65 to 90, 1040 to 1071, 1025)			//Uppercase Letters
 				t_out += ascii2text(ascii_char)
 				number_of_alphanumeric++
 				last_char_group = 4
 
-			// a  .. z
-			if(97 to 122)			//Lowercase Letters
-				if(last_char_group<2)		t_out += ascii2text(ascii_char-32)	//Force uppercase first character
+			// a  .. z а .. я, ё
+			if(97 to 122, 1072 to 1103, 1105)			//Lowercase Letters
+				if(last_char_group<2)		t_out += uppertext(ascii2text(ascii_char))	//Force uppercase first character
 				else						t_out += ascii2text(ascii_char)
 				number_of_alphanumeric++
 				last_char_group = 4
@@ -160,7 +160,7 @@
 	if(number_of_alphanumeric < 2)	return		//protects against tiny names like "A" and also names like "' ' ' ' ' ' ' '"
 
 	if(last_char_group == 1)
-		t_out = copytext(t_out,1,length(t_out))	//removes the last character (in this case a space)
+		t_out = copytext(t_out,1,length_char(t_out))	//removes the last character (in this case a space)
 
 	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai","plating"))	//prevents these common metagamey names
 		if(cmptext(t_out,bad_name))	return	//(not case sensitive)
@@ -193,30 +193,30 @@
 //Returns the position of the substring or 0 if it was not found
 /proc/dd_hasprefix(text, prefix)
 	var/start = 1
-	var/end = length(prefix) + 1
+	var/end = length_char(prefix) + 1
 	return findtext(text, prefix, start, end)
 
 //Checks the beginning of a string for a specified sub-string. This proc is case sensitive
 //Returns the position of the substring or 0 if it was not found
 /proc/dd_hasprefix_case(text, prefix)
 	var/start = 1
-	var/end = length(prefix) + 1
-	return findtextEx(text, prefix, start, end)
+	var/end = length_char(prefix) + 1
+	return findtextEx_char(text, prefix, start, end)
 
 //Checks the end of a string for a specified substring.
 //Returns the position of the substring or 0 if it was not found
 /proc/dd_hassuffix(text, suffix)
-	var/start = length(text) - length(suffix)
+	var/start = length_char(text) - length_char(suffix)
 	if(start)
-		return findtext(text, suffix, start, null)
+		return findtext_char(text, suffix, start, null)
 	return
 
 //Checks the end of a string for a specified substring. This proc is case sensitive
 //Returns the position of the substring or 0 if it was not found
 /proc/dd_hassuffix_case(text, suffix)
-	var/start = length(text) - length(suffix)
+	var/start = length_char(text) - length_char(suffix)
 	if(start)
-		return findtextEx(text, suffix, start, null)
+		return findtextEx_char(text, suffix, start, null)
 
 /*
  * Text modification
@@ -224,7 +224,7 @@
 // See bygex.dm
 /proc/replace_characters(t, list/repl_chars)
 	for(var/char in repl_chars)
-		t = replacetext(t, char, repl_chars[char])
+		t = replacetext_char(t, char, repl_chars[char])
 	return t
 
 //Strips the first char and returns it and the new string as a list
@@ -233,37 +233,37 @@
 
 //Strips the last char and returns it and the new string as a list
 /proc/strip_last(t)
-	return list(copytext(t, 1, length(t)), copytext(t, length(t)))
+	return list(copytext(t, 1, length_char(t)), copytext(t, length_char(t)))
 
 //Adds 'u' number of zeros ahead of the text 't'
 /proc/add_zero(t, u)
-	while(length(t) < u)
+	while(length_char(t) < u)
 		t = "0[t]"
 	return t
 
 //Adds 'u' number of spaces ahead of the text 't'
 /proc/add_lspace(t, u)
-	while(length(t) < u)
+	while(length_char(t) < u)
 		t = " [t]"
 	return t
 
 //Adds 'u' number of spaces behind the text 't'
 /proc/add_tspace(t, u)
-	while(length(t) < u)
+	while(length_char(t) < u)
 		t = "[t] "
 	return t
 
 //Returns a string with reserved characters and spaces before the first letter removed
 /proc/trim_left(text)
-	for(var/i = 1 to length(text))
-		if(text2ascii(text, i) > 32)
+	for(var/i = 1 to length_char(text))
+		if(text2ascii_char(text, i) != 32)
 			return copytext(text, i)
 	return ""
 
 //Returns a string with reserved characters and spaces after the last letter removed
 /proc/trim_right(text)
-	for(var/i = length(text), i > 0, i--)
-		if(text2ascii(text, i) > 32)
+	for(var/i = length_char(text), i > 0, i--)
+		if(text2ascii_char(text, i) != 32)
 			return copytext(text, 1, i + 1)
 
 	return ""
@@ -274,17 +274,17 @@
 
 //Returns a string with the first element of the string capitalized.
 /proc/capitalize(t as text)
-	return uppertext(copytext(t, 1, 2)) + copytext(t, 2)
+	return uppertext(copytext_char(t, 1, 2)) + copytext_char(t, 2)
 
 //Centers text by adding spaces to either side of the string.
 /proc/dd_centertext(message, length)
 	var/new_message = message
-	var/size = length(message)
+	var/size = length_char(message)
 	var/delta = length - size
 	if(size == length)
 		return new_message
 	if(size > length)
-		return copytext(new_message, 1, length + 1)
+		return copytext_char(new_message, 1, length + 1)
 	if(delta == 1)
 		return new_message + " "
 	if(delta % 2)
@@ -295,7 +295,7 @@
 
 //Limits the length of the text. Note: MAX_MESSAGE_LEN and MAX_NAME_LEN are widely used for this purpose
 /proc/dd_limittext(message, length)
-	var/size = length(message)
+	var/size = length_char(message)
 	if(size <= length)
 		return message
 	return copytext(message, 1, length + 1)
@@ -306,9 +306,9 @@
 //is in the other string at the same spot (assuming it is not a replace char).
 //This is used for fingerprints
 	var/newtext = text
-	if(length(text) != length(compare))
+	if(length_char(text) != length_char(compare))
 		return 0
-	for(var/i = 1, i < length(text), i++)
+	for(var/i = 1, i < length_char(text), i++)
 		var/a = copytext(text,i,i+1)
 		var/b = copytext(compare,i,i+1)
 //if it isn't both the same letter, or if they are both the replacement character
@@ -328,7 +328,7 @@
 	if(!text || !character)
 		return 0
 	var/count = 0
-	for(var/i = 1, i <= length(text), i++)
+	for(var/i = 1, i <= length_char(text), i++)
 		var/a = copytext(text,i,i+1)
 		if(a == character)
 			count++
@@ -336,7 +336,7 @@
 
 /proc/reverse_text(text = "")
 	var/new_text = ""
-	for(var/i = length(text); i > 0; i--)
+	for(var/i = length_char(text); i > 0; i--)
 		new_text += copytext(text, i, i+1)
 	return new_text
 
@@ -373,8 +373,8 @@
 //Used in preferences' SetFlavorText and human's set_flavor verb
 //Previews a string of len or less length
 /proc/TextPreview(string, len=40)
-	if(length(string) <= len)
-		if(!length(string))
+	if(length_char(string) <= len)
+		if(!length_char(string))
 			return "\[...\]"
 		else
 			return html_encode(string) //NO DECODED HTML YOU CHUCKLEFUCKS
@@ -409,7 +409,7 @@
 	var/list/repl_chars = list("#?qt;", "#?lbr;", "#?rbr;")
 	for(var/char in repl_chars)
 		var/index = findtext(text, char)
-		var/keylength = length(char)
+		var/keylength = length_char(char)
 		while(index)
 			log_runtime(EXCEPTION("Bad string given to dmm encoder! [text]"))
 			// Replace w/ underscore to prevent "&#3&#123;4;" from cheesing the radar
@@ -421,7 +421,7 @@
 	var/list/repl_chars_2 = list("\"" = "#?qt;", "{" = "#?lbr;", "}" = "#?rbr;")
 	for(var/char in repl_chars_2)
 		var/index = findtext(text, char)
-		var/keylength = length(char)
+		var/keylength = length_char(char)
 		while(index)
 			text = copytext(text, 1, index) + repl_chars_2[char] + copytext(text, index+keylength)
 			index = findtext(text, char)
@@ -433,7 +433,7 @@
 	var/list/repl_chars = list("#?qt;" = "\"", "#?lbr;" = "{", "#?rbr;" = "}")
 	for(var/char in repl_chars)
 		var/index = findtext(text, char)
-		var/keylength = length(char)
+		var/keylength = length_char(char)
 		while(index)
 			text = copytext(text, 1, index) + repl_chars[char] + copytext(text, index+keylength)
 			index = findtext(text, char)
@@ -656,9 +656,9 @@
 	if(!next_backslash)
 		return string
 
-	var/leng = length(string)
+	var/leng = length_char(string)
 
-	var/next_space = findtext(string, " ", next_backslash + length(string[next_backslash]))
+	var/next_space = findtext(string, " ", next_backslash + length_char(string[next_backslash]))
 	if(!next_space)
 		next_space = leng - next_backslash
 
@@ -666,8 +666,8 @@
 		return string
 
 	var/base = next_backslash == 1 ? "" : copytext(string, 1, next_backslash)
-	var/macro = lowertext(copytext(string, next_backslash + length(string[next_backslash]), next_space))
-	var/rest = next_backslash > leng ? "" : copytext(string, next_space + length(string[next_space]))
+	var/macro = lowertext(copytext(string, next_backslash + length_char(string[next_backslash]), next_space))
+	var/rest = next_backslash > leng ? "" : copytext(string, next_space + length_char(string[next_space]))
 
 	//See https://secure.byond.com/docs/ref/info.html#/DM/text/macros
 	switch(macro)
