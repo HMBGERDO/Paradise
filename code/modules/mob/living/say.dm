@@ -109,6 +109,9 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 
 /mob/living/say(message, verb = "says", sanitize = TRUE, ignore_speech_problems = FALSE, ignore_atmospherics = FALSE, ignore_languages = FALSE)
+	world.log << "before anything"
+	world.log << message
+	world.log << ""
 	if(client)
 		if(check_mute(client.ckey, MUTE_IC))
 			to_chat(src, "<span class='danger'>You cannot speak in IC (Muted).</span>")
@@ -124,6 +127,10 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
+	world.log << "first check"
+	world.log << message
+	world.log << ""
+
 	if(copytext(message, 1, 2) == "*")
 		return emote(copytext(message, 2))
 
@@ -135,6 +142,10 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 			message = copytext(message, 3)
 
 	message = trim_left(message)
+
+	world.log << "second check"
+	world.log << message
+	world.log << ""
 
 	//parse the language code and consume it
 	var/list/message_pieces = list()
@@ -152,6 +163,10 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 	if(!LAZYLEN(message_pieces))
 		log_runtime(EXCEPTION("Message failed to generate pieces. [message] - [json_encode(message_pieces)]"))
 		return 0
+
+	world.log << "third check"
+	world.log << message
+	world.log << ""
 
 	if(message_mode == "cords")
 		if(iscarbon(src))
@@ -181,6 +196,10 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 	// Do this so it gets logged for all types of communication
 	var/log_message = "[message_mode ? "([message_mode])" : ""] '[message]'"
 	create_log(SAY_LOG, log_message)
+
+	world.log << "forth check"
+	world.log << message
+	world.log << ""
 
 	var/list/used_radios = list()
 	if(handle_message_mode(message_mode, message_pieces, verb, used_radios))
@@ -221,6 +240,10 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 	var/turf/T = get_turf(src)
 	var/list/listening = list()
 	var/list/listening_obj = list()
+
+	world.log << "fifth check"
+	world.log << message
+	world.log << ""
 
 	if(T)
 		//make sure the air can transmit speech - speaker's side
@@ -270,6 +293,10 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 	var/list/speech_bubble_recipients = list()
 	var/speech_bubble_test = say_test(message)
+
+	world.log << "sixth check"
+	world.log << message
+	world.log << ""
 
 	for(var/mob/M in listening)
 		M.hear_say(message_pieces, verb, italics, src, speech_sound, sound_vol, sound_frequency)
