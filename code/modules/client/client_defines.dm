@@ -86,6 +86,8 @@
 	/// Messages currently seen by this client
 	var/list/seen_messages
 
+	var/fullscreen = FALSE
+
 	// Last world.time that the player tried to request their resources.
 	var/last_ui_resource_send = 0
 
