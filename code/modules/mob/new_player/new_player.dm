@@ -29,7 +29,7 @@
 
 
 /mob/new_player/proc/privacy_consent()
-	var/output = GLOB.join_tos
+	var/output = {"<meta charset="UTF-8">"} + GLOB.join_tos
 	// Dont blank out the other window. This one is read only.
 	if(!GLOB.configuration.system.external_tos_handler)
 		src << browse(null, "window=playersetup")
@@ -50,7 +50,7 @@
 	var/real_name = client.prefs.active_character.real_name
 	if(client.prefs.toggles2 & PREFTOGGLE_2_RANDOMSLOT)
 		real_name = "Random Character Slot"
-	var/output = "<center><p><a href='byond://?src=[UID()];show_preferences=1'>Setup Character</A><br /><i>[real_name]</i></p>"
+	var/output = {"<meta charset="UTF-8"><center><p><a href='byond://?src=[UID()];show_preferences=1'>Setup Character</A><br /><i>[real_name]</i></p>"}
 
 	if(!SSticker || SSticker.current_state <= GAME_STATE_PREGAME)
 		if(!ready)	output += "<p><a href='byond://?src=[UID()];ready=1'>Declare Ready</A></p>"
@@ -434,7 +434,7 @@
 	var/mins = (mills % 36000) / 600
 	var/hours = mills / 36000
 
-	var/dat = "<html><body><center>"
+	var/dat = {"<html><meta charset="UTF-8"><body><center>"}
 	dat += "Round Duration: [round(hours)]h [round(mins)]m<br>"
 	dat += "<b>The station alert level is: [get_security_level_colors()]</b><br>"
 

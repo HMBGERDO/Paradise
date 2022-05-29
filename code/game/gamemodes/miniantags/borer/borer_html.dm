@@ -2,6 +2,7 @@
 	var/html = {"<!DOCTYPE html">
 		<html>
 		<head>
+			<meta charset="UTF-8">
 			<title>Borer Chemicals</title>
 			<link rel='stylesheet' type='text/css' href='icons.css'>
 			<link rel='stylesheet' type='text/css' href='shared.css'>

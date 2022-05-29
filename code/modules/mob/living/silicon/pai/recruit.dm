@@ -109,7 +109,7 @@ GLOBAL_DATUM_INIT(paiController, /datum/paiController, new) // Global handler fo
 /datum/paiController/proc/recruitWindow(mob/M)
 	var/datum/pai_save/candidate = M.client.pai_save
 
-	var/dat = ""
+	var/dat = {"<meta charset="UTF-8">"}
 	dat += {"
 			<style type="text/css">
 				body {
@@ -241,6 +241,7 @@ GLOBAL_DATUM_INIT(paiController, /datum/paiController, new) // Global handler fo
 		<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
 		<html>
 			<head>
+			<meta charset="UTF-8">
 				<style>
 					body {
 						margin-top:5px;

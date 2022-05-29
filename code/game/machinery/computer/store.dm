@@ -31,6 +31,7 @@
 	var/dat = {"
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Nanotrasen Merchandise</title>
 		<style type="text/css">
 * {

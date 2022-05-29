@@ -15,7 +15,7 @@
 	title = "Station Repairs and Construction"
 	dat = {"
 
-		<html><head>
+		<html><head><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -34,7 +34,7 @@
 //big pile of shit below.
 
 	dat = {"<html>
-				<head>
+				<head><meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -161,7 +161,7 @@
 
 	dat = {"
 
-		<html><head>
+		<html><head><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -180,7 +180,7 @@
 //big pile of shit below.
 
 	dat = {"<html>
-				<head>
+				<head><meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -226,7 +226,7 @@
 	author = "Farmer John"
 	title = "The Human Harvest - From seed to market"
 	dat = {"<html>
-				<head>
+				<head><meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -263,7 +263,7 @@
 //big pile of shit below.
 
 	dat = {"<html>
-				<head>
+				<head><meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -341,7 +341,7 @@
 //big pile of shit below.
 
 	dat = {"<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -414,7 +414,7 @@
 	author = "Dr. H.P. Kritz"
 	title = "Mentoring your Experiments"
 	dat = {"<html>
-		<head>
+		<meta charset="UTF-8">
 		<style>
 		h1 {font-size: 18px; margin: 15px 0px 5px;}
 		h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -547,7 +547,7 @@
 	title = "Research and Development 101"
 	dat = {"
 	<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -597,7 +597,7 @@
 	author = "XISC"
 	title = "Cyborgs for Dummies"
 	dat = {"<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 21px; margin: 15px 0px 5px;}
 				h2 {font-size: 18px; margin: 15px 0px 5px;}
@@ -802,7 +802,7 @@
 	title = "Space Law"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -825,7 +825,7 @@
 	title = "Engineering Textbook"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -843,7 +843,7 @@
     title = "Chef Recipes"
     dat = {"
 
-        <html><head>
+        <html><meta charset="UTF-8">
         </head>
 
         <body>
@@ -859,7 +859,7 @@
 	author = "Sir John Rose"
 	title = "Barman Recipes"
 	dat = {"<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -912,7 +912,7 @@
 	author = "Nanotrasen"
 	title = "The Film Noir: Proper Procedures for Investigations"
 	dat = {"<html>
-			<head>
+			<meta charset="UTF-8">
 			<style>
 			h1 {font-size: 18px; margin: 15px 0px 5px;}
 			h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -988,7 +988,7 @@
 	author = "Maria Crash, Senior Atmospherics Technician"
 	title = "Pipes and You: Getting To Know Your Scary Tools"
 	dat = {"<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h1 {font-size: 15px; margin: 15px 0px 5px;}
@@ -1085,7 +1085,7 @@
 	author = "Maria Crash, Senior Atmospherics Technician"
 	title = "EVA Gear and You: Not Spending All Day Inside"
 	dat = {"<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h1 {font-size: 15px; margin: 15px 0px 5px;}
@@ -1157,7 +1157,7 @@
 	dat = {"
 
 		<html>
-				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 15px; margin: 15px 0px 5px;}
 				li {margin: 2px 0px 2px 15px;}
@@ -1215,7 +1215,7 @@
 	title = "Science Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1233,7 +1233,7 @@
 	title = "Medical Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1251,7 +1251,7 @@
 	title = "Engineering Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1269,7 +1269,7 @@
 	title = "Service Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1287,7 +1287,7 @@
 	title = "Supply Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1305,7 +1305,7 @@
 	title = "Security Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1323,7 +1323,7 @@
 	title = "Legal Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1341,7 +1341,7 @@
 	title = "Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>
@@ -1359,7 +1359,7 @@
 	title = "Command Standard Operating Procedures"
 	dat = {"
 
-		<html><head>
+		<html><meta charset="UTF-8">
 		</head>
 
 		<body>

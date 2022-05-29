@@ -239,6 +239,7 @@
 
 	var/dat = {"<html>
 	<head>
+		<meta charset="UTF-8">
 		<title>[name] Configuration</title>
 		<style type="text/css">
 html,body {
