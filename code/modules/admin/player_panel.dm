@@ -6,7 +6,7 @@
 	if(!check_rights(R_ADMIN))
 		message_admins("[key_name_admin(usr)] attempted to invoke player panel without admin rights. If this is a mentor, its a chance they accidentally hit F7. If this is NOT a mentor, there is a high chance an exploit is being used")
 		return
-	var/dat = "<html><head><title>Admin Player Panel</title></head>"
+	var/dat = "<html><head><meta charset='utf-8'><title>Admin Player Panel</title></head>"
 
 	//javascript, the part that does most of the work~
 	dat += {"

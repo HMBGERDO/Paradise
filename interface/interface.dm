@@ -114,9 +114,11 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tQ = drop
 \tE = equip
 \tR = throw
+\tC = stop pulling
 \tM = me
-\tT = say
+\tT = say (+SHIFT - whisper)
 \tO = OOC
+\tL = LOOC
 \tB = resist
 \tH = Holster/unholster gun if you have a holster
 \tX = swap-hand
@@ -140,8 +142,9 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+Q = drop
 \tCtrl+E = equip
 \tCtrl+R = throw
-\tCtrl+B = resist
-\tCtrl+H = stop pulling
+\tCtrl+C = stop pulling
+\tCtrl+M = me
+\tCtrl+T = say (+SHIFT - whisper)
 \tCtrl+O = OOC
 \tCtrl+X = swap-hand
 \tCtrl+Z = activate held object (or Ctrl+y)
@@ -158,6 +161,9 @@ Any-Mode: (hotkey doesn't need to be on)
 \tPGDN = activate held object
 \tEND = throw
 \tCtrl+Numpad = Body target selection (Press 8 repeatedly for Head->Eyes->Mouth)
+\tF2 = OOC
+\tF3 = Say (+SHIFT - whisper)
+\tF4 = Me
 \tF11 = Fulscreen
 \tCtrl+F11 = Fit Viewport
 </font>"}
@@ -174,8 +180,9 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tD = Move Right
 \tW = Move Up
 \tQ = Unequip Active Module
+\tC = Stop pulling
 \tM = Me
-\tT = Say
+\tT = Say (+SHIFT - whisper)
 \tO = OOC
 \tX = Cycle Active Modules
 \tB = Resist
@@ -197,7 +204,11 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+Q = Unequip Active Module
 \tCtrl+X = Cycle Active Modules
 \tCtrl+B = Resist
+\tCtrl+C = Stop pulling
+\tCtrl+M = Me
+\tCtrl+T = Say (+SHIFT - whisper)
 \tCtrl+O = OOC
+\tCtrl+L = LOOC
 \tCtrl+Z or Ctrl+Y = Activate Held Object
 \tCtrl+F = Cycle Intents Left
 \tCtrl+G = Cycle Intents Right
@@ -210,7 +221,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tPGUP = Cycle Active Modules
 \tPGDN = Activate Held Object
 \tF2 = OOC
-\tF3 = Say
+\tF3 = Say (+SHIFT - whisper)
 \tF4 = Me
 \tF11 = Fulscreen
 \tCtrl+F11 = Fit Viewport
