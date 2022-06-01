@@ -160,8 +160,7 @@
 
 /obj/machinery/r_n_d/experimentor/interact(mob/living/carbon/human/user)
 	user.set_machine(src)
-
-	var/dat = "<center>"
+	var/dat = {"<meta charset="UTF-8"><center>"}
 	if(!linked_console)
 		dat += "<b><a href='byond://?src=[UID()];function=search'>Scan for R&D Console</A></b><br>"
 	if(loaded_item)

@@ -2,13 +2,13 @@ macro "default"
 
 
 menu "menu"
-	elem 
+	elem
 		name = "&File"
-	elem 
+	elem
 		name = "&Quick screenshot"
 		command = ".screenshot auto"
 		category = "&File"
-	elem 
+	elem
 		name = "&Save screenshot as..."
 		command = ".screenshot"
 		category = "&File"
@@ -16,16 +16,16 @@ menu "menu"
 		name = "&Reconnect"
 		command = ".reconnect"
 		category = "&File"
-	elem 
+	elem
 		name = ""
 		category = "&File"
-	elem 
+	elem
 		name = "&Quit"
 		command = ".quit"
 		category = "&File"
-	elem 
+	elem
 		name = "&Icons"
-	elem 
+	elem
 		name = "&Size"
 		category = "&Icons"
 	elem "stretch"
@@ -77,7 +77,7 @@ menu "menu"
 		category = "&Size"
 		can-check = true
 		group = "size"
-	elem 
+	elem
 		name = "&Scaling"
 		category = "&Icons"
 	elem "NN"
@@ -104,9 +104,9 @@ menu "menu"
 		command = ".winset \"menu.textmode.is-checked=true?mapwindow.map.text-mode=true:mapwindow.map.text-mode=false\""
 		category = "&Icons"
 		can-check = true
-	elem 
+	elem
 		name = "&Options"
-	elem 
+	elem
 		name = "&Open Volume Mixer"
 		command = "Open-Volume-Mixer"
 		category = "&Options"
@@ -117,12 +117,23 @@ menu "menu"
 		is-checked = true
 		saved-params = "is-checked"
 		command = ".winset \"menu.statusbar.is-checked=true?mapwindow.status_bar.is-visible=true:mapwindow.status_bar.is-visible=false\""
-	elem 
+	elem
 		name = "&Help"
-	elem 
+<<<<<<< HEAD
+	elem
 		name = "&Admin help"
 		command = "adminhelp"
 		category = "&Help"
+=======
+	elem
+		name = "&Admin help\tF1"
+		command = "adminhelp"
+		category = "&Help"
+	elem
+		name = "&Hotkeys"
+		command = "Hotkey-Help"
+		category = "&Help"
+>>>>>>> 76e22a5e85 (fullscreen mode)
 
 
 window "mainwindow"
@@ -131,6 +142,7 @@ window "mainwindow"
 		size = 640x440
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
+		on-size = "fitviewport"
 		title = "Paradise Station 13"
 		statusbar = false
 		is-maximized = true
@@ -190,7 +202,7 @@ window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
 		pos = 0,0
-		size = 637x480
+		size = 640x500
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-pane = true
@@ -248,19 +260,32 @@ window "rpane"
 		left = "infowindow"
 		right = "outputwindow"
 		is-vert = false
+	elem "fullscreenb"
+		type = BUTTON
+		pos = 5,7
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		saved-params = "is-checked"
+		text = "Fullscreen"
+		command = "fullscreen"
 	elem "textb"
 		type = BUTTON
-		pos = 0,7
-		size = 60x16
+		pos = 70,7
+		size = 40x16
+		anchor1 = none
+		anchor2 = none
+		is-visible = false
 		saved-params = "is-checked"
 		text = "Text"
-		command = ".winset \"rpanewindow.top=;\""
+		command = ".winset \"rpanewindow.left=;\""
+		is-checked = true
 		group = "rpanemode"
 		button-type = pushbox
 	elem "infob"
 		type = BUTTON
-		pos = 62,7
-		size = 60x16
+		pos = 110,7
+		size = 40x16
 		is-checked = true
 		saved-params = "is-checked"
 		text = "Info"
@@ -345,4 +370,4 @@ window "infowindow"
 		anchor2 = 100,100
 		is-default = true
 		highlight-color = #00aa00
-		on-show = ".winset \"rpane.infob.is-checked=true?rpane.rpanewindow.top=infowindow:rpane.rpanewindow.top=\""
+		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,7:rpane.infob.pos=110,7 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
