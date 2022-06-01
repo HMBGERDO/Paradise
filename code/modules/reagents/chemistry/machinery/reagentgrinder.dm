@@ -243,7 +243,7 @@
 	var/is_beaker_ready = 0
 	var/processing_chamber = ""
 	var/beaker_contents = ""
-	var/dat = ""
+	var/dat = {"<meta charset="UTF-8">"}
 
 	if(!operating)
 		for (var/obj/item/O in holdingitems)
@@ -265,7 +265,7 @@
 				beaker_contents += "Nothing<br>"
 
 
-		dat = {"
+		dat += {"
 	<b>Processing chamber contains:</b><br>
 	[processing_chamber]<br>
 	[beaker_contents]<hr>

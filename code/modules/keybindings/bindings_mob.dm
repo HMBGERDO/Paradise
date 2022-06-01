@@ -5,7 +5,7 @@
 /mob/key_down(_key, client/user)
 	if(user.prefs.toggles & PREFTOGGLE_AZERTY)
 		switch(_key)
-			if("Delete")
+			if("Delete", "C")
 				if(!pulling)
 					to_chat(src, "<span class='notice'>You are not pulling anything.</span>")
 				else

@@ -858,6 +858,7 @@
 	///// BUTTONS /////
 	SSchangelog.UpdatePlayerChangelogButton(src)
 	/* Rpane */
+	winset(src, "rpane.fullscreenb", "background-color=#40628a;text-color=#FFFFFF")
 	winset(src, "rpane.textb", "background-color=#40628a;text-color=#FFFFFF")
 	winset(src, "rpane.infob", "background-color=#40628a;text-color=#FFFFFF")
 	winset(src, "rpane.wikib", "background-color=#40628a;text-color=#FFFFFF")
@@ -892,6 +893,7 @@
 	///// BUTTONS /////
 	SSchangelog.UpdatePlayerChangelogButton(src)
 	/* Rpane */
+	winset(src, "rpane.fullscreenb", "background-color=none;text-color=#000000")
 	winset(src, "rpane.textb", "background-color=none;text-color=#000000")
 	winset(src, "rpane.infob", "background-color=none;text-color=#000000")
 	winset(src, "rpane.wikib", "background-color=none;text-color=#000000")
@@ -943,6 +945,32 @@
 	return TRUE
 
 #undef SSD_WARNING_TIMER
+
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "OOC"
+
+	fullscreen = !fullscreen
+
+	if (fullscreen)
+		winset(usr, "mainwindow", "on-size=")
+		winset(usr, "mainwindow", "titlebar=false")
+		winset(usr, "mainwindow", "can-resize=false")
+		winset(usr, "mainwindow", "menu=")
+		winset(usr, "mainwindow", "is-maximized=false")
+		winset(usr, "mainwindow", "is-maximized=true")
+	else
+		winset(usr, "mainwindow", "titlebar=true")
+		winset(usr, "mainwindow", "can-resize=true")
+		winset(usr, "mainwindow", "menu=menu")
+		winset(usr, "mainwindow", "is-maximized=false")
+		winset(usr, "mainwindow", "on-size=fitviewport")
+
+	fit_viewport()
+
+/client/verb/fitviewport() // wrapper for mainwindow
+	set hidden = 1
+	fit_viewport()
 
 /client/verb/resend_ui_resources()
 	set name = "Reload UI Resources"

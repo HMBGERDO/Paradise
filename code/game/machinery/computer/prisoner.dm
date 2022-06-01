@@ -28,7 +28,7 @@
 	if(..())
 		return 1
 	user.set_machine(src)
-	var/dat
+	var/dat = {"<meta charset="UTF-8">"}
 	dat += "<B>Prisoner Implant Manager System</B><BR>"
 	if(!authenticated)
 		dat += "<HR><A href='?src=[UID()];lock=1'>Unlock Console</A>"

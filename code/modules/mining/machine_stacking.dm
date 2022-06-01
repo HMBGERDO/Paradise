@@ -26,7 +26,7 @@
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
 	var/obj/item/stack/sheet/s
-	var/dat
+	var/dat = {"<meta charset="UTF-8">"}
 
 	if(!machine)
 		return
