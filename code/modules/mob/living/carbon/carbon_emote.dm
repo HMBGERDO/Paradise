@@ -5,18 +5,18 @@
 /datum/emote/living/carbon/blink
 	key = "blink"
 	key_third_person = "blinks"
-	message = "blinks."
+	message = "моргает."
 
 /datum/emote/living/carbon/blink_r
 	key = "blink_r"
-	message = "blinks rapidly."
+	message = "мыстро моргает."
 
 /datum/emote/living/carbon/clap
 	key = "clap"
 	key_third_person = "claps"
-	message = "claps."
-	message_mime = "claps silently."
-	message_param = "claps at %t."
+	message = "хлопает."
+	message_mime = "бесшумно хлопает."
+	message_param = "хлопает %t."
 	emote_type = EMOTE_SOUND
 	vary = TRUE
 
@@ -46,22 +46,22 @@
 /datum/emote/living/carbon/cross
 	key = "cross"
 	key_third_person = "crosses"
-	message = "crosses their arms."
+	message = "скрещивает руки."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/chuckle
 	key = "chuckle"
 	key_third_person = "chuckles"
-	message = "chuckles."
-	message_mime = "appears to chuckle."
+	message = "усмехается."
+	message_mime = "кажется, усмехается."
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 	muzzled_noises = list("joyful", "upbeat")
 
 /datum/emote/living/carbon/cough
 	key = "cough"
 	key_third_person = "coughs"
-	message = "coughs!"
-	message_mime = "appears to cough!"
+	message = "кашляет!"
+	message_mime = "кажется, кашляет!"
 	emote_type = EMOTE_SOUND | EMOTE_MOUTH
 	vary = TRUE
 	age_based = TRUE
@@ -82,8 +82,8 @@
 /datum/emote/living/carbon/moan
 	key = "moan"
 	key_third_person = "moans"
-	message = "moans!"
-	message_mime = "appears to moan!"
+	message = "стонет!"
+	message_mime = "кажется, стонет!"
 	muzzled_noises = list("pained")
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 	unintentional_stat_allowed = UNCONSCIOUS
@@ -91,15 +91,15 @@
 /datum/emote/living/carbon/giggle
 	key = "giggle"
 	key_third_person = "giggles"
-	message = "giggles."
-	message_mime = "giggles silently!"
+	message = "хихикает."
+	message_mime = "бесшумно хихикает!"
 	muzzled_noises = list("bubbly")
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 
 /datum/emote/living/carbon/gurgle
 	key = "gurgle"
 	key_third_person = "gurgles"
-	message = "makes an uncomfortable gurgle."
+	message = "издает неприятное бульканье."
 	muzzled_noises = list("unpleasant", "guttural")
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 	unintentional_stat_allowed = UNCONSCIOUS
@@ -107,62 +107,62 @@
 /datum/emote/living/carbon/inhale
 	key = "inhale"
 	key_third_person = "inhales"
-	message = "breathes in."
+	message = "делает вдох."
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 	muzzled_noises = list("breathy")
 
 /datum/emote/living/carbon/inhale/sharp
 	key = "inhale_s"
 	key_third_person = "inhales sharply!"
-	message = "takes a deep breath!"
+	message = "делает глубокий вдох!"
 
 /datum/emote/living/carbon/kiss
 	key = "kiss"
 	key_third_person = "kisses"
-	message = "blows a kiss."
-	message_param = "blows a kiss at %t!"
+	message = "делает воздушный поцелуй."
+	message_param = "посылает воздушный поцелуй %t!"
 	muzzled_noises = list("smooching")
 
 /datum/emote/living/carbon/wave
 	key = "wave"
 	key_third_person = "waves"
-	message = "waves."
-	message_param = "waves at %t."
+	message = "машет рукой."
+	message_param = "машет рукой %t."
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/yawn
 	key = "yawn"
 	key_third_person = "yawns"
-	message = "yawns."
+	message = "зевает."
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 	muzzled_noises = list("tired", "lazy", "sleepy")
 
 /datum/emote/living/carbon/exhale
 	key = "exhale"
 	key_third_person = "exhales"
-	message = "breathes out."
+	message = "выдыхает."
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 
 /datum/emote/living/carbon/laugh
 	key = "laugh"
 	key_third_person = "laughs"
-	message = "laughs."
-	message_mime = "laughs silently!"
-	message_param = "laughs at %t."
+	message = "хохочет."
+	message_mime = "бесшумно хохочет!"
+	message_param = "хохочет над %t."
 	muzzled_noises = list("happy", "joyful")
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 
 /datum/emote/living/carbon/scowl
 	key = "scowl"
 	key_third_person = "scowls"
-	message = "scowls."
+	message = "хмурится."
 
 /datum/emote/living/groan
 	key = "groan"
 	key_third_person = "groans"
-	message = "groans!"
-	message_mime = "appears to groan!"
-	message_param = "groans at %t."
+	message = "стонет!"
+	message_mime = "кажется, стонет!"
+	message_param = "стонет на %t."
 	muzzled_noises = list("pained")
 	emote_type = EMOTE_AUDIBLE | EMOTE_MOUTH
 	unintentional_stat_allowed = UNCONSCIOUS
@@ -170,8 +170,8 @@
 /datum/emote/living/carbon/sign
 	key = "sign"
 	key_third_person = "signs"
-	message = "signs."
-	message_param = "signs the number %t."
+	message = "показывает."
+	message_param = "показывает %t."
 	param_desc = "number(0-10)"
 	// Humans get their own proc since they have fingers
 	mob_type_blacklist_typecache = list(/mob/living/carbon/human)
@@ -181,7 +181,7 @@
 /datum/emote/living/carbon/faint
 	key = "faint"
 	key_third_person = "faints"
-	message = "faints."
+	message = "падает в обморок."
 
 /datum/emote/living/carbon/faint/run_emote(mob/user, params, type_override, intentional)
 	. = ..()

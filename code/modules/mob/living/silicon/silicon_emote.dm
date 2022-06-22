@@ -18,8 +18,8 @@
 /datum/emote/living/silicon/scream
 	key = "scream"
 	key_third_person = "screams"
-	message = "screams!"
-	message_param = "screams at %t!"
+	message = "кричит!"
+	message_param = "кричит на %t!"
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	vary = TRUE
 	sound = "sound/goonstation/voice/robot_scream.ogg"
@@ -28,52 +28,52 @@
 /datum/emote/living/silicon/ping
 	key = "ping"
 	key_third_person = "pings"
-	message = "pings."
-	message_param = "pings at %t."
+	message = "издает звук."
+	message_param = "издает звук на %t."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/machines/ping.ogg"
 
 /datum/emote/living/silicon/buzz
 	key = "buzz"
 	key_third_person = "buzzes"
-	message = "buzzes."
-	message_param = "buzzes at %t."
+	message = "жужжит."
+	message_param = "жужжит на %t."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/machines/buzz-sigh.ogg"
 
 /datum/emote/living/silicon/buzz2
 	key = "buzz2"
-	message = "emits an irritated buzzing sound."
-	message_param = "emits an irritated buzzing sound at %t."
+	message = "издает раздраженный жужжащий звук."
+	message_param = "издает раздраженный жужжащий звук на %t."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/machines/buzz-two.ogg"
 
 /datum/emote/living/silicon/beep
 	key = "beep"
 	key_third_person = "beeps"
-	message = "beeps."
-	message_param = "beeps at %t."
+	message = "издает сигнал."
+	message_param = "издает сигнал на %t."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/machines/twobeep.ogg"
 
 /datum/emote/living/silicon/yes
 	key = "yes"
-	message = "emits an affirmative blip."
-	message_param = "emits an affirmative blip at %t."
+	message = "издает утвердительный сигнал."
+	message_param = "издает утвердительный сигнал на %t."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/machines/synth_yes.ogg"
 
 /datum/emote/living/silicon/no
 	key = "no"
-	message = "emits a negative blip."
-	message_param = "emits a negative blip at %t."
+	message = "издает отрицательный сигнал."
+	message_param = "издает отрицательный сигнал на %t."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/machines/synth_no.ogg"
 
 /datum/emote/living/silicon/law
 	key = "law"
-	message = "shows its legal authorization barcode."
-	message_param = "shows %t its legal authorization barcode."
+	message = "показывает свой штрих-код."
+	message_param = "показывает %t свой штрих-код."
 	emote_type = EMOTE_SOUND | EMOTE_AUDIBLE
 	sound = "sound/voice/biamthelaw.ogg"
 
@@ -85,8 +85,8 @@
 
 /datum/emote/living/silicon/halt
 	key = "halt"
-	message = "screeches \"HALT! SECURITY!\" from its speakers."
-	message_param = "instructs %t to HALT."
+	message = "визжит \"HALT! SECURITY!\" из своих динамиков."
+	message_param = "приказывает %t остановиться."
 	emote_type = EMOTE_SOUND
 	sound = "sound/voice/halt.ogg"
 

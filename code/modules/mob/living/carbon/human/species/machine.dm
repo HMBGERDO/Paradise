@@ -83,6 +83,12 @@
 	..()
 	monitor = new()
 	monitor.Grant(H)
+	H.verbs |= /mob/living/carbon/human/proc/emote_ping
+	H.verbs |= /mob/living/carbon/human/proc/emote_beep
+	H.verbs |= /mob/living/carbon/human/proc/emote_buzz
+	H.verbs |= /mob/living/carbon/human/proc/emote_buzz2
+	H.verbs |= /mob/living/carbon/human/proc/emote_yes
+	H.verbs |= /mob/living/carbon/human/proc/emote_no
 	for(var/datum/atom_hud/data/human/medical/medhud in GLOB.huds)
 		medhud.remove_from_hud(H)
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
@@ -94,6 +100,12 @@
 	..()
 	if(monitor)
 		monitor.Remove(H)
+	H.verbs -= /mob/living/carbon/human/proc/emote_ping
+	H.verbs -= /mob/living/carbon/human/proc/emote_beep
+	H.verbs -= /mob/living/carbon/human/proc/emote_buzz
+	H.verbs -= /mob/living/carbon/human/proc/emote_buzz2
+	H.verbs -= /mob/living/carbon/human/proc/emote_yes
+	H.verbs -= /mob/living/carbon/human/proc/emote_no
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
 		diag_hud.remove_from_hud(H)
 	for(var/datum/atom_hud/data/human/medical/medhud in GLOB.huds)

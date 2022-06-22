@@ -30,38 +30,38 @@
 /datum/emote/living/carbon/brain/alarm
 	key = "alarm"
 	key_third_person = "alarms"
-	message = "sounds an alarm."
-	self_message = "You sound an alarm."
+	message = "издает тревожный звук."
+	self_message = "Вы издаете тревожный звук."
 
 /datum/emote/living/carbon/brain/alert
 	key = "alert"
 	key_third_person = "alerts"
-	message = "lets out a distressed noise."
-	self_message = "You let out a distressed noise."
+	message = "издает жалобный звук."
+	self_message = "Вы издаете жалобный звук."
 
 /datum/emote/living/carbon/brain/notice
 	key = "notice"
-	message = "plays a loud tone."
-	self_message = "You play a loud tone."
+	message = "издает громкий звук."
+	self_message = "Вы издаете громкий звук."
 
 /datum/emote/living/carbon/brain/flash
 	key = "flash"
-	message = "starts flashing its lights quickly!"
+	message = "начинает быстро мигать огнями!"
 
 /datum/emote/living/carbon/brain/whistle
 	key = "whistle"
 	key_third_person = "whistles"
-	message = "whistles."
-	self_message = "You whistle."
+	message = "свистит."
+	self_message = "Вы свистите."
 
 /datum/emote/living/carbon/brain/beep
 	key = "beep"
 	key_third_person = "beeps"
-	message = "beeps."
-	self_message = "You beep."
+	message = "подает звуковой сигнал."
+	self_message = "Вы подаете звуковой сигнал."
 
 /datum/emote/living/carbon/brain/boop
 	key = "boop"
 	key_third_person = "boops"
-	message = "boops."
-	self_message = "You boop."
+	message = "подает звуковой сигнал."
+	self_message = "Вы подаете звуковой сигнал."

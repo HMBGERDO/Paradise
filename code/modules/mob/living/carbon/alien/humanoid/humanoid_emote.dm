@@ -7,8 +7,8 @@
 /datum/emote/living/carbon/alien/humanoid/roar
 	key = "roar"
 	key_third_person = "roars"
-	message = "roars!"
-	message_param = "roars at %t!"
+	message = "рычит!"
+	message_param = "рычит на %t!"
 	emote_type = EMOTE_SOUND | EMOTE_MOUTH
 	sound = "sound/voice/hiss5.ogg"
 	volume = 80
@@ -16,8 +16,8 @@
 /datum/emote/living/carbon/alien/humanoid/hiss
 	key = "hiss"
 	key_third_person = "hisses"
-	message = "hisses!"
-	message_param = "hisses at %t!"
+	message = "шипит!"
+	message_param = "шипит на %t!"
 	emote_type = EMOTE_SOUND | EMOTE_MOUTH
 	sound = "sound/voice/hiss1.ogg"
 	volume = 30
