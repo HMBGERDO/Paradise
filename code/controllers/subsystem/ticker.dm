@@ -82,6 +82,7 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_STARTUP)
 			// This is ran as soon as the MC starts firing, and should only run ONCE, unless startup fails
 			round_start_time = world.time + (GLOB.configuration.general.lobby_time SECONDS)
+			SSdiscord.send2discord_simple(DISCORD_WEBHOOK_PRIMARY, "Starting new round!")
 			to_chat(world, "<B><span class='darkmblue'>Welcome to the pre-game lobby!</span></B>")
 			to_chat(world, "Please, setup your character and select ready. Game will start in [GLOB.configuration.general.lobby_time] seconds")
 			current_state = GAME_STATE_PREGAME
@@ -271,6 +272,7 @@ SUBSYSTEM_DEF(ticker)
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
 
 	SSdiscord.send2discord_simple_noadmins("**\[Info]** Round has started")
+	SSdiscord.send2discord_simple(DISCORD_WEBHOOK_PRIMARY, "New round started!")
 	auto_toggle_ooc(FALSE) // Turn it off
 	time_game_started = world.time
 
