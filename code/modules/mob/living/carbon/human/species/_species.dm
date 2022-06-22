@@ -111,7 +111,7 @@
 	var/dangerous_existence = FALSE
 
 	//Death vars.
-	var/death_message = "seizes up and falls limp, their eyes dead and lifeless..."
+	var/death_message = "цепенеет и расслабляется, взгляд становится пустым и безжизненным..."
 	var/list/suicide_messages = list(
 		"is attempting to bite their tongue off!",
 		"is jamming their thumbs into their eye sockets!",
@@ -124,7 +124,7 @@
 	var/secondary_langs = list()             // The names of secondary languages that are available to this species.
 	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
-	var/scream_verb = "screams"
+	var/scream_verb = "кричит"
 	var/male_scream_sound = 'sound/goonstation/voice/male_scream.ogg'
 	var/female_scream_sound = 'sound/goonstation/voice/female_scream.ogg'
 	var/list/death_sounds = list('sound/goonstation/voice/deathgasp_1.ogg', 'sound/goonstation/voice/deathgasp_2.ogg')

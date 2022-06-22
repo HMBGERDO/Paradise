@@ -37,7 +37,7 @@
 	butt_sprite = "vox"
 
 	reagent_tag = PROCESS_ORG | PROCESS_SYN
-	scream_verb = "shrieks"
+	scream_verb = "визжит"
 	male_scream_sound = 'sound/voice/shriek1.ogg'
 	female_scream_sound = 'sound/voice/shriek1.ogg'
 	male_cough_sounds = list('sound/voice/shriekcough.ogg')
@@ -65,11 +65,11 @@
 		)												//for determining the success of the heist game-mode's 'leave nobody behind' objective, while this is just an organ.
 
 	suicide_messages = list(
-		"is attempting to bite their tongue off!",
-		"is jamming their claws into their eye sockets!",
-		"is twisting their own neck!",
-		"is holding their breath!",
-		"is deeply inhaling oxygen!")
+		"откусывает свой собственный язык!",
+		"раздирает свои глаза своими когтями!",
+		"скручивает себе шею!",
+		"задерживает дыхание!",
+		"глубоко вдыхает кислород!")
 
 	speciesbox = /obj/item/storage/box/survival_vox
 
@@ -100,6 +100,15 @@
 	..()
 	updatespeciescolor(H)
 	H.update_icons()
+	H.verbs |= /mob/living/carbon/human/proc/emote_wag
+	H.verbs |= /mob/living/carbon/human/proc/emote_swag
+	H.verbs |= /mob/living/carbon/human/proc/emote_quill
+
+/datum/species/vox/on_species_loss(mob/living/carbon/human/H)
+	..()
+	H.verbs -= /mob/living/carbon/human/proc/emote_wag
+	H.verbs -= /mob/living/carbon/human/proc/emote_swag
+	H.verbs -= /mob/living/carbon/human/proc/emote_quill
 
 /datum/species/vox/updatespeciescolor(mob/living/carbon/human/H, owner_sensitive = 1) //Handling species-specific skin-tones for the Vox race.
 	if(H.dna.species.bodyflags & HAS_ICON_SKIN_TONE) //Making sure we don't break Armalis.

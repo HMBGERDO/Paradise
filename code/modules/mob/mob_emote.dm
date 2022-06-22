@@ -115,7 +115,7 @@
 /datum/emote/flip
 	key = "flip"
 	key_third_person = "flips"
-	message = "does a flip!"
+	message = "делает кувырок!"
 	hands_use_check = TRUE
 	emote_type = EMOTE_VISIBLE | EMOTE_FORCE_NO_RUNECHAT  // don't need an emote to see that
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)  // okay but what if we allowed ghosts to flip as well
@@ -131,17 +131,17 @@
 	var/mob/living/L = user
 
 	if(IS_HORIZONTAL(L))
-		message = "flops and flails around on the floor."
+		message = "крутится на полу."
 		return ..()
 	else if(params)
-		message_param = "flips in %t's general direction."
+		message_param = "кувыркается в сторону %t."
 	else if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.get_active_hand(), /obj/item/grab))
 			var/obj/item/grab/G = H.get_active_hand()
 			if(G && G.affecting)
 				if(H.buckled || G.affecting.buckled)
-					to_chat(user, "<span class='warning'>[G.affecting] is buckled, you can't flip around [G.affecting.p_them()]!</span>")
+					to_chat(user, "<span class='warning'>[G.affecting] пристегнут, вы не можете сделать кувырок через него!</span>")
 					return TRUE
 				var/turf/oldloc = user.loc
 				var/turf/newloc = G.affecting.loc
@@ -151,13 +151,13 @@
 					user.forceMove(newloc)
 					G.glide_for(0.6 SECONDS)
 					G.affecting.forceMove(oldloc)
-					message = "flips over [G.affecting]!"
+					message = "делает кувырок через [G.affecting]!"
 					return ..()
 
 	user.SpinAnimation(5, 1)
 
 	if(prob(5) && ishuman(user))
-		message = "attempts a flip and crashes to the floor!"
+		message = "пытается сделать кувырок, но падает на пол!"
 		sleep(0.3 SECONDS)
 		if(istype(L))
 			L.Weaken(4 SECONDS)
@@ -185,7 +185,7 @@
 		return TRUE
 
 	user.spin(32, 1)
-	to_chat(user, "<span class='warning'>You spin too much!</span>")
+	to_chat(user, "<span class='warning'>Вы крутитесь слишком сильно!</span>")
 	var/mob/living/L = user
 	if(istype(L))
 		L.Dizzy(24 SECONDS)

@@ -47,9 +47,9 @@
 		)
 	mutantears = null
 	suicide_messages = list(
-		"is melting into a puddle!",
-		"is ripping out their own core!",
-		"is turning a dull, brown color and melting into a puddle!")
+		"тает, превращаясь в лужу!",
+		"вырывает собственное ядро!",
+		"становится тусклым и коричневым, затем тает в лужу!")
 
 	var/reagent_skin_coloring = FALSE
 
@@ -61,6 +61,7 @@
 	recolor.Grant(H)
 	RegisterSignal(H, COMSIG_HUMAN_UPDATE_DNA, /datum/species/slime/./proc/blend)
 	blend(H)
+	H.verbs |= /mob/living/carbon/human/proc/emote_squish
 
 
 /datum/species/slime/on_species_loss(mob/living/carbon/human/H)
@@ -71,6 +72,7 @@
 		if(istype(i, /datum/action/innate/regrow))
 			i.Remove(H)
 	UnregisterSignal(H, COMSIG_HUMAN_UPDATE_DNA)
+	H.verbs -= /mob/living/carbon/human/proc/emote_squish
 
 /datum/species/slime/proc/blend(mob/living/carbon/human/H)
 	var/new_color = BlendRGB(H.skin_colour, "#acacac", 0.5) // Blends this to make it work better
@@ -112,10 +114,10 @@
 	var/datum/species/slime/S = H.dna.species
 	if(S.reagent_skin_coloring)
 		S.reagent_skin_coloring = FALSE
-		to_chat(H, "You adjust your internal chemistry to filter out pigments from things you consume.")
+		to_chat(H, "Вы приготовили свое тело, фильтруя пигменты продуктов, которые вы поглощаете.")
 	else
 		S.reagent_skin_coloring = TRUE
-		to_chat(H, "You adjust your internal chemistry to permit pigments in chemicals you consume to tint you.")
+		to_chat(H, "Вы приготовили свое тело, позволяя пигментам из продуктов, которые вы поглощаете, окрашивать вас.")
 
 /datum/action/innate/regrow
 	name = "Regrow limbs"

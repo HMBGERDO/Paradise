@@ -45,12 +45,7 @@
 
 /datum/status_effect/high_five/proc/get_missed_message()
 	var/list/missed_highfive_messages = list(
-		"it looks like [owner.p_they()] [owner.p_were()] left hanging...",
-		"seeming to wave at nobody in particular.",
-		"moving [owner.p_their()] hand directly to [owner.p_their()] forehead in shame.",
-		"fully committing and high-fiving empty space.",
-		"high-fiving [owner.p_their()] other hand shamefully before wiping away a tear.",
-		"going for a handshake, then a fistbump, before pulling [owner.p_their()] hand back...? What [owner.p_are()] [owner.p_they()] doing?"
+		"дает пятюню сам себе перед тем, как вытереть слезу.",
 	)
 
 	return pick(missed_highfive_messages)
@@ -58,7 +53,7 @@
 /datum/status_effect/high_five/on_timeout()
 	// show some emotionally damaging failure messages
 	// high risk, high reward
-	owner.visible_message("[owner] awkwardly lowers [owner.p_their()] hand, [get_missed_message()]")
+	owner.visible_message("[owner] неловко опускает руку, [get_missed_message()]")
 
 /datum/status_effect/charging
 	id = "charging"
