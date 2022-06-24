@@ -65,6 +65,9 @@ SUBSYSTEM_DEF(ticker)
 	var/real_reboot_time = 0
 	/// Datum used to generate the end of round scoreboard.
 	var/datum/scoreboard/score = null
+	/// Have we send discord announcement yet?
+	var/dicord_announcement = FALSE
+
 
 /datum/controller/subsystem/ticker/Initialize()
 	login_music = pick(\
@@ -82,7 +85,9 @@ SUBSYSTEM_DEF(ticker)
 		if(GAME_STATE_STARTUP)
 			// This is ran as soon as the MC starts firing, and should only run ONCE, unless startup fails
 			round_start_time = world.time + (GLOB.configuration.general.lobby_time SECONDS)
-			SSdiscord.send2discord_simple(DISCORD_WEBHOOK_PRIMARY, "Starting new round!")
+			if(!dicord_announcement)
+				dicord_announcement = TRUE
+				SSdiscord.send2discord_simple(DISCORD_WEBHOOK_PRIMARY, "Starting new round!")
 			to_chat(world, "<B><span class='darkmblue'>Welcome to the pre-game lobby!</span></B>")
 			to_chat(world, "Please, setup your character and select ready. Game will start in [GLOB.configuration.general.lobby_time] seconds")
 			current_state = GAME_STATE_PREGAME
