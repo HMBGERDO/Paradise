@@ -61,7 +61,11 @@
 			// AA 2022-06-23 - What the heck is the above comment here
 			ooc()
 			return
-		if("F3", "T")
+		if("F3")
+			if(!keys_held["Shift"]) // Shift+F3 shows admin debug menu
+				mob.say_wrapper()
+				return
+		if("T")
 			if(keys_held["Shift"])
 				mob.whisper_wrapper()
 			else
