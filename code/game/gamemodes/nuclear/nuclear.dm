@@ -160,7 +160,7 @@
 			U.hidden_uplink.uses++
 			remainder--
 
-/datum/game_mode/proc/create_syndicate(datum/mind/synd_mind, obj/machinery/nuclearbomb/syndicate/the_bomb) // So we don't have inferior species as ops - randomize a human
+/datum/game_mode/proc/create_syndicate(datum/mind/synd_mind, obj/machinery/nuclearbomb/the_bomb) // So we don't have inferior species as ops - randomize a human
 	var/mob/living/carbon/human/M = synd_mind.current
 
 	M.set_species(/datum/species/human, TRUE)
@@ -188,10 +188,16 @@
 
 	if(!the_bomb)
 		the_bomb = locate(/obj/machinery/nuclearbomb/syndicate) in GLOB.poi_list
+		if(!the_bomb) // this would be called only if we still dont have syndicate bomb
+			the_bomb = locate(/obj/machinery/nuclearbomb) in GLOB.poi_list
 
 	if(the_bomb)
-		synd_mind.store_memory("<B>Syndicate [the_bomb.name] Code</B>: [the_bomb.r_code]")
-		to_chat(synd_mind.current, "The code for \the [the_bomb.name] is: <B>[the_bomb.r_code]</B>")
+		if(istype(the_bomb, /obj/machinery/nuclearbomb/syndicate))
+			synd_mind.store_memory("<B>Syndicate [the_bomb.name] Code</B>: [the_bomb.r_code]")
+			to_chat(synd_mind.current, "The code for \the [the_bomb.name] is: <B>[the_bomb.r_code]</B>")
+		else
+			synd_mind.store_memory("<B>Station [the_bomb.name] Code</B>: [the_bomb.r_code]")
+			to_chat(synd_mind.current, "The code for \the [the_bomb.name] is: <B>[the_bomb.r_code]</B>")
 
 /datum/game_mode/proc/prepare_syndicate_leader(datum/mind/synd_mind, obj/machinery/nuclearbomb/syndicate/the_bomb)
 	var/leader_title = pick("Czar", "Boss", "Commander", "Chief", "Kingpin", "Director", "Overlord")

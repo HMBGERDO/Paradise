@@ -83,7 +83,7 @@
 	glasses = /obj/item/clothing/glasses/night
 	shoes = /obj/item/clothing/shoes/magboots/syndie
 	r_pocket = /obj/item/radio/uplink/nuclear
-	l_pocket = /obj/item/pinpointer/advpinpointer
+	l_pocket = /obj/item/pinpointer/nukeop
 	l_hand = /obj/item/tank/internals/oxygen/red
 
 	backpack_contents = list(
@@ -104,6 +104,10 @@
 
 	var/obj/item/implant/explosive/E = new(H)
 	E.implant(H)
+
+
+/datum/outfit/admin/syndicate/operative/lone
+	l_pocket = /obj/item/pinpointer // lone ops needs pinpointer to disk and station bomb. As default station pinpointer.
 
 
 /datum/outfit/admin/syndicate/operative/freedom
