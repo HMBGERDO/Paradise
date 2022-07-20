@@ -96,13 +96,13 @@
 			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING, ACCESS_CENT_MEDICAL, ACCESS_CENT_SECURITY, ACCESS_CENT_STORAGE, ACCESS_CENT_SPECOPS, ACCESS_CENT_SPECOPS_COMMANDER, ACCESS_CENT_BLACKOPS) + get_all_accesses()
 		if("NT Undercover Operative")
 			return get_all_centcom_access() + get_all_accesses()
-		if("Special Operations Officer")
+		if("Офицер Специальных Операций")
 			return get_all_centcom_access() + get_all_accesses()
-		if("Solar Federation General")
+		if("Генерал Федерации" + TR_SOLAR)
 			return get_all_centcom_access() + get_all_accesses()
 		if("Nanotrasen Navy Representative")
 			return get_all_centcom_access() + get_all_accesses()
-		if("Nanotrasen Navy Officer")
+		if(TR_NANOTRASEN + " Нави Офицер")
 			return get_all_centcom_access() + get_all_accesses()
 		if("Nanotrasen Navy Captain")
 			return get_all_centcom_access() + get_all_accesses()
@@ -119,7 +119,7 @@
 			return list(ACCESS_SYNDICATE, ACCESS_MAINT_TUNNELS)
 		if("Syndicate Commando")
 			return list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
-		if("Syndicate Officer")
+		if("Офицер " + TR_SYNDICATE)
 			return list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER, ACCESS_SYNDICATE_COMMAND)
 
 /proc/get_all_accesses()
@@ -388,10 +388,10 @@
 	return all_jobs
 
 /proc/get_all_centcom_jobs()
-	return list("VIP Guest","Custodian","Thunderdome Overseer","Emergency Response Team Member","Emergency Response Team Leader","Intel Officer","Medical Officer","Deathsquad Commando","Research Officer","Special Operations Officer","Nanotrasen Navy Representative","Nanotrasen Navy Officer","Nanotrasen Navy Captain","Supreme Commander")
+	return list("VIP Guest","Custodian","Thunderdome Overseer","Emergency Response Team Member","Emergency Response Team Leader","Intel Officer","Medical Officer","Deathsquad Commando","Research Officer","Офицер Специальных Операций","Nanotrasen Navy Representative",TR_NANOTRASEN + " Нави Офицер","Nanotrasen Navy Captain","Supreme Commander")
 
 /proc/get_all_solgov_jobs()
-	return list("Solar Federation Lieutenant","Solar Federation Specops Lieutenant","Solar Federation Marine","Solar Federation Specops Marine","Solar Federation Representative","Sol Trader","Solar Federation General")
+	return list("Solar Federation Lieutenant","Solar Federation Specops Lieutenant","Solar Federation Marine","Solar Federation Specops Marine","Solar Federation Representative","Sol Trader","Генерал Федерации" + TR_SOLAR)
 
 //gets the actual job rank (ignoring alt titles)
 //this is used solely for sechuds

@@ -1,11 +1,12 @@
 GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newscast = 0)) // Why the hell are captain announcements minor
 /datum/job/captain
-	title = "Captain"
+	title = "Капитан"
+	title_old = "Captain"
 	flag = JOB_CAPTAIN
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "Nanotrasen officials"
+	supervisors = "должностные лица " + TR_NANOTRASEN
 	department_head = list("Nanotrasen Navy Officer")
 	selection_color = "#ccccff"
 	req_admin_notify = 1
@@ -16,17 +17,17 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	exp_map = list(EXP_TYPE_COMMAND = 1200)
 	disabilities_allowed = 0
 	outfit = /datum/outfit/job/captain
-	important_information = "This role requires you to coordinate a department. You are required to be familiar with Standard Operating Procedure (Command), basic job duties, and act professionally (roleplay)."
+	important_information = "Эта роль требует, чтобы вы координировали работу отдела. Вы должны быть знакомы с СРП (Командование), основными должностными обязанностями и действовать профессионально (ролевая игра)."
 
 /datum/job/captain/get_access()
 	return get_all_accesses()
 
 /datum/job/captain/announce(mob/living/carbon/human/H)
 	. = ..()
-	GLOB.captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
+	GLOB.captain_announcement.Announce("Поприветствуйте, прибыл Капитан [H.real_name]!")
 
 /datum/outfit/job/captain
-	name = "Captain"
+	name = "Капитан"
 	jobtype = /datum/job/captain
 	uniform = /obj/item/clothing/under/rank/captain
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace
@@ -56,12 +57,13 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 
 /datum/job/hop
-	title = "Head of Personnel"
+	title = "Глава Персонала"
+	title_old = "Head of Personnel"
 	flag = JOB_HOP
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "капитан"
 	department_head = list("Captain")
 	selection_color = "#ddddff"
 	req_admin_notify = 1
@@ -81,10 +83,10 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_CLOWN, ACCESS_MIME, ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_MINERAL_STOREROOM)
 	outfit = /datum/outfit/job/hop
-	important_information = "This role requires you to coordinate a department. You are required to be familiar with Standard Operating Procedure (Service), basic job duties, and act professionally (roleplay)."
+	important_information = "Эта роль требует, чтобы вы координировали работу отдела. Вы должны быть знакомы с СРП (Сервис), основными должностными обязанностями и действовать профессионально (ролевая игра)."
 
 /datum/outfit/job/hop
-	name = "Head of Personnel"
+	name = "Глава Персонала"
 	jobtype = /datum/job/hop
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
@@ -103,12 +105,13 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 
 /datum/job/nanotrasenrep
-	title = "Nanotrasen Representative"
+	title = "Представитель " + TR_NANOTRASEN
+	title_old = "Nanotrasen Representative"
 	flag = JOB_NANO
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the command staff"
+	supervisors = "командный состав"
 	department_head = list("Captain")
 	selection_color = "#ddddff"
 	req_admin_notify = TRUE
@@ -129,10 +132,10 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 			            ACCESS_THEATRE, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_HEADS_VAULT, ACCESS_MINING_STATION,
 			            ACCESS_CLOWN, ACCESS_MIME, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_NTREP)
 	outfit = /datum/outfit/job/nanotrasenrep
-	important_information = "This role requires you to advise the Command team about Standard Operating Procedure, Chain of Command, and report to Central Command about various matters. You are required to act in a manner befitting someone representing Nanotrasen."
+	important_information = "Эта роль требует, чтобы вы консультировали Командование по вопросам СРП, цепи командования и отчитывались перед Центральным командованием по различным вопросам. Вы должны действовать так, как подобает представителю " + TR_NANOTRASEN
 
 /datum/outfit/job/nanotrasenrep
-	name = "Nanotrasen Representative"
+	name = "Представитель " + TR_NANOTRASEN
 	jobtype = /datum/job/nanotrasenrep
 	uniform = /obj/item/clothing/under/rank/ntrep
 	suit = /obj/item/clothing/suit/storage/ntrep
@@ -150,12 +153,13 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 
 /datum/job/blueshield
-	title = "Blueshield"
+	title = "Синий Щит"
+	title_old = "Blueshield"
 	flag = JOB_BLUESHIELD
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Nanotrasen representative"
+	supervisors = "представитель " + TR_NANOTRASEN
 	department_head = list("Captain")
 	selection_color = "#ddddff"
 	req_admin_notify = TRUE
@@ -172,10 +176,10 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	minimal_access = list(ACCESS_FORENSICS_LOCKERS, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_ENGINE, ACCESS_MAINT_TUNNELS, ACCESS_RESEARCH,
 			            ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_HEADS, ACCESS_BLUESHIELD, ACCESS_WEAPONS)
 	outfit = /datum/outfit/job/blueshield
-	important_information = "This role requires you to ensure the safety of the Heads of Staff, not the general crew. You may perform arrests only if the combatant is directly threatening a member of Command, the Nanotrasen Representative, or the Magistrate."
+	important_information = "Эта роль требует, чтобы вы обеспечивали безопасность командного персонала, а не основного экипажа. Вы можете производить аресты только в том случае, если противник напрямую угрожает члену Командования, Представителю " + TR_NANOTRASEN + " или Магистрату."
 
 /datum/outfit/job/blueshield
-	name = "Blueshield"
+	name = "Синий Щит"
 	jobtype = /datum/job/blueshield
 	uniform = /obj/item/clothing/under/rank/blueshield
 	suit = /obj/item/clothing/suit/armor/vest/blueshield
@@ -196,12 +200,13 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 
 /datum/job/judge
-	title = "Magistrate"
+	title = "Магистрат"
+	title_old = "Magistrate"
 	flag = JOB_JUDGE
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Nanotrasen Supreme Court"
+	supervisors = "верховный суд " + TR_NANOTRASEN
 	department_head = list("Captain")
 	selection_color = "#ddddff"
 	req_admin_notify = TRUE
@@ -217,10 +222,10 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 			            ACCESS_CLOWN, ACCESS_MIME, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAGISTRATE)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_LAWYER, ACCESS_MAGISTRATE, ACCESS_HEADS)
 	outfit = /datum/outfit/job/judge
-	important_information = "This role requires you to oversee legal matters and make important decisions about sentencing. You are required to have an extensive knowledge of Space Law and Security SOP and only operate within, not outside, the boundaries of the law."
+	important_information = "Эта роль требует, чтобы вы курировали юридические вопросы и принимали важные решения о вынесении приговора. Вы должны иметь обширные знания в области космического права и СРП Службы Безопасности и действовать только в рамках закона, а не за его пределами."
 
 /datum/outfit/job/judge
-	name = "Magistrate"
+	name = "Магистрат"
 	jobtype = /datum/job/judge
 	uniform = /obj/item/clothing/under/suit_jacket/really_black
 	suit = /obj/item/clothing/suit/judgerobe
@@ -244,25 +249,26 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 //GLOBAL_VAR_INIT(lawyer, 0) //Checks for another lawyer //This changed clothes on 2nd lawyer, both IA get the same dreds. | This was deprecated back in 2014, and its now 2020
 /datum/job/lawyer
-	title = "Internal Affairs Agent"
+	title = "Агент Внутренних Дел"
+	title_old = "Internal Affairs Agent"
 	flag = JOB_LAWYER
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 2
 	spawn_positions = 2
 	is_legal = 1
-	supervisors = "the magistrate"
+	supervisors = "магистрат"
 	department_head = list("Captain")
 	selection_color = "#ddddff"
 	access = list(ACCESS_LAWYER, ACCESS_COURT, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING)
 	minimal_access = list(ACCESS_LAWYER, ACCESS_COURT, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING)
-	alt_titles = list("Human Resources Agent")
+	alt_titles = list("Агент по Делам Персонала")
 	minimal_player_age = 30
 	exp_map = list(EXP_TYPE_CREW = 600)
 	outfit = /datum/outfit/job/lawyer
-	important_information = "Your job is to deal with affairs regarding Standard Operating Procedure. You are NOT in charge of Space Law affairs, nor can you override it. You are not a prisoner defence lawyer."
+	important_information = "Ваша работа заключается в том, чтобы следить за выполнением СРП. Вы НЕ отвечаете за космическое право и не можете отменить его. Вы не адвокат заключенных."
 
 /datum/outfit/job/lawyer
-	name = "Internal Affairs Agent"
+	name = "Агент Внутренних Дел"
 	jobtype = /datum/job/lawyer
 	uniform = /obj/item/clothing/under/rank/internalaffairs
 	suit = /obj/item/clothing/suit/storage/internalaffairs

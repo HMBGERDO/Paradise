@@ -1,89 +1,93 @@
 
 GLOBAL_LIST_INIT(command_positions, list(
-	"Captain",
-	"Head of Personnel",
-	"Head of Security",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer",
-	"Nanotrasen Representative"
+	"Капитан",
+	"Глава Персонала",
+	"Глава Службы Безопасности",
+	"Главный Инженер",
+	"Директор Исследований",
+	"Главный Врач",
+	"Представитель " + TR_NANOTRASEN
+))
+
+GLOBAL_LIST_INIT(captain_positions, list(
+	"Капитан"
 ))
 
 
 GLOBAL_LIST_INIT(engineering_positions, list(
-	"Chief Engineer",
-	"Station Engineer",
-	"Life Support Specialist",
+	"Главный Инженер",
+	"Станционный Инженер",
+	"Специалист Жизнеобеспечения",
 ))
 
 
 GLOBAL_LIST_INIT(medical_positions, list(
-	"Chief Medical Officer",
-	"Medical Doctor",
-	"Geneticist",
-	"Psychiatrist",
-	"Chemist",
-	"Virologist",
-	"Paramedic",
-	"Coroner"
+	"Главный Врач",
+	"Доктор",
+	"Генетик",
+	"Психиатр",
+	"Химик",
+	"Вирусолог",
+	"Парамедик",
+	"Патологоанатом"
 ))
 
 
 GLOBAL_LIST_INIT(science_positions, list(
-	"Research Director",
-	"Scientist",
-	"Geneticist",	//Part of both medical and science
-	"Roboticist",
+	"Директор Исследований",
+	"Научный Сотрудник",
+	"Генетик",	//Part of both medical and science
+	"Робототехник",
 ))
 
 //BS12 EDIT
 GLOBAL_LIST_INIT(support_positions, list(
-	"Head of Personnel",
-	"Bartender",
-	"Botanist",
-	"Chef",
-	"Janitor",
-	"Librarian",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner",
-	"Internal Affairs Agent",
-	"Chaplain",
-	"Clown",
-	"Mime",
-	"Barber",
-	"Magistrate",
-	"Nanotrasen Representative",
-	"Blueshield",
-	"Explorer"
+	"Глава Персонала",
+	"Бармен",
+	"Ботаник",
+	"Шеф-Повар",
+	"Уборщик",
+	"Библиотекарь",
+	"Квартирмейстер",
+	"Грузовой Техник",
+	"Шахтёр",
+	"Агент Внутренних Дел",
+	"Священник",
+	"Клоун",
+	"Мим",
+	"Парикмахер",
+	"Магистрат",
+	"Представитель " + TR_NANOTRASEN,
+	"Синий Щит",
+	"Исследователь"
 ))
 
 GLOBAL_LIST_INIT(supply_positions, list(
-	"Head of Personnel",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner"
+	"Глава Персонала",
+	"Квартирмейстер",
+	"Грузовой Техник",
+	"Шахтёр"
 ))
 
-GLOBAL_LIST_INIT(service_positions, (list("Head of Personnel") + (support_positions - supply_positions)))
+GLOBAL_LIST_INIT(service_positions, (list("Глава Персонала") + (support_positions - supply_positions)))
 
 
 GLOBAL_LIST_INIT(security_positions, list(
-	"Head of Security",
-	"Warden",
-	"Detective",
-	"Security Officer",
-	"Magistrate"
+	"Глава Службы Безопасности",
+	"Надзиратель",
+	"Детектив",
+	"Офицер Службы Безопасности",
+	"Магистрат"
 ))
 
 
 GLOBAL_LIST_INIT(assistant_positions, list(
-	"Assistant"
+	"Ассистент"
 ))
 
 GLOBAL_LIST_INIT(nonhuman_positions, list(
-	"AI",
-	"Cyborg",
+	"ИИ",
+	"Киборг",
 	"Drone",
 	"pAI"
 ))

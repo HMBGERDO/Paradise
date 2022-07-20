@@ -333,7 +333,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 					data["canterminate"] = has_idchange_access()
 				else
 					data["account_number"] = modify ? modify.associated_account_number : null
-					data["jobs_top"] = list("Captain", "Custom")
+					data["jobs_top"] = GLOB.captain_positions + "Custom"
 					data["jobs_engineering"] = GLOB.engineering_positions
 					data["jobs_medical"] = GLOB.medical_positions
 					data["jobs_science"] = GLOB.science_positions
@@ -476,7 +476,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 					var/datum/job/jobdatum
 					for(var/jobtype in typesof(/datum/job))
 						var/datum/job/J = new jobtype
-						if(ckey(J.title) == ckey(t1))
+						if(J.title == t1) // ckey() works bad with russian words
 							jobdatum = J
 							break
 					if(!jobdatum)
@@ -533,7 +533,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 			modify.lastlog = "[station_time_timestamp()]: DEMOTED by \"[scan.registered_name]\" ([scan.assignment]) from \"[jobnamedata]\" for: \"[reason]\"."
 			SSjobs.notify_dept_head(modify.rank, "[scan.registered_name] ([scan.assignment]) has demoted \"[modify.registered_name]\" ([jobnamedata]) for \"[reason]\".")
 			modify.access = access
-			modify.rank = "Assistant"
+			modify.rank = "Ассистент"
 			modify.assignment = "Demoted"
 			modify.icon_state = "id"
 			regenerate_id_name()

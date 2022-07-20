@@ -1,12 +1,13 @@
 
 // General-purpose CC official. Can hear out grievances, investigate cases, issue demotions, etc.
 /datum/job/ntnavyofficer
-	title = "Nanotrasen Navy Officer"
+	title = TR_NANOTRASEN + " Нави Офицер"
+	title_old = "Nanotrasen Navy Officer"
 	flag = JOB_CENTCOM
 	department_flag = JOB_CENTCOM // This gets its job as its own flag because admin jobs dont have flags
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the admins"
+	supervisors = "админ"
 	selection_color = "#ffdddd"
 	access = list()
 	minimal_access = list()
@@ -17,7 +18,7 @@
 	return get_centcom_access(title)
 
 /datum/outfit/job/ntnavyofficer
-	name = "Nanotrasen Navy Officer"
+	name = TR_NANOTRASEN + " Нави Офицер"
 	jobtype = /datum/job/ntnavyofficer
 
 	uniform = /obj/item/clothing/under/rank/centcom/officer
@@ -50,12 +51,13 @@
 
 // CC Officials who lead ERTs, Death Squads, etc.
 /datum/job/ntspecops
-	title = "Special Operations Officer"
+	title = "Офицер Специальных Операций"
+	title_old = "Special Operations Officer"
 	flag = JOB_CENTCOM
 	department_flag = JOB_CENTCOM // This gets its job as its own flag because admin jobs dont have flags
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the admins"
+	supervisors = "админ"
 	selection_color = "#ffdddd"
 	access = list()
 	minimal_access = list()
@@ -67,7 +69,7 @@
 	return get_centcom_access(title)
 
 /datum/outfit/job/ntspecops
-	name = "Special Operations Officer"
+	name = "Офицер Специальных Операций"
 	jobtype = /datum/job/ntspecops
 	allow_backbag_choice = FALSE
 	uniform = /obj/item/clothing/under/rank/centcom/captain
@@ -106,11 +108,12 @@
 	H.mind.offstation_role = TRUE
 
 /datum/job/ntspecops/solgovspecops
-	title = "Solar Federation General"
+	title = "Генерал Федерации" + TR_SOLAR
+	title_old = "Solar Federation General"
 	outfit = /datum/outfit/job/ntspecops/solgovspecops
 
 /datum/outfit/job/ntspecops/solgovspecops
-	name = "Solar Federation General"
+	name = "Генерал Федерации" + TR_SOLAR
 	uniform = /obj/item/clothing/under/rank/centcom/captain/solgov
 	suit = /obj/item/clothing/suit/space/deathsquad/officer/solgov
 	head = /obj/item/clothing/head/helmet/space/deathsquad/beret/solgov

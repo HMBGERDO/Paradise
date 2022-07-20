@@ -1,12 +1,13 @@
 //Due to how large this one is it gets its own file
 /datum/job/chaplain
-	title = "Chaplain"
+	title = "Священник"
+	title_old = "Chaplain"
 	flag = JOB_CHAPLAIN
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = TRUE
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_MORGUE, ACCESS_CHAPEL_OFFICE, ACCESS_CREMATORIUM, ACCESS_MAINT_TUNNELS)
@@ -15,7 +16,7 @@
 	outfit = /datum/outfit/job/chaplain
 
 /datum/outfit/job/chaplain
-	name = "Chaplain"
+	name = "Священник"
 	jobtype = /datum/job/chaplain
 
 	uniform = /obj/item/clothing/under/rank/chaplain

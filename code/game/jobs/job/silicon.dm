@@ -1,11 +1,12 @@
 /datum/job/ai
-	title = "AI"
+	title = "ИИ"
+	title_old = "AI"
 	flag = JOB_AI
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
 	spawn_positions = 1
 	selection_color = "#ccffcc"
-	supervisors = "your laws"
+	supervisors = "ваши законы"
 	department_head = list("Captain")
 	req_admin_notify = 1
 	minimal_player_age = 30
@@ -20,17 +21,18 @@
 
 
 /datum/job/cyborg
-	title = "Cyborg"
+	title = "Киборг"
+	title_old = "Cyborg"
 	flag = JOB_CYBORG
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "your laws and the AI"	//Nodrak
+	supervisors = "выши законы и ИИ"	//Nodrak
 	department_head = list("AI")
 	selection_color = "#ddffdd"
 	minimal_player_age = 21
 	exp_map = list(EXP_TYPE_CREW = 300)
-	alt_titles = list("Robot")
+	alt_titles = list("Робот")
 
 /datum/job/cyborg/equip(mob/living/carbon/human/H)
 	if(!H)

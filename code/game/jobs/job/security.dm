@@ -1,11 +1,12 @@
 /datum/job/hos
-	title = "Head of Security"
+	title = "Глава Службы Безопасности"
+	title_old = "Head of Security"
 	flag = JOB_HOS
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
 	is_security = 1
-	supervisors = "the captain"
+	supervisors = "капитан"
 	department_head = list("Captain")
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
@@ -21,10 +22,10 @@
 	exp_map = list(EXP_TYPE_SECURITY = 1200)
 	disabilities_allowed = 0
 	outfit = /datum/outfit/job/hos
-	important_information = "This role requires you to coordinate a department. You are required to be familiar with Standard Operating Procedure (Security), Space Law, basic job duties, and act professionally (roleplay)."
+	important_information = "Эта роль требует, чтобы вы координировали работу отдела. Вы должны быть знакомы с СРП (Служба Безопасности), основными должностными обязанностями и действовать профессионально (ролевая игра)."
 
 /datum/outfit/job/hos
-	name = "Head of Security"
+	name = "Глава Службы Безопасности"
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
@@ -51,13 +52,14 @@
 
 
 /datum/job/warden
-	title = "Warden"
+	title = "Надзиратель"
+	title_old = "Warden"
 	flag = JOB_WARDEN
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
 	is_security = 1
-	supervisors = "the head of security"
+	supervisors = "глава службы безопасности"
 	department_head = list("Head of Security")
 	selection_color = "#ffeeee"
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS)
@@ -67,7 +69,7 @@
 	outfit = /datum/outfit/job/warden
 
 /datum/outfit/job/warden
-	name = "Warden"
+	name = "Надзиратель"
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
@@ -94,26 +96,27 @@
 
 
 /datum/job/detective
-	title = "Detective"
+	title = "Детектив"
+	title_old = "Detective"
 	flag = JOB_DETECTIVE
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
 	is_security = 1
-	supervisors = "the head of security"
+	supervisors = "глава службы безопасности"
 	department_head = list("Head of Security")
 	selection_color = "#ffeeee"
-	alt_titles = list("Forensic Technician")
+	alt_titles = list("Судебно-медицинский Эксперт")
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_COURT, ACCESS_WEAPONS)
 	minimal_access = list(ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_COURT, ACCESS_WEAPONS)
-	alt_titles = list("Forensic Technician")
+	alt_titles = list("Судебно-медицинский Эксперт")
 	minimal_player_age = 14
 	exp_map = list(EXP_TYPE_CREW = 600)
 	outfit = /datum/outfit/job/detective
-	important_information = "You are not a Security Officer. Your revolver is for self defence only."
+	important_information = "Вы не офицер службы безопасности. Ваш револьвер предназначен для самозащиты."
 
 /datum/outfit/job/detective
-	name = "Detective"
+	name = "Детектив"
 	jobtype = /datum/job/detective
 
 	uniform = /obj/item/clothing/under/det
@@ -139,7 +142,7 @@
 	. = ..()
 	if(H.mind && H.mind.role_alt_title)
 		switch(H.mind.role_alt_title)
-			if("Forensic Technician")
+			if("Судебно-медицинский Эксперт")
 				suit = /obj/item/clothing/suit/storage/det_suit/forensics/blue
 				head = null
 
@@ -152,13 +155,14 @@
 	H.check_mutations = 1
 
 /datum/job/officer
-	title = "Security Officer"
+	title = "Офицер Службы Безопасности"
+	title_old = "Security Officer"
 	flag = JOB_OFFICER
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 7
 	spawn_positions = 7
 	is_security = 1
-	supervisors = "the head of security"
+	supervisors = "глава службы безопасности"
 	department_head = list("Head of Security")
 	selection_color = "#ffeeee"
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_WEAPONS)
@@ -166,10 +170,10 @@
 	minimal_player_age = 14
 	exp_map = list(EXP_TYPE_CREW = 600)
 	outfit = /datum/outfit/job/officer
-	important_information = "Space Law is the law, not a suggestion."
+	important_information = "Космический закон - это Закон, не предложение."
 
 /datum/outfit/job/officer
-	name = "Security Officer"
+	name = "Офицер Службы Безопасности"
 	jobtype = /datum/job/officer
 	uniform = /obj/item/clothing/under/rank/security
 	suit = /obj/item/clothing/suit/armor/vest/security

@@ -1,11 +1,12 @@
 /datum/job/rd
-	title = "Research Director"
+	title = "Директор Исследований"
+	title_old = "Research Director"
 	flag = JOB_RD
 	department_flag = JOBCAT_MEDSCI
 	total_positions = 1
 	spawn_positions = 1
 	is_science = 1
-	supervisors = "the captain"
+	supervisors = "капитан"
 	department_head = list("Captain")
 	selection_color = "#ffddff"
 	req_admin_notify = 1
@@ -25,10 +26,10 @@
 	)
 
 	outfit = /datum/outfit/job/rd
-	important_information = "This role requires you to coordinate a department. You are required to be familiar with Standard Operating Procedure (Science), basic job duties, and act professionally (roleplay)."
+	important_information = "Эта роль требует, чтобы вы координировали работу отдела. Вы должны быть знакомы с СРП (Исследовательский отдел), основными должностными обязанностями и действовать профессионально (ролевая игра)."
 
 /datum/outfit/job/rd
-	name = "Research Director"
+	name = "Директор Исследований"
 	jobtype = /datum/job/rd
 
 	uniform = /obj/item/clothing/under/rank/research_director
@@ -48,18 +49,19 @@
 
 
 /datum/job/scientist
-	title = "Scientist"
+	title = "Научный Сотрудник"
+	title_old = "Scientist"
 	flag = JOB_SCIENTIST
 	department_flag = JOBCAT_MEDSCI
 	total_positions = 6
 	spawn_positions = 6
 	is_science = 1
-	supervisors = "the research director"
+	supervisors = "диаректор исследований"
 	department_head = list("Research Director")
 	selection_color = "#ffeeff"
 	access = list(ACCESS_ROBOTICS, ACCESS_MAINT_TUNNELS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_XENOARCH, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_XENOARCH, ACCESS_MAINT_TUNNELS, ACCESS_MINERAL_STOREROOM)
-	alt_titles = list("Xenoarcheologist", "Anomalist", "Plasma Researcher", "Xenobiologist", "Chemical Researcher")
+	alt_titles = list("Исследователь Аномалий", "Исследователь Плазмы", "Ксенобиолог", "Химический Исследователь")
 	minimal_player_age = 3
 	exp_map = list(EXP_TYPE_CREW = 300)
 	// All science-y guys get bonuses for maxing out their tech.
@@ -70,7 +72,7 @@
 	outfit = /datum/outfit/job/scientist
 
 /datum/outfit/job/scientist
-	name = "Scientist"
+	name = "Научный Сотрудник"
 	jobtype = /datum/job/scientist
 
 	uniform = /obj/item/clothing/under/rank/scientist
@@ -86,18 +88,19 @@
 
 
 /datum/job/roboticist
-	title = "Roboticist"
+	title = "Робототехник"
+	title_old = "Roboticist"
 	flag = JOB_ROBOTICIST
 	department_flag = JOBCAT_MEDSCI
 	total_positions = 2
 	spawn_positions = 2
 	is_science = 1
-	supervisors = "the research director"
+	supervisors = "директор исследований"
 	department_head = list("Research Director")
 	selection_color = "#ffeeff"
 	access = list(ACCESS_ROBOTICS, ACCESS_MAINT_TUNNELS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_RESEARCH, ACCESS_MINERAL_STOREROOM) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_RESEARCH, ACCESS_MAINT_TUNNELS, ACCESS_MINERAL_STOREROOM) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
+	alt_titles = list("Биомеханический Инженер")
 	minimal_player_age = 3
 	exp_map = list(EXP_TYPE_CREW = 180)
 
@@ -109,7 +112,7 @@
 	outfit = /datum/outfit/job/roboticist
 
 /datum/outfit/job/roboticist
-	name = "Roboticist"
+	name = "Робототехник"
 	jobtype = /datum/job/roboticist
 
 	uniform = /obj/item/clothing/under/rank/roboticist

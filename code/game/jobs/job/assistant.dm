@@ -1,10 +1,11 @@
 /datum/job/assistant
-	title = "Assistant"
+	title = "Ассистент"
+	title_old = "Assistant"
 	flag = JOB_ASSISTANT
 	department_flag = JOBCAT_SUPPORT
 	total_positions = -1
 	spawn_positions = -1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list()			//See /datum/job/assistant/get_access()
@@ -18,7 +19,7 @@
 		return list()
 
 /datum/outfit/job/assistant
-	name = "Assistant"
+	name = "Ассистент"
 	jobtype = /datum/job/assistant
 
 	uniform = /obj/item/clothing/under/color/random

@@ -2,6 +2,8 @@
 
 	//The name of the job
 	var/title = "NOPE"
+	//This var used to make everything work good after translating main Title
+	var/title_old = "NOPE"
 
 	//Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
 	var/list/minimal_access = list()		//Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
@@ -243,7 +245,7 @@
 		C.assignment = alt_title ? alt_title : J.title
 		C.sex = capitalize(H.gender)
 		C.age = H.age
-		C.name = "[C.registered_name]'s ID Card ([C.assignment])"
+		C.name = "ID Карта [C.registered_name] ([C.assignment])"
 		C.photo = get_id_photo(H)
 
 		if(H.mind && H.mind.initial_account)
@@ -258,4 +260,4 @@
 		PDA.owner = H.real_name
 		PDA.ownjob = C.assignment
 		PDA.ownrank = C.rank
-		PDA.name = "PDA-[H.real_name] ([PDA.ownjob])"
+		PDA.name = "ПДА-[H.real_name] ([PDA.ownjob])"

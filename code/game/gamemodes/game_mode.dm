@@ -412,9 +412,9 @@
 	if(!player || !player.current) return
 
 	var/obj_count = 1
-	to_chat(player.current, "<span class='notice'>Your current objectives:</span>")
+	to_chat(player.current, "<span class='notice'>Ваши текущие задачи:</span>")
 	for(var/datum/objective/objective in player.objectives)
-		to_chat(player.current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
+		to_chat(player.current, "<B>Задача #[obj_count]</B>: [objective.explanation_text]")
 		obj_count++
 
 /proc/get_roletext(role)
@@ -452,35 +452,35 @@
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
 	if(ply.assigned_role)
-		jobtext = " the <b>[ply.assigned_role]</b>"
-	var/text = "<b>[ply.get_display_key()]</b> was <b>[ply.name]</b>[jobtext] and"
+		jobtext = " <b>[ply.assigned_role]</b>"
+	var/text = "<b>[ply.get_display_key()]</b> был <b>[ply.name]</b>[jobtext] и"
 	if(ply.current)
 		if(ply.current.stat == DEAD)
-			text += " <span class='redtext'>died</span>"
+			text += " <span class='redtext'>умер</span>"
 		else
-			text += " <span class='greentext'>survived</span>"
+			text += " <span class='greentext'>выжил</span>"
 		if(fleecheck)
 			var/turf/T = get_turf(ply.current)
 			if(!T || !is_station_level(T.z))
-				text += " while <span class='redtext'>fleeing the station</span>"
+				text += " <span class='redtext'>сбежав со станции</span>"
 		if(ply.current.real_name != ply.name)
-			text += " as <b>[ply.current.real_name]</b>"
+			text += " как <b>[ply.current.real_name]</b>"
 	else
-		text += " <span class='redtext'>had [ply.p_their()] body destroyed</span>"
+		text += " <span class='redtext'> тело уничтожено</span>"
 	return text
 
 /proc/printeventplayer(datum/mind/ply)
-	var/text = "<b>[ply.get_display_key()]</b> was <b>[ply.name]</b>"
+	var/text = "<b>[ply.get_display_key()]</b> был <b>[ply.name]</b>"
 	if(ply.special_role != SPECIAL_ROLE_EVENTMISC)
-		text += " the [ply.special_role]"
-	text += " and"
+		text += " [ply.special_role]"
+	text += " и"
 	if(ply.current)
 		if(ply.current.stat == DEAD)
-			text += " <b>died</b>"
+			text += " <b>умер</b>"
 		else
-			text += " <b>survived</b>"
+			text += " <b>выжил</b>"
 	else
-		text += " <b>had [ply.p_their()] body destroyed</b>"
+		text += " <b> тело уничтожено</b>"
 	return text
 
 /proc/printobjectives(datum/mind/ply)
@@ -488,9 +488,9 @@
 	var/count = 1
 	for(var/datum/objective/objective in ply.objectives)
 		if(objective.check_completion())
-			objective_parts += "<b>Objective #[count]</b>: [objective.explanation_text] <span class='greentext'>Success!</span>"
+			objective_parts += "<b>Задача #[count]</b>: [objective.explanation_text] <span class='greentext'>Успех!</span>"
 		else
-			objective_parts += "<b>Objective #[count]</b>: [objective.explanation_text] <span class='redtext'>Fail.</span>"
+			objective_parts += "<b>Задача #[count]</b>: [objective.explanation_text] <span class='redtext'>Провал.</span>"
 		count++
 	return objective_parts.Join("<br>")
 

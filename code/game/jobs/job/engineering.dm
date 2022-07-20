@@ -1,11 +1,12 @@
 /datum/job/chief_engineer
-	title = "Chief Engineer"
+	title = "Главный Инженер"
+	title_old = "Chief Engineer"
 	flag = JOB_CHIEF
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 1
 	spawn_positions = 1
 	is_engineering = 1
-	supervisors = "the captain"
+	supervisors = "капитан"
 	department_head = list("Captain")
 	selection_color = "#ffeeaa"
 	req_admin_notify = 1
@@ -20,10 +21,10 @@
 	minimal_player_age = 21
 	exp_map = list(EXP_TYPE_ENGINEERING = 1200)
 	outfit = /datum/outfit/job/chief_engineer
-	important_information = "This role requires you to coordinate a department. You are required to be familiar with Standard Operating Procedure (Engineering), basic job duties, and act professionally (roleplay)."
+	important_information = "Эта роль требует, чтобы вы координировали работу отдела. Вы должны быть знакомы с СРП (Инженерный отдел), основными должностными обязанностями и действовать профессионально (ролевая игра)."
 
 /datum/outfit/job/chief_engineer
-	name = "Chief Engineer"
+	name = "Главный Инженер"
 	jobtype = /datum/job/chief_engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
@@ -46,24 +47,25 @@
 
 
 /datum/job/engineer
-	title = "Station Engineer"
+	title = "Станционный Инженер"
+	title_old = "Station Engineer"
 	flag = JOB_ENGINEER
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 5
 	spawn_positions = 5
 	is_engineering = 1
-	supervisors = "the chief engineer"
+	supervisors = "главный инженер"
 	department_head = list("Chief Engineer")
 	selection_color = "#fff5cc"
 	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_MINERAL_STOREROOM)
-	alt_titles = list("Maintenance Technician","Engine Technician","Electrician")
+	alt_titles = list("Инженер Обслуживания","Инженер Двигателя","Электрик")
 	minimal_player_age = 7
 	exp_map = list(EXP_TYPE_CREW = 300)
 	outfit = /datum/outfit/job/engineer
 
 /datum/outfit/job/engineer
-	name = "Station Engineer"
+	name = "Станционный инженер"
 	jobtype = /datum/job/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer
@@ -83,7 +85,8 @@
 
 
 /datum/job/atmos
-	title = "Life Support Specialist"
+	title = "Специалист Жизнеобеспечения"
+	title_old = "Life Support Specialist"
 	flag = JOB_ATMOSTECH
 	department_flag = JOBCAT_ENGSEC
 	total_positions = 3
@@ -94,13 +97,13 @@
 	selection_color = "#fff5cc"
 	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_EVA, ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_EMERGENCY_STORAGE, ACCESS_CONSTRUCTION, ACCESS_MINERAL_STOREROOM, ACCESS_TECH_STORAGE)
-	alt_titles = list("Atmospheric Technician")
+	alt_titles = list("Атмосферный Техник")
 	minimal_player_age = 7
 	exp_map = list(EXP_TYPE_CREW = 300)
 	outfit = /datum/outfit/job/atmos
 
 /datum/outfit/job/atmos
-	name = "Life Support Specialist"
+	name = "Специалист Жизнеобеспечения"
 	jobtype = /datum/job/atmos
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician

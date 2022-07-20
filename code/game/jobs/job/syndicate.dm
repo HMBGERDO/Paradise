@@ -1,5 +1,6 @@
 /datum/job/syndicateofficer
-	title = "Syndicate Officer"
+	title = "Офицер " + TR_SYNDICATE
+	title_old = "Syndicate Officer"
 	flag = JOB_SYNDICATE
 	department_flag = JOB_SYNDICATE // This gets its job as its own flag because admin jobs dont have flags
 	total_positions = 5
@@ -16,7 +17,7 @@
 	return get_syndicate_access(title)
 
 /datum/outfit/job/syndicateofficer
-	name = "Syndicate Officer"
+	name = "Офицер " + TR_SYNDICATE
 	jobtype = /datum/job/syndicateofficer
 
 	uniform = /obj/item/clothing/under/syndicate

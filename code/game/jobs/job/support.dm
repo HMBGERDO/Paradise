@@ -1,12 +1,13 @@
 //Cargo
 /datum/job/qm
-	title = "Quartermaster"
+	title = "Квартирмейстер"
+	title_old = "Quartermaster"
 	flag = JOB_QUARTERMASTER
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_supply = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#e2c59d"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
@@ -14,7 +15,7 @@
 	outfit = /datum/outfit/job/qm
 
 /datum/outfit/job/qm
-	name = "Quartermaster"
+	name = "Квартирмейстер"
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/cargo
@@ -28,13 +29,14 @@
 
 
 /datum/job/cargo_tech
-	title = "Cargo Technician"
+	title = "Грузовой Техник"
+	title_old = "Cargo Technician"
 	flag = JOB_CARGOTECH
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 2
 	spawn_positions = 2
 	is_supply = 1
-	supervisors = "the quartermaster"
+	supervisors = "евартирмейстер"
 	department_head = list("Head of Personnel")
 	selection_color = "#eeddbe"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_MINT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
@@ -42,7 +44,7 @@
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
-	name = "Cargo Technician"
+	name = "Грузовой Техник"
 	jobtype = /datum/job/cargo_tech
 
 	uniform = /obj/item/clothing/under/rank/cargotech
@@ -54,13 +56,14 @@
 
 
 /datum/job/mining
-	title = "Shaft Miner"
+	title = "Шахтёр"
+	title_old = "Shaft Miner"
 	flag = JOB_MINER
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 6
 	spawn_positions = 8
 	is_supply = 1
-	supervisors = "the quartermaster"
+	supervisors = "квартирмейстер"
 	department_head = list("Head of Personnel")
 	selection_color = "#eeddbe"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_MINT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
@@ -69,7 +72,7 @@
 	outfit = /datum/outfit/job/mining
 
 /datum/outfit/job/mining
-	name = "Shaft Miner"
+	name = "Шахтёр"
 	jobtype = /datum/job/mining
 
 	l_ear = /obj/item/radio/headset/headset_cargo/mining
@@ -92,7 +95,7 @@
 	box = /obj/item/storage/box/survival_mining
 
 /datum/outfit/job/mining/equipped
-	name = "Shaft Miner"
+	name = "Шахтёр"
 
 	suit = /obj/item/clothing/suit/hooded/explorer
 	mask = /obj/item/clothing/mask/gas/explorer
@@ -117,7 +120,7 @@
 		S.ToggleHood()
 
 /datum/outfit/job/miner/equipped/hardsuit
-	name = "Shaft Miner (Equipment + Hardsuit)"
+	name = "Шахтёр (Снаряжение + Костюм)"
 	suit = /obj/item/clothing/suit/space/hardsuit/mining
 	mask = /obj/item/clothing/mask/breath
 
@@ -125,13 +128,14 @@
 
 //Food
 /datum/job/bartender
-	title = "Bartender"
+	title = "Бармен"
+	title_old = "Bartender"
 	flag = JOB_BARTENDER
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_HYDROPONICS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_MINERAL_STOREROOM)
@@ -139,7 +143,7 @@
 	outfit = /datum/outfit/job/bartender
 
 /datum/outfit/job/bartender
-	name = "Bartender"
+	name = "Бармен"
 	jobtype = /datum/job/bartender
 
 	uniform = /obj/item/clothing/under/rank/bartender
@@ -166,22 +170,23 @@
 
 
 /datum/job/chef
-	title = "Chef"
+	title = "Шеф-Повар"
+	title_old = "Chef"
 	flag = JOB_CHEF
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_HYDROPONICS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE)
 	minimal_access = list(ACCESS_KITCHEN, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Cook","Culinary Artist","Butcher")
+	alt_titles = list("Повар","Кулинарный Художник","Мясник")
 	outfit = /datum/outfit/job/chef
 
 /datum/outfit/job/chef
-	name = "Chef"
+	name = "Шеф-Повар"
 	jobtype = /datum/job/chef
 
 	uniform = /obj/item/clothing/under/rank/chef
@@ -205,22 +210,23 @@
 
 
 /datum/job/hydro
-	title = "Botanist"
+	title = "Ботаник"
+	title_old = "Botanist"
 	flag = JOB_BOTANIST
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 3
 	spawn_positions = 2
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_HYDROPONICS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_MORGUE)
 	minimal_access = list(ACCESS_HYDROPONICS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Hydroponicist", "Botanical Researcher")
+	alt_titles = list("Гидропоник", "Ботанический Исследователь")
 	outfit = /datum/outfit/job/hydro
 
 /datum/outfit/job/hydro
-	name = "Botanist"
+	name = "Ботаник"
 	jobtype = /datum/job/hydro
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
@@ -240,13 +246,14 @@
 //Griff //BS12 EDIT
 
 /datum/job/clown
-	title = "Clown"
+	title = "Клоун"
+	title_old = "Clown"
 	flag = JOB_CLOWN
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_CLOWN, ACCESS_THEATRE, ACCESS_MAINT_TUNNELS)
@@ -254,7 +261,7 @@
 	outfit = /datum/outfit/job/clown
 
 /datum/outfit/job/clown
-	name = "Clown"
+	name = "Клоун"
 	jobtype = /datum/job/clown
 
 	uniform = /obj/item/clothing/under/rank/clown
@@ -329,13 +336,14 @@
 	to_chat(H, "<span class='notice'>You focus and can now use weapons regularly.</span>")
 
 /datum/job/mime
-	title = "Mime"
+	title = "Мим"
+	title_old = "Mime"
 	flag = JOB_MIME
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_MIME, ACCESS_THEATRE, ACCESS_MAINT_TUNNELS)
@@ -343,7 +351,7 @@
 	outfit = /datum/outfit/job/mime
 
 /datum/outfit/job/mime
-	name = "Mime"
+	name = "Мим"
 	jobtype = /datum/job/mime
 
 	uniform = /obj/item/clothing/under/mime
@@ -381,22 +389,23 @@
 
 
 /datum/job/janitor
-	title = "Janitor"
+	title = "Уборщик"
+	title_old = "Janitor"
 	flag = JOB_JANITOR
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Custodial Technician")
+	alt_titles = list("Специалист по Уборке")
 	outfit = /datum/outfit/job/janitor
 
 /datum/outfit/job/janitor
-	name = "Janitor"
+	name = "Уборщик"
 	jobtype = /datum/job/janitor
 
 	uniform = /obj/item/clothing/under/rank/janitor
@@ -407,22 +416,23 @@
 
 //More or less assistants
 /datum/job/librarian
-	title = "Librarian"
+	title = "Библиотекарь"
+	title_old = "Librarian"
 	flag = JOB_LIBRARIAN
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = 1
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_LIBRARY, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LIBRARY, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Journalist")
+	alt_titles = list("Журналист")
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
-	name = "Librarian"
+	name = "Библиотекарь"
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
@@ -436,22 +446,23 @@
 		/obj/item/videocam = 1)
 
 /datum/job/barber
-	title = "Barber"
+	title = "Парикмахер"
+	title_old = "Barber"
 	flag = JOB_BARBER
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 1
 	spawn_positions = 1
 	is_service = TRUE
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
-	alt_titles = list("Hair Stylist","Beautician")
+	alt_titles = list("Стилист","Косметолог")
 	access = list(ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_MAINT_TUNNELS)
 	outfit = /datum/outfit/job/barber
 
 /datum/outfit/job/barber
-	name = "Barber"
+	name = "Парикмахер"
 	jobtype = /datum/job/barber
 
 	uniform = /obj/item/clothing/under/barber
@@ -463,12 +474,13 @@
 	)
 
 /datum/job/explorer
-	title = "Explorer"
+	title = "Исследователь"
+	title_old = "Explorer"
 	flag = JOB_EXPLORER
 	department_flag = JOBCAT_SUPPORT
 	total_positions = 0
 	spawn_positions = 0
-	supervisors = "the head of personnel"
+	supervisors = "глава персонала"
 	department_head = list("Head of Personnel")
 	selection_color = "#dddddd"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_GATEWAY, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS)
@@ -479,7 +491,7 @@
 /datum/outfit/job/explorer
 	// This outfit is never used, because there are no slots for this job.
 	// To get it, you have to go to the HOP and ask for a transfer to it.
-	name = "Explorer"
+	name = "Исследователь"
 	jobtype = /datum/job/explorer
 	uniform = /obj/item/clothing/under/color/random
 	shoes = /obj/item/clothing/shoes/black
