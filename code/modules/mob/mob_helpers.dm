@@ -166,13 +166,13 @@
 	return SUIT_SENSOR_OFF
 
 /proc/offer_control(mob/M)
-	to_chat(M, "Control of your mob has been offered to dead players.")
+	to_chat(M, "Управление вашим персонажем предложено призракам.")
 	log_admin("[key_name(usr)] has offered control of ([key_name(M)]) to ghosts.")
 	var/minhours = input(usr, "Minimum hours required to play [M]?", "Set Min Hrs", 10) as num
 	message_admins("[key_name_admin(usr)] has offered control of ([key_name_admin(M)]) to ghosts with [minhours] hrs playtime")
-	var/question = "Do you want to play as [M.real_name ? M.real_name : M.name][M.job ? " ([M.job])" : ""]"
+	var/question = "Вы хотите сыграть за [M.real_name ? M.real_name : M.name][M.job ? " ([M.job])" : ""]"
 	if(alert("Do you want to show the antag status?","Show antag status","Yes","No") == "Yes")
-		question += ", [M.mind?.special_role ? M.mind?.special_role : "No special role"]"
+		question += ", [M.mind?.special_role ? M.mind?.special_role : "Нет специальной роли"]"
 	var/list/mob/dead/observer/candidates = SSghost_spawns.poll_candidates("[question]?", poll_time = 10 SECONDS, min_hours = minhours, source = M)
 	var/mob/dead/observer/theghost = null
 
@@ -180,12 +180,12 @@
 		if(QDELETED(M))
 			return
 		theghost = pick(candidates)
-		to_chat(M, "Your mob has been taken over by a ghost!")
+		to_chat(M, "Ваш персонаж был передан призраку!")
 		message_admins("[key_name_admin(theghost)] has taken control of ([key_name_admin(M)])")
 		M.ghostize()
 		M.key = theghost.key
 	else
-		to_chat(M, "There were no ghosts willing to take control.")
+		to_chat(M, "Не нашлось призраков, готовых взять контроль.")
 		message_admins("No ghosts were willing to take control of [key_name_admin(M)])")
 
 /proc/check_zone(zone)
@@ -465,9 +465,9 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 	set category = "IC"
 
 	if(IsSleeping())
-		to_chat(src, "<span class='notice'>You are already sleeping.</span>")
+		to_chat(src, "<span class='notice'>Вы уже спите.</span>")
 		return
-	if(alert(src, "You sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
+	if(alert(src, "Вы хотите уснуть на время?", "Сон", "Да", "Нет") == "Да")
 		SetSleeping(40 SECONDS, voluntary = TRUE) //Short nap
 
 /mob/living/verb/rest()
@@ -481,10 +481,10 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 		return
 
 	if(resting)
-		to_chat(src, "<span class='notice'>You are now resting.</span>")
+		to_chat(src, "<span class='notice'>Теперь вы ложитесь.</span>")
 		lay_down()
 	else
-		to_chat(src, "<span class='notice'>You are now trying to get up.</span>")
+		to_chat(src, "<span class='notice'>Теперь вы пытаетесь подняться.</span>")
 		stand_up()
 
 /proc/get_multitool(mob/user as mob)
@@ -659,11 +659,11 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 
 		for(var/i=1,i<=3,i++)	//we get 3 attempts to pick a suitable name.
 			if(force)
-				newname = clean_input("Pick a new name.", "Name Change", oldname, src)
+				newname = clean_input("Выберите новое имя.", "Смена имени", oldname, src)
 			else
-				newname = clean_input("You are a [role]. Would you like to change your name to something else? (You have 3 minutes to select a new name.)", "Name Change", oldname, src)
+				newname = clean_input("Вы [role]. Вы хотите поменять своё имя на что-то другое? (У вас 3 минуты для выбора нового имени.)", "Смена имени", oldname, src)
 			if(((world.time - time_passed) > 1800) && !force)
-				alert(src, "Unfortunately, more than 3 minutes have passed for selecting your name. If you are a robot, use the Namepick verb; otherwise, adminhelp.", "Name Change")
+				alert(src, "К сожалению, прошло более 3-х минут для выбора имени. Если вы робот, воспользуйтесь Namepick, иначе напишите в Adminhelp.", "Смена имени")
 				return	//took too long
 			newname = reject_bad_name(newname,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
 
@@ -675,7 +675,7 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 					break
 			if(newname)
 				break	//That's a suitable name!
-			to_chat(src, "Sorry, that [role]-name wasn't appropriate, please try another. It's possibly too long/short, has bad characters or is already taken.")
+			to_chat(src, "К сожалению, имя не подходит, попробуйте другое. Оно возможно слишком длинное/коротное или содержит плохие символы.")
 
 		if(!newname)	//we'll stick with the oldname then
 			return

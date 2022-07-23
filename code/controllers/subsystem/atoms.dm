@@ -33,9 +33,9 @@ SUBSYSTEM_DEF(atoms)
 
 	var/watch = start_watch()
 	if(noisy)
-		log_startup_progress("Initializing atoms...")
+		log_startup_progress("Загружаем атомы...")
 	else
-		log_debug("Initializing atoms...")
+		log_debug("Загружаем атомы...")
 	var/count
 	var/list/mapload_arg = list(TRUE)
 	if(atoms)
@@ -54,9 +54,9 @@ SUBSYSTEM_DEF(atoms)
 				CHECK_TICK
 
 	if(noisy)
-		log_startup_progress("Initialized [count] atoms in [stop_watch(watch)]s")
+		log_startup_progress("Загружено [count] атомов за [stop_watch(watch)] секунд")
 	else
-		log_debug("	Initialized [count] atoms in [stop_watch(watch)]s")
+		log_debug("Загружено [count] атомов за [stop_watch(watch)] секунд")
 	pass(count)
 
 	initialized = INITIALIZATION_INNEW_REGULAR
@@ -64,16 +64,16 @@ SUBSYSTEM_DEF(atoms)
 	if(late_loaders.len)
 		watch = start_watch()
 		if(noisy)
-			log_startup_progress("Late-initializing atoms...")
+			log_startup_progress("Поздняя загрузка атомов...")
 		else
-			log_debug("Late-initializing atoms...")
+			log_debug("Поздняя загрузка атомов...")
 		for(var/I in late_loaders)
 			var/atom/A = I
 			A.LateInitialize()
 		if(noisy)
-			log_startup_progress("Late initialized [length(late_loaders)] atoms in [stop_watch(watch)]s")
+			log_startup_progress("Поздняя загрузка [length(late_loaders)] атомов за [stop_watch(watch)] секунд")
 		else
-			log_debug("	Late initialized [length(late_loaders)] atoms in [stop_watch(watch)]s")
+			log_debug("Поздняя загрузка [length(late_loaders)] атомов за [stop_watch(watch)] секунд")
 		late_loaders.Cut()
 
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)

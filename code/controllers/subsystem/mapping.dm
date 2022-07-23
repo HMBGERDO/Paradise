@@ -49,13 +49,13 @@ SUBSYSTEM_DEF(mapping)
 	if(GLOB.configuration.gateway.enable_away_mission)
 		load_away_mission()
 	else
-		log_startup_progress("Skipping away mission...")
+		log_startup_progress("Пропускаем удалённые миссии...")
 
 	// Seed space ruins
 	if(GLOB.configuration.ruins.enable_space_ruins)
 		handleRuins()
 	else
-		log_startup_progress("Skipping space ruins...")
+		log_startup_progress("Пропускаем космические руины...")
 
 	// Makes a blank space level for the sake of randomness
 	GLOB.space_manager.add_new_zlevel("Empty Area", linkage = CROSSLINKED, traits = list(REACHABLE))
@@ -66,13 +66,13 @@ SUBSYSTEM_DEF(mapping)
 
 	if(GLOB.configuration.ruins.enable_lavaland)
 		// Spawn Lavaland ruins and rivers.
-		log_startup_progress("Populating lavaland...")
+		log_startup_progress("Заполняем лаваленд...")
 		var/lavaland_setup_timer = start_watch()
 		seedRuins(list(level_name_to_num(MINING)), GLOB.configuration.ruins.lavaland_ruin_budget, /area/lavaland/surface/outdoors/unexplored, GLOB.lava_ruins_templates)
 		spawn_rivers(level_name_to_num(MINING))
-		log_startup_progress("Successfully populated lavaland in [stop_watch(lavaland_setup_timer)]s.")
+		log_startup_progress("Успешно заполнили лаваленд за [stop_watch(lavaland_setup_timer)] секунд.")
 	else
-		log_startup_progress("Skipping lavaland ruins...")
+		log_startup_progress("Пропускаем руины лаваленда...")
 
 	// Now we make a list of areas for teleport locs
 	teleportlocs = list()
@@ -117,42 +117,42 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/handleRuins()
 	// load in extra levels of space ruins
 	var/load_zlevels_timer = start_watch()
-	log_startup_progress("Creating random space levels...")
+	log_startup_progress("Создаем космические руины...")
 	var/num_extra_space = rand(GLOB.configuration.ruins.extra_levels_min, GLOB.configuration.ruins.extra_levels_max)
 	for(var/i in 1 to num_extra_space)
 		GLOB.space_manager.add_new_zlevel("Ruin Area #[i]", linkage = CROSSLINKED, traits = list(REACHABLE, SPAWN_RUINS))
-	log_startup_progress("Loaded random space levels in [stop_watch(load_zlevels_timer)]s.")
+	log_startup_progress("Созданы космические руины за [stop_watch(load_zlevels_timer)] секунд.")
 
 	// Now spawn ruins, random budget between 20 and 30 for all zlevels combined.
 	// While this may seem like a high number, the amount of ruin Z levels can be anywhere between 3 and 7.
 	// Note that this budget is not split evenly accross all zlevels
-	log_startup_progress("Seeding ruins...")
+	log_startup_progress("Заполняем космические руины...")
 	var/seed_ruins_timer = start_watch()
 	seedRuins(levels_by_trait(SPAWN_RUINS), rand(20, 30), /area/space, GLOB.space_ruins_templates)
-	log_startup_progress("Successfully seeded ruins in [stop_watch(seed_ruins_timer)]s.")
+	log_startup_progress("Космические руины заполнены за [stop_watch(seed_ruins_timer)] секунд.")
 
 // Loads in the station
 /datum/controller/subsystem/mapping/proc/loadStation()
 	if(GLOB.configuration.system.override_map)
-		log_startup_progress("Station map overridden by configuration to [GLOB.configuration.system.override_map].")
+		log_startup_progress("Станция изменена конфигурацией на [GLOB.configuration.system.override_map].")
 		var/map_datum_path = text2path(GLOB.configuration.system.override_map)
 		if(map_datum_path)
 			map_datum = new map_datum_path
 		else
-			to_chat(world, "<span class='narsie'>ERROR: The map datum specified to load is invalid. Falling back to... cyberiad probably?</span>")
+			to_chat(world, "<span class='narsie'>ОШИБКА: Загружена неверная карта. Возвращаемся к ... Кибериаде, наверное?</span>")
 
 	ASSERT(map_datum.map_path)
 	if(!fexists(map_datum.map_path))
 		// Make a VERY OBVIOUS error
-		to_chat(world, "<span class='narsie'>ERROR: The path specified for the map to load is invalid. No station has been loaded!</span>")
+		to_chat(world, "<span class='narsie'>ОШИБКА: Загружена неверная карта. Станция не загружена!</span>")
 		return
 
 	var/watch = start_watch()
-	log_startup_progress("Loading [map_datum.fluff_name]...")
+	log_startup_progress("Загружаем [map_datum.fluff_name]...")
 	// This should always be Z2, but you never know
 	var/map_z_level = GLOB.space_manager.add_new_zlevel(MAIN_STATION, linkage = CROSSLINKED, traits = list(STATION_LEVEL, STATION_CONTACT, REACHABLE, AI_OK))
 	GLOB.maploader.load_map(file(map_datum.map_path), z_offset = map_z_level)
-	log_startup_progress("Loaded [map_datum.fluff_name] in [stop_watch(watch)]s")
+	log_startup_progress("Загружена [map_datum.fluff_name] за [stop_watch(watch)] секунд")
 
 	// Save station name in the DB
 	if(!SSdbcore.IsConnected())
@@ -167,13 +167,13 @@ SUBSYSTEM_DEF(mapping)
 // Loads in lavaland
 /datum/controller/subsystem/mapping/proc/loadLavaland()
 	if(!GLOB.configuration.ruins.enable_lavaland)
-		log_startup_progress("Skipping Lavaland...")
+		log_startup_progress("Пропускаем лаваленд...")
 		return
 	var/watch = start_watch()
-	log_startup_progress("Loading Lavaland...")
+	log_startup_progress("Загружаем лаваленд...")
 	var/lavaland_z_level = GLOB.space_manager.add_new_zlevel(MINING, linkage = SELFLOOPING, traits = list(ORE_LEVEL, REACHABLE, STATION_CONTACT, HAS_WEATHER, AI_OK))
 	GLOB.maploader.load_map(file("_maps/map_files/generic/Lavaland.dmm"), z_offset = lavaland_z_level)
-	log_startup_progress("Loaded Lavaland in [stop_watch(watch)]s")
+	log_startup_progress("Лаваленд загружен за [stop_watch(watch)] секунд")
 
 /datum/controller/subsystem/mapping/proc/seedRuins(list/z_levels = null, budget = 0, whitelist = /area/space, list/potentialRuins)
 	if(!z_levels || !z_levels.len)
@@ -238,7 +238,7 @@ SUBSYSTEM_DEF(mapping)
 			for(var/datum/map_template/ruin/R in ruins_availible)
 				if(R.id == current_pick.id)
 					ruins_availible -= R
-			log_world("Failed to place [current_pick.name] ruin.")
+			log_world("Не удалось поместить [current_pick.name] руины.")
 		else
 			budget -= current_pick.cost
 			if(!current_pick.allow_duplicates)
@@ -257,12 +257,12 @@ SUBSYSTEM_DEF(mapping)
 			if(R.cost > budget)
 				ruins_availible -= R
 
-	log_world("Ruin loader finished with [budget] left to spend.")
+	log_world("Загрузчик руин закончил с [budget] лишними очками.")
 
 /datum/controller/subsystem/mapping/proc/load_away_mission()
 	if(length(GLOB.configuration.gateway.enabled_away_missions))
 		var/watch = start_watch()
-		log_startup_progress("Loading away mission...")
+		log_startup_progress("Загружаем удаленные миссии...")
 
 		var/map = pick(GLOB.configuration.gateway.enabled_away_missions)
 		var/file = file(map)
@@ -272,12 +272,12 @@ SUBSYSTEM_DEF(mapping)
 			GLOB.maploader.load_map(file, z_offset = zlev)
 			late_setup_level(block(locate(1, 1, zlev), locate(world.maxx, world.maxy, zlev)))
 			GLOB.space_manager.remove_dirt(zlev)
-			log_world("Away mission loaded: [map]")
+			log_world("Удаленная миссия загружена: [map]")
 
-		log_startup_progress("Away mission loaded in [stop_watch(watch)]s.")
+		log_startup_progress("Удаленная миссия загружена за [stop_watch(watch)] секунд.")
 
 	else
-		log_startup_progress("No away missions found.")
+		log_startup_progress("Не найдено удаленных миссий.")
 		return
 
 /datum/controller/subsystem/mapping/Recover()

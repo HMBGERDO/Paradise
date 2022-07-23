@@ -221,7 +221,7 @@
 			qdel(W)
 		else
 			if(!disable_warning)
-				to_chat(src, "<span class='warning'>You are unable to equip that.</span>")//Only print if del_on_fail is false
+				to_chat(src, "<span class='warning'>Вы не можете экипировать это.</span>")//Only print if del_on_fail is false
 
 		return 0
 
@@ -361,7 +361,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 			if(slot_belt)
 				if(!H.w_uniform)
 					if(!disable_warning)
-						to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+						to_chat(H, "<span class='warning'>Вам нужен костюм, чтобы прикрепить [name].</span>")
 					return 0
 				if( !(slot_flags & SLOT_BELT) )
 					return 0
@@ -419,7 +419,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 			if(slot_wear_id)
 				if(!H.w_uniform)
 					if(!disable_warning)
-						to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+						to_chat(H, "<span class='warning'>Вам нужен костюм, чтобы прикрепить [name].</span>")
 					return 0
 				if( !(slot_flags & SLOT_ID) )
 					return 0
@@ -434,7 +434,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 					return 0
 				if(!H.w_uniform)
 					if(!disable_warning)
-						to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+						to_chat(H, "<span class='warning'>Вам нужен костюм, чтобы прикрепить [name].</span>")
 					return 0
 				if( w_class <= WEIGHT_CLASS_SMALL || (slot_flags & SLOT_POCKET) )
 					return 1
@@ -443,7 +443,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 					return 0
 				if(!H.w_uniform)
 					if(!disable_warning)
-						to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+						to_chat(H, "<span class='warning'>Вам нужен костюм, чтобы прикрепить [name].</span>")
 					return 0
 				if( w_class <= WEIGHT_CLASS_SMALL || (slot_flags & SLOT_POCKET) )
 					return 1
@@ -451,15 +451,15 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 			if(slot_s_store)
 				if(!H.wear_suit)
 					if(!disable_warning)
-						to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
+						to_chat(H, "<span class='warning'>Вам нужен костюм, чтобы прикрепить [name].</span>")
 					return 0
 				if(!H.wear_suit.allowed)
 					if(!disable_warning)
-						to_chat(usr, "You somehow have a suit with no defined allowed items for suit storage, stop that.")
+						to_chat(usr, "У вас каким-то образом есть костюм без определенных разрешенных предметов для хранения в слоте костюма, остановитесь.")
 					return 0
 				if(src.w_class > WEIGHT_CLASS_BULKY)
 					if(!disable_warning)
-						to_chat(usr, "The [name] is too big to attach.")
+						to_chat(usr, "[name] слишком большой, чтобы прикрепить.")
 					return 0
 				if( istype(src, /obj/item/pda) || istype(src, /obj/item/pen) || is_type_in_list(src, H.wear_suit.allowed) )
 					if(H.s_store)
@@ -596,7 +596,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 	set category = "IC"
 
 	if(!has_vision(information_only = TRUE) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
+		to_chat(src, "<span class='notice'>Тут что-то есть, но вы не можете это разглядеть.</span>")
 		return 1
 
 	var/is_antag = (isAntag(src) || isobserver(src)) //ghosts don't have minds

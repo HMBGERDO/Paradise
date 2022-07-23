@@ -29,13 +29,14 @@
 					be able to possess this object in the first place!"})
 
 /obj/item/book/manual/detective
-	name = "The Film Noir: Proper Procedures for Investigations"
+	name = "НУАР: Надлежащие процедуры расследования"
 	desc = "A gumshoe's guide to find out whodunnit, howdunnit, and wheredunnit."
 	icon_state ="bookDetective"
-	author = "Nanotrasen"
-	title = "The Film Noir: Proper Procedures for Investigations"
+	author = TR_NANOTRASEN
+	title = "НУАР: Надлежащие процедуры расследования"
 	pages = list({"<html>
 			<head>
+			<meta charset="UTF-8">
 			<style>
 			h1 {font-size: 18px; margin: 15px 0px 5px;}
 			h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -45,38 +46,43 @@
 			</style>
 			</head>
 			<body>
-			<h3>Detective Work</h3>
-			Between your bouts of self-narration, and drinking whiskey on the rocks, you might get a case or two to solve.<br>
-			To have the best chance to solve your case, follow these directions:
+			<h3>Детективная работа</h3>
+			Между вашими приступами рассказа о себе и распитием виски со льдом вы можете раскрыть пару дел.<br>
+			Чтобы иметь наибольшие шансы раскрытия дела, следуйте этим инструкциям:
 			<p>
 			<ol>
-			<li>Go to the crime scene. </li>
-			<li>Take your scanner and scan EVERYTHING (Yes, the doors, the tables, even the dog.) </li>
-			<li>Once you are reasonably certain you have every scrap of evidence you can use, find all possible entry points and scan them, too. </li>
-			<li>Return to your office. </li>
-			<li>Using your forensic scanning computer, scan your Scanner to upload all of your evidence into the database.</li>
-			<li>Browse through the resulting dossiers, looking for the one that either has the most complete set of prints, or the most suspicious items handled. </li>
-			<li>If you have 80% or more of the print (The print is displayed) go to step 10, otherwise continue to step 8.</li>
-			<li>Look for clues from the suit fibres you found on your perp, and go about looking for more evidence with this new information, scanning as you go. </li>
-			<li>Try to get a fingerprint card of your perp, as if used in the computer, the prints will be completed on their dossier.</li>
-			<li>Assuming you have enough of a print to see it, grab the biggest complete piece of the print and search the security records for it. </li>
-			<li>Since you now have both your dossier and the name of the person, print both out as evidence, and get security to nab your baddie.</li>
-			<li>Give yourself a pat on the back and a bottle of the ships finest vodka, you did it!. </li>
+			<li>Отправляйтесь на место преступления. </li>
+			<li>Возьмите свой сканнер и сканируйте ВСЁ(да, двери, столы и даже собаку) </li>
+			<li>Когда вы уверены, что нашли все полезные улики, постарайтесь найти место входа, как преступник попал сюда, и отсканируйте их тоже. </li>
+			<li>Вернитесь в свой офис. </li>
+			<li>Напечатайте полученные улики с помощью кнопки на вашем сканере. </li>
+			<li>Проверьте получившееся досье в поисках набора отпечатков. </li>
+			<li>Если вы нашли отпечатки на месте преступления, воспользуйтесь сканером и попробуйте найти информацию в базе данных. </li>
+			<li>Если отпечатки есть в базе данных, вы получите информацию о подозреваемом и главное, имя. </li>
+			<li>Отпечатки не всегда являются полным доказательством, но это может привести вас к преступнику. </li>
+			<li>В местах нападения часто встречается кровь как жертвы, так и нападавшего, обязательно сканируйте её. </li>
+			<li>Используйте полученное ДНК в вашем сканере, если данные есть в базе данных, вы получите полную информацию. </li>
+			<li>Соберите полученную информацию и передайте службе безопасности. Даже информация о том, какие перчатки использовал преступник, может привести к нему. </li>
+			<li>Если отпечатков нет, вы можете проверить другие улики, которые есть на месте преступления, такие как частицы одежды. </li>
+			<li>Обязательно положите результаты сканнера в папку или другое защищенное место, на случай, если потребуется вернуться к этому делу. </li>
+			<li>Передайте информацию службе безопасности и установите статус Обыск(если вам известно точное имя) с помощью консоли службы безопасности.</li>
+			<li>Похлопайте себя по плечу и выпейте бутылку корабельной водки, вы сделали это! </li>
 			</ol>
 			<p>
-			It really is that easy! Good luck!
+			Это действительно так просто! Удачи!
 			</body>
 			</html>"})
 
 /obj/item/book/manual/engineering_particle_accelerator
-	name = "Particle Accelerator User's Guide"
-	desc = "An engineer's guide to shooting relativistic particles out of a big gun."
+	name = "Руководство пользователя Ускорителем Частиц"
+	desc = "Инженерная инструкция о том, как выстреливать частицами из огромной пушки."
 	icon_state ="bookParticleAccelerator"
-	author = "Engineering Encyclopedia"
-	title = "Particle Accelerator User's Guide"
+	author = "Инженерная Энциклопедия"
+	title = "Руководство пользователя Ускорителем Частиц"
 
 	pages = list({"<html>
 				<head>
+				<meta charset="UTF-8">
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
 				h2 {font-size: 15px; margin: 15px 0px 5px;}
@@ -87,24 +93,24 @@
 				</head>
 				<body>
 
-				<h3>Experienced user's guide</h3>
+				<h3>Инструкция продвинутого пользователя</h3>
 
-				<h4>Setting up</h4>
+				<h4>Настройка</h4>
 
 				<ol>
-					<li><b>Wrench</b> all pieces to the floor</li>
-					<li>Add <b>wires</b> to all the pieces</li>
-					<li>Close all the panels with your <b>screwdriver</b></li>
+					<li><b>Прикрутите ключом</b> все части к полу</li>
+					<li>Добавьте <b>провода</b> ко всем частям</li>
+					<li>Закройте панели на каждой части <b>отвёрткой</b></li>
 				</ol>
 
-				<h4>Use</h4>
+				<h4>Использование</h4>
 
 				<ol>
-					<li>Open the control panel</li>
-					<li>Set the speed to 2</li>
-					<li>Start firing at the singularity generator</li>
-					<li><font color='red'><b>When the singularity reaches a large enough size so it starts moving on it's own set the speed down to 0, but don't shut it off</b></font></li>
-					<li>Remember to wear a radiation suit when working with this machine... we did tell you that at the start, right?</li>
+					<li>Откройте панель управления</li>
+					<li>Установите скорость на 2</li>
+					<li>Начните стрелять в генератор сингулярности</li>
+					<li><font color='red'><b>Когда сигнулярность достигнет достаточных размеров, переключите скорость на 0, но не выключайте.</b></font></li>
+					<li>Не забудьте надеть радиационный костюм для работы с этой машиной... мы ведь сообщали об этом в начале?</li>
 				</ol>
 
 				</body>
@@ -113,88 +119,55 @@
 
 
 /obj/item/book/manual/supermatter_engine
-	name = "Supermatter Engine User's Guide"
-	desc = "An engineer's best tool for dealing with their worst frenemy: The Supermatter."
+	name = "Руководство пользователя Двигателя Суперматерии"
+	desc = "Лучший инструмент инженера для победы над худшим врагом: Суперматерией."
 	icon_state = "bookParticleAccelerator"
 	author = "Waleed Asad"
-	title = "Supermatter Engine User's Guide"
+	title = "Руководство пользователя Двигателя Суперматерии"
 
-	pages = list({"Engineering notes on single-stage Supermatter engine,</br>
+	pages = list({"<html>
+				<head>
+				<meta charset="UTF-8">
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {list-style: none; margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				</style>
+				</head>
+				<body><p>"Технические заметки по стабильному двигателю Суперматерии,</br>
 			-Waleed Asad</br>
 
-			A word of caution, do not enter the engine room, for any reason, without radiation protection and mesons on. The status of the engine may be unpredictable even when you believe it is .off.. This is an important level of personal protection.</br></br>
+			Слово предостережения, ни по какой причине не входите в машинное отделение без защиты от радиации и мезонов. Состояние двигателя может быть непредсказуемым, даже если вы считаете, что он выключен. Это важный уровень личной защиты.</br></br>
 
-			The engine has two basic modes of functionality. He has observed that it is capable of both a safe level of operation and a modified, high output mode.</br></br>
+			Двигатель имеет два основных режима функциональности. Он может работать как на безопасном уровне, так и в модифицированном режиме с высокой выходной мощностью.</br></br>
+			</p>
+			<center><b>Примечания по запуску основного функционального режима</b></center></br></br><p>
 
-			<center><b>Notes on starting the basic function mode, dubbed .Heat-Primary Mode..</b></center></br></br>
+			1. Подготовьте радиационные коллекторы. Прикрутите их к полу, вставьте 6 плазменных баков по одному в каждый коллектор и поднимите собирающий элемент.</br></br>
 
-			1. Prepare collector arrays. This is done standard to any text on their function by wrenching them down, filling six plasma tanks with a plasma canister, and inserting the tank into the collectors one by one. Finally, initialize each collector.</br></br>
+			2. Подготовьте газовую систему. Прежде чем вводить какой-либо газ в машинное отделение Суперматерии, важно помнить о небольших, но жизненно важных шагах по подготовке этой секции. Во-первых, установите все насосы по периметру камеры суперматерии на максимальную подачу(4500 КПа). Важно, чтобы газ циркулировал по этой системе и не застревал ни на одном участке. Во-вторых, настройте систему управления подачей воздуха в самой камере. Все вытяжки должны быть включены с увеличенным радиусом и режимом выкачивания воздуха. Все вентиляционные отверстия должны быть включены на закачивание всего воздуха(Внутренний датчик на значение 0)</br></br>
 
-			2. Prepare gas system. Before introducing any gas to the Supermatter engine room, it is important to remember the small but vital steps to preparing this section. First, set the input gas pump and output gas flow pump to 4500, or maximum flow. Second, switch the digital switching valve into the .up. position, in order to circulate the gas back toward the coolers and collectors.</br></br>
+			3. Примените газ N2. Возьмите две канистры N2 со склада и отнесите их в машинное отделение. Присоедините одну из них к входному участку газовой системы двигателя, расположенному рядом с коллекторами. Держите насос включенным до тех пор, пока давление N2 в канистре не станет достаточно низким. Замените её второй канистрой, чтобы давление N2 поддерживалось на оптимальном уровне.</br></br>
 
-			3. Apply N2 gas. Retrieve the two N2 canisters from storage and bring them to the engine room. Attach one of them to the input section of the engine gas system located next to the collectors. Keep it attached until the N2 pressure is low enough to turn the canister light red. Replace it with the second canister to keep N2 pressure at optimal levels.</br></br>
+			4. Найдите монитор суперматерии и проверьте состояние кристалла. В текущем состоянии он должен быть максимально охлажден и в камере должен быть только газ N2.</br></br>
 
-			4. Begin primary emitter burst series. This means firing a single emitter for its first four shots. It is important to move to this step quickly. The onboard SMES units may not have enough power to run the emitters if left alone too long on-station. This engine can produce enough power on its own to run the entire station, ignoring the SMES units completely, and is wired to do so.</br></br>
+			5. Включите эммитеры, расположенные недалеко от камеры суперматерии. Они начнут делать серию выстрелов в кристалл(Если эммитеры не работают, значит им недостаточно энергии, подключите генератор). Контролируйте состояние кристалла на мониторе суперматерии.</br></br>
 
-			5. Switch SMES units to primary settings. Maximize input and set the devices to automatically charge, additionally turn their outputs on if they are off unless power is to be saved (Which can be useful in case of later failures.)</br></br>
+			6. Переключите блоки SMES на стандартные настройки. Максимизируйте вход энергии и настройте устройства на автоматическую зарядку, дополнительно включите их выходы, если они выключены.</br></br>
 
-			6. Begin secondary emitter burst series. Before firing the emitter again, check the power in the line with a multimeter (Do not forget electrical gloves.) The engine is running at high efficiency when the value exceeds 200,000 power units.</br></br>
-
-			7. Maintain engine power. When power in the lines gets low, add an additional emitter burst series to bring power to normal levels.</br></br></br>
-
-
-
-			<center>The second mode for running the engine uses a gas mix to produce a reaction within the Supermatter. This mode requires CE or Atmospheric help to setup. <b>This has been dubbed the .O2-Reaction Mode..</b></center></br></br>
-
-			<b><u>THIS MODE CAN CAUSE A RUNAWAY REACTION, LEADING TO CATASTROPHIC FAILURE IF NOT MAINTAINED. NEVER FORGET ABOUT THE ENGINE IN THIS MODE.</u></b></br></br>
-
-			Additionally, this mode can be used for what is called a .Cold Start.. If the station has no power in the SMES to run the emitters, using this mode will allow enough power output to run them, and quickly reach an acceptable level of power output.</br></br>
-
-			1. Prepare collector arrays. This is done standard to any text on their function by wrenching them down, filling six plasma tanks with a plasma canister, and inserting the tank into the collectors one by one. Finally, initialize each collector.</br></br>
-
-			2. Prepare gas system. Before introducing any gas to the Supermatter engine room, it is important to remember the small but vital steps to preparing this section. First, set the input gas pump and output gas flow pump to 4500, or maximum flow. Second, switch the digital switching valve into the .up. position, in order to circulate the gas back toward the coolers and collectors.</br></br>
-
-			3. Modify the engine room filters. Unlike the Heat-Primary Mode, it is important to change the filters attached to the gas system to stop filtering O2, and start filtering Carbon Molecules. O2-Reaction Mode produces far more plasma than Heat-Primary, therefor filtering it off is essential.</br></br>
-
-			4. Switch SMES units to primary settings. Maximize input and set the devices to automatically charge, additionally turn their outputs on if they are off unless power is to be saved (Which can be useful in case of later failures.) If you check the power in the system lines at this point you will find that it is constantly going up. Indeed, with just the addition of O2 to the Supermatter, it will begin outputting power.</br></br>
-
-			5. Begin primary emitter burst series. Fire a single emitter for a series of four pulses, or a single series, and turn it off. Do not over power the Supermatter. The reaction is self sustaining and propagating. As long as O2 is in the chamber, it will continue outputting MORE power.</br></br>
-
-			6. Maintain follow up operations. Remember to check the temp of the core gas and switch to the Heat-Primary function, or vent the core room when problems begin if required.</br></br>
-
-			Notes on Supermatter Reaction Function and Drawbacks-</br></br>
-
-			After several hours of observation an interesting phenomenon was witnessed. The Supermatter undergoes a constant self-sustaining reaction when given an extremely high O2 concentration. Anything about 80% or higher typically will cause this reaction. The Supermatter will continue to react whenever this gas mix is in the same room as the Supermatter.</br></br>
-
-			To understand why O2-Reaction mode is dangerous, the core principle of the Supermatter must be understood. The Supermatter emits three things when .not safe,. that is any time it is giving off power. These things are:</br></br>
-
-			*Radiation (which is converted into power by the collectors,)</br>
-			*Heat (which is removed via the gas exchange system and coolers,)</br>
-			*External gas (in the form of plasma and O2.)</br>
-
-			When in Heat-Primary mode, far more heat and plasma are produced than radiation. In O2-Reaction mode, very little heat and only moderate amounts of plasma are produced, however HUGE amounts of energy leaving the Supermatter is in the form of radiation.</br></br>
-
-			The O2-Reaction engine mode has a single drawback which has been eluded to more than once so far and that is very simple. The engine room will continue to grow hotter as the constant reaction continues. Eventually, there will be what he calls the .critical gas mix.. This is the point at which the constant adding of plasma to the mix of air around the Supermatter changes the gas concentration to below the tolerance. When this happens, two things occur. First, the Supermatter switches to its primary mode of operation where in huge amounts of heat are produced by the engine rather than low amounts with high power output. Second, an uncontrollable increase in heat within the Supermatter chamber will occur. This will lead to a spark-up, igniting the plasma in the Supermatter chamber, wildly increasing both pressure and temperature.</br></br>
-
-			While the O2-Reaction mode is dangerous, it does produce heavy amounts of energy. Consider using this mode only in short amounts to fill the SMES, and switch back later in the shift to keep things flowing normally.</br></br>
+			7. Проследите за кристаллом суперматерии через монитор до момента, пока все показатели стабилизируются и почти перестанут изменяться.</br></br></br>
 
 
-			Notes on Supermatter Containment and Emergency Procedures-</br></br>
-
-			While a constant vigil on the Supermatter is not required, regular checkups are important. Verify the temp of gas leaving the Supermatter chamber for unsafe levels, and ensure that the plasma in the chamber is at a safe concentration. Of course, also make sure the chamber is not on fire. A fire in the core chamber is very difficult to put out. As any Toxin scientist can tell you, even low amounts of plasma can burn at very high temperatures. This burning creates a huge increase in pressure and more importantly, temperature of the crystal itself.</br></br>
-
-			The Supermatter is strong, but not invincible. When the Supermatter is heated too much, its crystal structure will attempt to liquify. The change in atomic structure of the Supermatter leads to a single reaction, a massive explosion. The computer chip attached to the Supermatter core will warn the station when stability is threatened. It will then offer a second warning, when things have become dangerously close to total destruction of the core.</br></br>
-
-			Located both within the supermatter monitoring room and engine room is the vent control button. This button allows the Core Vent Controls to be accessed, venting the room to space. Remember however, that this process takes time. If a fire is raging, and the pressure is higher than fathomable, it will take a great deal of time to vent the room. Also located in the supermatter monitoring room is the emergency core eject button. A new core can be ordered from cargo. It is often not worth the lives of the crew to hold on to it, not to mention the structural damage. However, if by some mistake the Supermatter is pushed off or removed from the mass ejector it sits on, manual reposition will be required. Which is very dangerous and often leads to death.</br></br>
-
-			The Supermatter is extremely dangerous. More dangerous than people give it credit for. It can destroy you in an instant, without hesitation, reducing you to a pile of dust. When working closely with Supermatter it is.. suggested to get a genetic backup and do not wear any items of value to you. The Supermatter core can be pulled if grabbed properly by the base, but <b>pushing is not possible.</b></br></br></br>
-
-
-			In Closing-</br></br>
-
-			Remember that the Supermatter is dangerous, and the core is dangerous still. Venting the core room is always an option if you are even remotely worried, utilizing Atmospherics to properly ready the room once more for core function. It is always a good idea to check up regularly on the temperature of gas leaving the chamber, as well as the power in the system lines. Lastly, once again remember, never touch the Supermatter with anything. Ever.</br></br>
-
-			-Waleed Asad, Senior Engine Technician."})
+			В процессе работы Кристалл Суперматерии обладает несколькими свойствами</p><br>
+			<ol>
+				<li>Кристалл вырабатывает тепло, которое отводится газовой системой</li>
+				<li>Кристалл вырабатывает радиацию, которая поглащается коллекторами и преобразуется в энергию</li>
+				<li>Кристалл вырабатывает Плазму и O2, которые также отводятся газовой системой</li>
+			</ol>
+			</body>
+			</html>"})
 
 /obj/item/book/manual/atmospipes
 	name = "Pipes and You: Getting To Know Your Scary Tools"

@@ -106,9 +106,9 @@
 		// INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 		// if(!language || !(language.flags & INNATE))
 		if(speaker == src)
-			to_chat(src, "<span class='warning'>You cannot hear yourself speak!</span>")
+			to_chat(src, "<span class='warning'>Вы не слышите, что вы говорите!</span>")
 		else
-			to_chat(src, "<span class='name'>[speaker.name]</span> talks but you cannot hear [speaker.p_them()].")
+			to_chat(src, "<span class='name'>[speaker.name]</span> говорит, но вы не слышите, что именно.")
 	else
 		to_chat(src, "<span class='game say'><span class='name'>[speaker_name]</span>[speaker.GetAltName()] [track][verb], \"[message]\"</span>")
 
@@ -142,7 +142,7 @@
 
 	if(!can_hear())
 		if(prob(20))
-			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
+			to_chat(src, "<span class='warning'>Вы чувствуете вибрацию наушника, но ничего не слышите!</span>")
 	else if(track)
 		to_chat(src, "[part_a][track][part_b][message]</span></span>")
 	else
@@ -177,11 +177,11 @@
 				heardword = copytext(heardword,2)
 			if(copytext(heardword,-1) in punctuation)
 				heardword = copytext(heardword,1,length(heardword))
-			heard = "<span class='game say'>...<i>You hear something about<i>... '[heardword]'...</span>"
+			heard = "<span class='game say'>...<i>Вы слышите что-то про<i>... '[heardword]'...</span>"
 		else
-			heard = "<span class='game say'>...<i>You almost hear something...</i>...</span>"
+			heard = "<span class='game say'>...<i>Вы почти слышите что-то...</i>...</span>"
 	else
-		heard = "<span class='game say'>...<i>You almost hear someone talking</i>...</span>"
+		heard = "<span class='game say'>...<i>Вы почти слышите чей-то разговор</i>...</span>"
 
 	to_chat(src, heard)
 

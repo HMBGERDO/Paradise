@@ -597,7 +597,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Assistant")
+	if(role == "Ассистент")
 		if(active_character.job_support_low & job.flag)
 			active_character.job_support_low &= ~job.flag
 		else
@@ -618,7 +618,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Assistant")
+	if(role == "Ассистент")
 		if(active_character.job_support_low & job.flag)
 			active_character.job_support_low &= ~job.flag
 		else

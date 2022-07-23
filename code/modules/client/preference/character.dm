@@ -1974,10 +1974,10 @@
 				var/available_in_days = job.available_in_days(user.client)
 				html += "<del class='dark'>[rank]</del></td><td class='bad'><b> \[IN [(available_in_days)] DAYS]</b></td></tr>"
 				continue
-			if((job_support_low & JOB_ASSISTANT) && (job.title != "Assistant"))
+			if((job_support_low & JOB_ASSISTANT) && (job.title != "Ассистент"))
 				html += "<font color=orange>[rank]</font></td><td></td></tr>"
 				continue
-			if((job.title in GLOB.command_positions) || (job.title == "AI"))//Bold head jobs
+			if((job.title in GLOB.command_positions) || (job.title == "ИИ"))//Bold head jobs
 				html += "<b><span class='dark'>[rank]</span></b>"
 			else
 				html += "<span class='dark'>[rank]</span>"
@@ -1990,22 +1990,22 @@
 			var/prefLowerLevel = -1 // level to assign on right click
 
 			if(GetJobDepartment(job, 1) & job.flag)
-				prefLevelLabel = "High"
+				prefLevelLabel = "Высокий"
 				prefLevelColor = "slateblue"
 				prefUpperLevel = 4
 				prefLowerLevel = 2
 			else if(GetJobDepartment(job, 2) & job.flag)
-				prefLevelLabel = "Medium"
+				prefLevelLabel = "Средний"
 				prefLevelColor = "green"
 				prefUpperLevel = 1
 				prefLowerLevel = 3
 			else if(GetJobDepartment(job, 3) & job.flag)
-				prefLevelLabel = "Low"
+				prefLevelLabel = "Низкий"
 				prefLevelColor = "orange"
 				prefUpperLevel = 2
 				prefLowerLevel = 4
 			else
-				prefLevelLabel = "NEVER"
+				prefLevelLabel = "НИКОГДА"
 				prefLevelColor = "red"
 				prefUpperLevel = 3
 				prefLowerLevel = 1
@@ -2015,11 +2015,11 @@
 
 	//			HTML += "<a href='?_src_=prefs;preference=job;task=input;text=[rank]'>"
 
-			if(job.title == "Assistant") // Assistant is special
+			if(job.title == "Ассистент") // Assistant is special
 				if(job_support_low & JOB_ASSISTANT)
-					html += " <font color=green>Yes</font></a>"
+					html += " <font color=green>Да</font></a>"
 				else
-					html += " <font color=red>No</font></a>"
+					html += " <font color=red>Нет</font></a>"
 				html += "</td></tr>"
 				continue
 	/*

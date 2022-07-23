@@ -241,12 +241,12 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	return aiRadio
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	to_chat(src, "<B>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>")
-	to_chat(src, "<B>To look at other parts of the station, click on yourself to get a camera menu.</B>")
-	to_chat(src, "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>")
-	to_chat(src, "To use something, simply click on it.")
-	to_chat(src, "Use say :b to speak to your cyborgs through binary. Use say :h to speak from an active holopad.")
-	to_chat(src, "For department channels, use the following say commands:")
+	to_chat(src, "<B>Вы играете за станционный ИИ. ИИ не может двигаться, но может взаимодействовать со многими объектами, смотря на них(через камеры).</B>")
+	to_chat(src, "<B>Чтобы посмотреть на другие части станции, нажмите на себя, чтобы получить меню камер.</B>")
+	to_chat(src, "<B>Во время использования камер, вы можете использовать почти все устройства, которые вы видите, такие как компьютеры, АПЦ, двери, интеркомы и т.д.</B>")
+	to_chat(src, "Чтобы использовать что-то, нажмите на это.")
+	to_chat(src, "Используйте :b для общения в бинарном канале с вашими киборгами. Используйте :h для разговора через активный голопад.")
+	to_chat(src, "Для каналов департаментов, используйте следующие команты:")
 
 	var/radio_text = ""
 	for(var/i = 1 to aiRadio.channels.len)
@@ -259,7 +259,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	to_chat(src, radio_text)
 
 	show_laws()
-	to_chat(src, "<b>These laws may be changed by other players, or by you being the traitor.</b>")
+	to_chat(src, "<b>Эти законы могут быть изменены другими игроками или вами, если вы будете предателем.</b>")
 
 	job = "AI"
 

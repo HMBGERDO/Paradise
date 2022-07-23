@@ -88,8 +88,8 @@ SUBSYSTEM_DEF(ticker)
 			if(!dicord_announcement)
 				dicord_announcement = TRUE
 				SSdiscord.send2discord_simple(DISCORD_WEBHOOK_PRIMARY, "Starting new round!")
-			to_chat(world, "<B><span class='darkmblue'>Welcome to the pre-game lobby!</span></B>")
-			to_chat(world, "Please, setup your character and select ready. Game will start in [GLOB.configuration.general.lobby_time] seconds")
+			to_chat(world, "<B><span class='darkmblue'>Добро пожаловать в лобби!</span></B>")
+			to_chat(world, "Пожалуйста, настройте своего персонажа и установьте Готовность к раунду. Игра начнется через [GLOB.configuration.general.lobby_time] секунд")
 			current_state = GAME_STATE_PREGAME
 			fire() // TG says this is a good idea
 			for(var/mob/new_player/N in GLOB.player_list)
@@ -160,7 +160,7 @@ SUBSYSTEM_DEF(ticker)
 	if(GLOB.master_mode == "random" || GLOB.master_mode == "secret")
 		runnable_modes = GLOB.configuration.gamemode.get_runnable_modes()
 		if(!length(runnable_modes))
-			to_chat(world, "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
+			to_chat(world, "<B>Невозможно выбрать доступный игровой режим.</B> Возвращаемся в лобби.")
 			force_start = FALSE
 			current_state = GAME_STATE_PREGAME
 			Master.SetRunLevel(RUNLEVEL_LOBBY)
@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(ticker)
 		mode = GLOB.configuration.gamemode.pick_mode(GLOB.master_mode)
 
 	if(!mode.can_start())
-		to_chat(world, "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby.")
+		to_chat(world, "<B>Невозможно начать режим [mode.name].</B> Недостаточно игроков, [mode.required_players] требуется. Возвращаемся в лобби.")
 		mode = null
 		current_state = GAME_STATE_PREGAME
 		force_start = FALSE
@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(ticker)
 	SSjobs.DivideOccupations() //Distribute jobs
 	if(!can_continue)
 		qdel(mode)
-		to_chat(world, "<B>Error setting up [GLOB.master_mode].</B> Reverting to pre-game lobby.")
+		to_chat(world, "<B>Ошибка при начале режима [GLOB.master_mode].</B> Возвращаемся в лобби.")
 		current_state = GAME_STATE_PREGAME
 		force_start = FALSE
 		SSjobs.ResetOccupations()
@@ -211,8 +211,8 @@ SUBSYSTEM_DEF(ticker)
 		for(var/datum/game_mode/M in runnable_modes)
 			modes += M.name
 		modes = sortList(modes)
-		to_chat(world, "<B>The current game mode is - Secret!</B>")
-		to_chat(world, "<B>Possibilities:</B> [english_list(modes)]")
+		to_chat(world, "<B>Текущий игровой режим - Секрет!</B>")
+		to_chat(world, "<B>Возможные режимы:</B> [english_list(modes)]")
 	else
 		mode.announce()
 
@@ -267,7 +267,7 @@ SUBSYSTEM_DEF(ticker)
 			qdel(S)
 
 	SSdbcore.SetRoundStart()
-	to_chat(world, "<span class='darkmblue'><B>Enjoy the game!</B></span>")
+	to_chat(world, "<span class='darkmblue'><B>Наслаждайтесь игрой!</B></span>")
 	SEND_SOUND(world, sound('sound/AI/welcome.ogg'))
 
 	if(SSholiday.holidays)
@@ -276,7 +276,7 @@ SUBSYSTEM_DEF(ticker)
 			var/datum/holiday/holiday = SSholiday.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
 
-	SSdiscord.send2discord_simple_noadmins("**\[Info]** Round has started")
+	// SSdiscord.send2discord_simple_noadmins("**\[Info]** Round has started")
 	SSdiscord.send2discord_simple(DISCORD_WEBHOOK_PRIMARY, "New round started!")
 	auto_toggle_ooc(FALSE) // Turn it off
 	time_game_started = world.time
@@ -328,7 +328,7 @@ SUBSYSTEM_DEF(ticker)
 			if(M.stat != DEAD)
 				var/turf/T = get_turf(M)
 				if(T && is_station_level(T.z) && !istype(M.loc, /obj/structure/closet/secure_closet/freezer) && !(issilicon(M) && override == "AI malfunction"))
-					to_chat(M, "<span class='danger'><B>The blast wave from the explosion tears you atom from atom!</B></span>")
+					to_chat(M, "<span class='danger'><B>Взрывная волна разрывает вас на атомы!</B></span>")
 					var/mob/ghost = M.ghostize()
 					M.dust() //no mercy
 					if(ghost && ghost.client) //Play the victims an uninterrupted cinematic.
@@ -401,7 +401,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/create_characters()
 	for(var/mob/new_player/player in GLOB.player_list)
 		if(player.ready && player.mind)
-			if(player.mind.assigned_role == "AI")
+			if(player.mind.assigned_role == "ИИ")
 				player.close_spawn_windows()
 				var/mob/living/silicon/ai/ai_character = player.AIize()
 				ai_character.moveToAILandmark()
@@ -450,23 +450,23 @@ SUBSYSTEM_DEF(ticker)
 			if(length(S.contents) < S.storage_slots)
 				I.forceMove(H.back)
 				ok = TRUE
-				to_chat(H, "<span class='notice'>Your [I.name] has been added to your [H.back.name].</span>")
+				to_chat(H, "<span class='notice'>[I.name] добавлен в ваш [H.back.name].</span>")
 
 		if(!ok)
 			for(var/obj/item/storage/S in H.contents) // Try to place it in any item that can store stuff, on the mob.
 				if(length(S.contents) < S.storage_slots)
 					I.forceMove(S)
 					ok = TRUE
-					to_chat(H, "<span class='notice'>Your [I.name] has been added to your [S.name].</span>")
+					to_chat(H, "<span class='notice'>[I.name] добавлен на ваш [S.name].</span>")
 					break
 
 		if(!ok) // Finally, since everything else failed, place it on the ground
 			var/turf/T = get_turf(H)
 			if(T)
 				I.forceMove(T)
-				to_chat(H, "<span class='notice'>Your [I.name] is on the [T.name] below you.</span>")
+				to_chat(H, "<span class='notice'>[I.name] на [T.name] перед вами.</span>")
 			else
-				to_chat(H, "<span class='notice'>Your [I.name] couldnt spawn anywhere on you or even on the floor below you. Please file a bug report.</span>")
+				to_chat(H, "<span class='notice'>[I.name] не может быть заспавнен нигде, включая пол перед вами. Пожалуйста, сообщите админам.</span>")
 				qdel(I)
 
 
@@ -483,7 +483,7 @@ SUBSYSTEM_DEF(ticker)
 			m = pick(memetips)
 
 	if(m)
-		to_chat(world, "<span class='purple'><b>Tip of the round: </b>[html_encode(m)]</span>")
+		to_chat(world, "<span class='purple'><b>Подсказка раунда: </b>[html_encode(m)]</span>")
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	GLOB.nologevent = TRUE //end of round murder and shenanigans are legal; there's no need to jam up attack logs past this point.
@@ -492,8 +492,8 @@ SUBSYSTEM_DEF(ticker)
 	ending_station_state.count()
 	var/station_integrity = min(round( 100.0 *  GLOB.start_state.score(ending_station_state), 0.1), 100.0)
 
-	to_chat(world, "<BR>[TAB]Shift Duration: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
-	to_chat(world, "<BR>[TAB]Station Integrity: <B>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</B>")
+	to_chat(world, "<BR>[TAB]Длительность смены: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
+	to_chat(world, "<BR>[TAB]Состояние станции: <B>[mode.station_was_nuked ? "<font color='red'>Уничтожена</font>" : "[station_integrity]%"]</B>")
 	to_chat(world, "<BR>")
 
 	//Silicon laws report
@@ -501,16 +501,16 @@ SUBSYSTEM_DEF(ticker)
 		var/ai_ckey = safe_get_ckey(aiPlayer)
 
 		if(aiPlayer.stat != 2)
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [ai_ckey])'s laws at the end of the game were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (Игрок: [ai_ckey]), его законы в конце игры:</b>")
 		else
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [ai_ckey])'s laws when it was deactivated were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (Игрок: [ai_ckey]), его законы в момент деактивации:</b>")
 		aiPlayer.show_laws(TRUE)
 
 		if(aiPlayer.connected_robots.len)
-			var/robolist = "<b>The AI's loyal minions were:</b> "
+			var/robolist = "<b>Привязанные к ИИ киборги:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
 				var/robo_ckey = safe_get_ckey(robo)
-				robolist += "[robo.name][robo.stat ? " (Deactivated)" : ""] (Played by: [robo_ckey])"
+				robolist += "[robo.name][robo.stat ? " (Деактивирован)" : ""] (Игрок: [robo_ckey])"
 			to_chat(world, "[robolist]")
 
 	var/dronecount = 0
@@ -525,15 +525,15 @@ SUBSYSTEM_DEF(ticker)
 
 		if(!robo.connected_ai)
 			if(robo.stat != 2)
-				to_chat(world, "<b>[robo.name] (Played by: [robo_ckey]) survived as an AI-less borg! Its laws were:</b>")
+				to_chat(world, "<b>[robo.name] (Игрок: [robo_ckey]) был не привязанным к ИИ киборгом и выжил! Его законы:</b>")
 			else
-				to_chat(world, "<b>[robo.name] (Played by: [robo_ckey]) was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
+				to_chat(world, "<b>[robo.name] (Игрок: [robo_ckey]) не смог выжить в суровых условиях жизни киборга без ИИ. Его законы:</b>")
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] this round.")
+		to_chat(world, "<b>На смене [dronecount>1 ? "было" : "был"] [dronecount] [dronecount>1 ? "технических дронов" : "технический дрон"].")
 
 	if(mode.eventmiscs.len)
 		var/emobtext = ""
@@ -563,7 +563,7 @@ SUBSYSTEM_DEF(ticker)
 
 	//make big obvious note in game logs that round ended
 	log_game("///////////////////////////////////////////////////////")
-	log_game("///////////////////// ROUND ENDED /////////////////////")
+	log_game("////////////////// РАУНД ЗАКОНЧИЛСЯ ///////////////////")
 	log_game("///////////////////////////////////////////////////////")
 
 	// Add AntagHUD to everyone, see who was really evil the whole time!
@@ -619,7 +619,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/reboot_helper(reason, end_string, delay)
 	// Admins delayed round end. Just alert and dont bother with anything else.
 	if(delay_end)
-		to_chat(world, "<span class='boldannounce'>An admin has delayed the round end.</span>")
+		to_chat(world, "<span class='boldannounce'>Админ приостановил конец раунда.</span>")
 		return
 
 	if(!isnull(delay))
@@ -629,14 +629,14 @@ SUBSYSTEM_DEF(ticker)
 		// Use default restart timeout
 		delay = restart_timeout
 
-	to_chat(world, "<span class='boldannounce'>Rebooting world in [delay/10] [delay > 10 ? "seconds" : "second"]. [reason]</span>")
+	to_chat(world, "<span class='boldannounce'>Перезагружаем мир через [delay/10] [delay > 10 ? "секунд" : "секунду"]. [reason]</span>")
 
 	real_reboot_time = world.time + delay
 	UNTIL(world.time > real_reboot_time) // Hold it here
 
 	// And if we re-delayed, bail again
 	if(delay_end)
-		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
+		to_chat(world, "<span class='boldannounce'>Перезагрузка остановлена администратором.</span>")
 		return
 
 	if(end_string)

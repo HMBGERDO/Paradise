@@ -212,7 +212,7 @@
 	if(!affecting)
 		return
 	if(state >= GRAB_AGGRESSIVE && HAS_TRAIT(assailant, TRAIT_PACIFISM))
-		to_chat(assailant, "<span class='warning'>You don't want to risk hurting [affecting]!</span>")
+		to_chat(assailant, "<span class='warning'>Вы не хотите причинить боль [affecting]!</span>")
 		return
 	if(state == GRAB_UPGRADING)
 		return
@@ -230,7 +230,7 @@
 		if(!allow_upgrade)
 			return
 		//if(!affecting.lying)
-		assailant.visible_message("<span class='warning'>[assailant] has grabbed [affecting] aggressively (now hands)!</span>")
+		assailant.visible_message("<span class='warning'>[assailant] агрессивно схватил [affecting] (за руки)!</span>")
 		/* else
 			assailant.visible_message("<span class='warning'>[assailant] pins [affecting] down to the ground (now hands)!</span>")
 			force_down = 1
@@ -245,10 +245,10 @@
 		add_attack_logs(assailant, affecting, "Aggressively grabbed", ATKLOG_ALL)
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
-			to_chat(assailant, "<span class='notice'>You squeeze [affecting], but nothing interesting happens.</span>")
+			to_chat(assailant, "<span class='notice'>Вы сжимаете [affecting], но не происходит ничего интересного.</span>")
 			return
 
-		assailant.visible_message("<span class='warning'>[assailant] has reinforced [assailant.p_their()] grip on [affecting] (now neck)!</span>")
+		assailant.visible_message("<span class='warning'>[assailant] усиливает хватку на [affecting] (за шею)!</span>")
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 
@@ -261,11 +261,11 @@
 		hud.name = "kill"
 		affecting.Stun(3 SECONDS) // Ensures the grab is able to be secured
 	else if(state < GRAB_UPGRADING)
-		assailant.visible_message("<span class='danger'>[assailant] starts to tighten [assailant.p_their()] grip on [affecting]'s neck!</span>")
+		assailant.visible_message("<span class='danger'>[assailant] начинает сдавливать шею [affecting]!</span>")
 		hud.icon_state = "kill1"
 
 		state = GRAB_KILL
-		assailant.visible_message("<span class='danger'>[assailant] has tightened [assailant.p_their()] grip on [affecting]'s neck!</span>")
+		assailant.visible_message("<span class='danger'>[assailant] усиливает хватку на шее [affecting]!</span>")
 		add_attack_logs(assailant, affecting, "Strangled")
 
 		assailant.next_move = world.time + 10
@@ -368,18 +368,18 @@
 			var/mob/living/carbon/attacker = user
 
 			if(affecting.buckled)
-				to_chat(user, "<span class='warning'>[affecting] is buckled!</span>")
+				to_chat(user, "<span class='warning'>[affecting] пристёгнут!</span>")
 				return
 
-			user.visible_message("<span class='danger'>[user] is attempting to devour \the [affecting]!</span>")
+			user.visible_message("<span class='danger'>[user] пытается проглотить [affecting]!</span>")
 
 			if(!do_after(user, checktime(user, affecting), target = affecting)) return
 
 			if(affecting.buckled)
-				to_chat(user, "<span class='warning'>[affecting] is buckled!</span>")
+				to_chat(user, "<span class='warning'>[affecting] притёгнут!</span>")
 				return
 
-			user.visible_message("<span class='danger'>[user] devours \the [affecting]!</span>")
+			user.visible_message("<span class='danger'>[user] проглатывает [affecting]!</span>")
 			if(affecting.mind)
 				add_attack_logs(attacker, affecting, "Devoured")
 

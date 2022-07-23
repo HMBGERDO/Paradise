@@ -88,27 +88,27 @@
 	statpanel("Lobby")
 	if(client.statpanel=="Lobby" && SSticker)
 		if(SSticker.hide_mode)
-			stat("Game Mode:", "Secret")
+			stat("Игровой режим:", "Секрет")
 		else
 			if(SSticker.hide_mode == 0)
-				stat("Game Mode:", "[GLOB.master_mode]") // Old setting for showing the game mode
+				stat("Игровой режим:", "[GLOB.master_mode]") // Old setting for showing the game mode
 			else
-				stat("Game Mode: ", "Secret")
+				stat("Игровой режим: ", "Секрет")
 
 		if((SSticker.current_state == GAME_STATE_PREGAME) && SSticker.ticker_going)
-			stat("Time To Start:", round(SSticker.pregame_timeleft/10))
+			stat("Время до старта:", round(SSticker.pregame_timeleft/10))
 		if((SSticker.current_state == GAME_STATE_PREGAME) && !SSticker.ticker_going)
-			stat("Time To Start:", "DELAYED")
+			stat("Время до старта:", "ПРИОСТАНОВЛЕНО")
 
 		if(SSticker.current_state == GAME_STATE_PREGAME)
-			stat("Players:", "[totalPlayers]")
+			stat("Игроки:", "[totalPlayers]")
 			if(check_rights(R_ADMIN, 0, src))
-				stat("Players Ready:", "[totalPlayersReady]")
+				stat("Готовые Игроки:", "[totalPlayersReady]")
 			totalPlayers = 0
 			totalPlayersReady = 0
 			for(var/mob/new_player/player in GLOB.player_list)
 				if(check_rights(R_ADMIN, 0, src))
-					stat("[player.key]", (player.ready)?("(Playing)"):(null))
+					stat("[player.key]", (player.ready)?("(Играет)"):(null))
 				totalPlayers++
 				if(player.ready)
 					totalPlayersReady++
@@ -132,7 +132,7 @@
 		new_player_panel_proc()
 	if(href_list["consent_rejected"])
 		client.tos_consent = FALSE
-		to_chat(usr, "<span class='warning'>You must consent to the terms of service before you can join!</span>")
+		to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
 		var/datum/db_query/query = SSdbcore.NewQuery("REPLACE INTO privacy (ckey, datetime, consent) VALUES (:ckey, Now(), 0)", list(
 			"ckey" = ckey
 		))
@@ -146,7 +146,7 @@
 
 	if(href_list["ready"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>You must consent to the terms of service before you can join!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
@@ -164,16 +164,16 @@
 
 	if(href_list["observe"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>You must consent to the terms of service before you can join!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
 			return FALSE
 		if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
-			to_chat(usr, "<span class='warning'>You must wait for the server to finish starting before you can join!</span>")
+			to_chat(usr, "<span class='warning'>Нужно подождать, пока сервер подгатавливается к старту!</span>")
 			return FALSE
 
-		if(alert(src,"Are you sure you wish to observe? You cannot normally join the round after doing this!","Player Setup","Yes","No") == "Yes")
+		if(alert(src,"Вы уверены, что хотите стать призраком? Вы не сможете нормально войти в раунд после этого!","Player Setup","Да","Нет") == "Да")
 			if(!client)
 				return 1
 			var/mob/dead/observer/observer = new(src)
@@ -208,18 +208,18 @@
 
 	if(href_list["late_join"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>You must consent to the terms of service before you can join!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
 			return FALSE
 		if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, "<span class='warning'>Раунд либо не готов, либо уже закончен...</span>")
 			return
 		if(client.prefs.active_character.species in GLOB.whitelisted_species)
 
 			if(!can_use_species(src, client.prefs.active_character.species))
-				to_chat(src, alert("You are currently not whitelisted to play [client.prefs.active_character.species]."))
+				to_chat(src, alert("Вы не добавлены в вайтлист, чтобы играть за [client.prefs.active_character.species]."))
 				return FALSE
 
 		LateChoices()
@@ -230,7 +230,7 @@
 	if(href_list["SelectedJob"])
 
 		if(!GLOB.enter_allowed)
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+			to_chat(usr, "<span class='notice'>Установлена административная блокировка на вход в раунд!</span>")
 			return
 
 		if(client.prefs.toggles2 & PREFTOGGLE_2_RANDOMSLOT)
@@ -238,7 +238,7 @@
 
 		if(client.prefs.active_character.species in GLOB.whitelisted_species)
 			if(!can_use_species(src, client.prefs.active_character.species))
-				to_chat(src, alert("You are currently not whitelisted to play [client.prefs.active_character.species]."))
+				to_chat(src, alert("Вы не добавлены в вайтлист, чтобы играть за [client.prefs.active_character.species]."))
 				return FALSE
 
 		AttemptLateSpawn(href_list["SelectedJob"])
@@ -303,17 +303,17 @@
 	if(src != usr)
 		return 0
 	if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, "<span class='warning'>Раунд либо не готов, либо уже закончен...</span>")
 		return 0
 	if(!GLOB.enter_allowed)
-		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+		to_chat(usr, "<span class='notice'>Установлена административная блокировка на вход в раунд!</span>")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(src, alert("[rank] is not available. Please try another."))
+		to_chat(src, alert("[rank] недоступен. Пожалуйста, попробуйте другой."))
 		return 0
 	var/datum/job/thisjob = SSjobs.GetJob(rank)
 	if(thisjob.barred_by_disability(client))
-		to_chat(src, alert("[rank] is not available due to your character's disability. Please try another."))
+		to_chat(src, alert("[rank] недоступен из-за инвалидности вашего персонажа. Пожалуйста, попробуйте другой."))
 		return 0
 
 	SSjobs.AssignRole(src, rank, 1)
@@ -322,12 +322,12 @@
 	character = SSjobs.AssignRank(character, rank, TRUE)					//equips the human
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
-	if(character.mind.assigned_role == "AI")
+	if(character.mind.assigned_role == "ИИ")
 		var/mob/living/silicon/ai/ai_character = character.AIize() // AIize the character, but don't move them yet
 
 		// IsJobAvailable for AI checks that there is an empty core available in this list
 		ai_character.moveToEmptyCore()
-		AnnounceCyborg(ai_character, rank, "has been downloaded to the empty core in \the [get_area(ai_character)]")
+		AnnounceCyborg(ai_character, rank, "был загружен в пустое ядро в [get_area(ai_character)]")
 
 		SSticker.mode.latespawn(ai_character)
 		qdel(src)
@@ -343,10 +343,10 @@
 			character.loc = pick(GLOB.syndicateofficer)
 		else
 			character.forceMove(pick(GLOB.aroomwarp))
-		join_message = "has arrived"
+		join_message = "прибыл"
 	else
 		character.forceMove(pick(GLOB.latejoin))
-		join_message = "has arrived on the station"
+		join_message = "прибыл на станцию"
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
@@ -359,7 +359,7 @@
 
 	SSticker.mode.latespawn(character)
 
-	if(character.mind.assigned_role == "Cyborg")
+	if(character.mind.assigned_role == "Киборг")
 		AnnounceCyborg(character, rank, join_message)
 	else
 		SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
@@ -386,12 +386,12 @@
 		if(ailist.len)
 			var/mob/living/silicon/ai/announcer = pick(ailist)
 			if(character.mind)
-				if((character.mind.assigned_role != "Cyborg") && (character.mind.assigned_role != character.mind.special_role))
+				if((character.mind.assigned_role != "Киборг") && (character.mind.assigned_role != character.mind.special_role))
 					if(character.mind.role_alt_title)
 						rank = character.mind.role_alt_title
 					var/arrivalmessage = announcer.arrivalmsg
 					arrivalmessage = replacetext(arrivalmessage,"$name",character.real_name)
-					arrivalmessage = replacetext(arrivalmessage,"$rank",rank ? "[rank]" : "visitor")
+					arrivalmessage = replacetext(arrivalmessage,"$rank",rank ? "[rank]" : "посетитель")
 					arrivalmessage = replacetext(arrivalmessage,"$species",character.dna.species.name)
 					arrivalmessage = replacetext(arrivalmessage,"$age",num2text(character.age))
 					// Account for genderless mobs
@@ -405,10 +405,10 @@
 					announcer.say(";[arrivalmessage]", ignore_languages = TRUE)
 		else
 			if(character.mind)
-				if((character.mind.assigned_role != "Cyborg") && (character.mind.assigned_role != character.mind.special_role))
+				if((character.mind.assigned_role != "Киборг") && (character.mind.assigned_role != character.mind.special_role))
 					if(character.mind.role_alt_title)
 						rank = character.mind.role_alt_title
-					GLOB.global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+					GLOB.global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " посетитель," ] [join_message ? join_message : "прибыл на станцию"].", "Система Оповещения Прибытия")
 
 /mob/new_player/proc/AnnounceCyborg(mob/living/character, rank, join_message)
 	if(SSticker.current_state == GAME_STATE_PLAYING)
@@ -419,13 +419,13 @@
 			var/mob/living/silicon/ai/announcer = pick(ailist)
 			if(character.mind)
 				if(character.mind.assigned_role != character.mind.special_role)
-					var/arrivalmessage = "A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"]."
+					var/arrivalmessage = "Новый [rank ? " [rank]" : " посетитель" ] [join_message ? join_message : "прибыл на станцию"]."
 					announcer.say(";[arrivalmessage]", ignore_languages = TRUE)
 		else
 			if(character.mind)
 				if(character.mind.assigned_role != character.mind.special_role)
 					// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-					GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+					GLOB.global_announcer.autosay("Новый[rank ? " [rank]" : " посетитель" ] [join_message ? join_message : "прибыл на станцию"].", "Система Оповещения Прибытия")
 
 /mob/new_player/proc/LateChoices()
 	var/mills = ROUND_TIME // 1/10 of a second, not real milliseconds but whatever
@@ -434,16 +434,16 @@
 	var/hours = mills / 36000
 
 	var/dat = {"<html><meta charset="UTF-8"><body><center>"}
-	dat += "Round Duration: [round(hours)]h [round(mins)]m<br>"
-	dat += "<b>The station alert level is: [get_security_level_colors()]</b><br>"
+	dat += "Длительность раунда: [round(hours)]h [round(mins)]m<br>"
+	dat += "<b>Уровень безопасности станции: [get_security_level_colors()]</b><br>"
 
 	if(SSshuttle.emergency.mode >= SHUTTLE_ESCAPE)
-		dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
+		dat += "<font color='red'><b>Станция была эвакуирована.</b></font><br>"
 	else if(SSshuttle.emergency.mode >= SHUTTLE_CALL)
-		dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
+		dat += "<font color='red'>На станции происходит эвакуация.</font><br>"
 
 	if(length(SSjobs.prioritized_jobs))
-		dat += "<font color='lime'>The station has flagged these jobs as high priority: "
+		dat += "<font color='lime'>Станция указала следующие должности, как приоритетные: "
 		var/amt = length(SSjobs.prioritized_jobs)
 		var/amt_count
 		for(var/datum/job/a in SSjobs.prioritized_jobs)
@@ -540,10 +540,10 @@
 
 	if(mind)
 		mind.active = FALSE					//we wish to transfer the key manually
-		if(mind.assigned_role == "Clown")				//give them a clownname if they are a clown
+		if(mind.assigned_role == "Клоун")				//give them a clownname if they are a clown
 			new_character.real_name = pick(GLOB.clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
 			new_character.rename_self("clown")
-		else if(mind.assigned_role == "Mime")
+		else if(mind.assigned_role == "Мим")
 			new_character.real_name = pick(GLOB.mime_names)
 			new_character.rename_self("mime")
 		mind.set_original_mob(new_character)

@@ -334,9 +334,9 @@ SUBSYSTEM_DEF(air)
 
 /datum/controller/subsystem/air/proc/setup_atmos_machinery(list/machines_to_init)
 	var/watch = start_watch()
-	log_startup_progress("Initializing atmospherics machinery...")
+	log_startup_progress("Загружаем атмосферные машины...")
 	var/count = _setup_atmos_machinery(machines_to_init)
-	log_startup_progress("Initialized [count] atmospherics machines in [stop_watch(watch)]s.")
+	log_startup_progress("Загружено [count] атмосферных машин за [stop_watch(watch)] секунд.")
 
 // this underscored variant is so that we can have a means of late initing
 // atmos machinery without a loud announcement to the world
@@ -358,9 +358,9 @@ SUBSYSTEM_DEF(air)
 //	pipenet can be built.
 /datum/controller/subsystem/air/proc/setup_pipenets(list/pipes)
 	var/watch = start_watch()
-	log_startup_progress("Initializing pipe networks...")
+	log_startup_progress("Загружаем сети труб...")
 	var/count = _setup_pipenets(pipes)
-	log_startup_progress("Initialized [count] pipenets in [stop_watch(watch)]s.")
+	log_startup_progress("Загружено [count] сетей труб за [stop_watch(watch)] секунд.")
 
 // An underscored wrapper that exists for the same reason
 // the machine init wrapper does

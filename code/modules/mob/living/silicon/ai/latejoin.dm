@@ -1,19 +1,19 @@
 GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 
 /mob/living/silicon/ai/verb/wipe_core()
-	set name = "Wipe Core"
+	set name = "Удалить Ядро"
 	set category = "OOC"
-	set desc = "Wipe your core. This is functionally equivalent to cryo or robotic storage, freeing up your job slot."
+	set desc = "Удалите свое ядро. Это аналог криокапсулы, освобождает слот вашей профессии."
 
 	// Guard against misclicks, this isn't the sort of thing we want happening accidentally
-	if(alert("WARNING: This will immediately wipe your core and ghost you, removing your character from the round permanently (similar to cryo and robotic storage). Are you entirely sure you want to do this?",
-					"Wipe Core", "No", "No", "Yes") != "Yes")
+	if(alert("ПРЕДУПРЕЖДЕНИЕ: Вы сразу удалите ядро и станете призраком, ваш персонаж будет удалён из раунда. Вы уверены, что хотите это сделать?",
+					"Удалить Ядро", "Нет", "Нет", "Да") != "Да")
 		return
 	cryo_AI()
 
 /mob/living/silicon/ai/proc/cryo_AI()
 	GLOB.empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(loc)
-	GLOB.global_announcer.autosay("[src] has been moved to intelligence storage.", "Artificial Intelligence Oversight")
+	GLOB.global_announcer.autosay("[src] был перемещён в научное хранилище.", "Система Наблюдения за Искусственным Интеллектом")
 
 	//Handle job slot/tater cleanup.
 	var/job = mind.assigned_role

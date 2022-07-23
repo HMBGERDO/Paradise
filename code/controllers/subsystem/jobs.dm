@@ -145,7 +145,7 @@ SUBSYSTEM_DEF(jobs)
 		if(!job)
 			continue
 
-		if(istype(job, GetJob("Assistant"))) // We don't want to give him assistant, that's boring!
+		if(istype(job, GetJob("Ассистент"))) // We don't want to give him assistant, that's boring!
 			continue
 
 		if(job.title in GLOB.command_positions) //If you want a command position, select it!
@@ -237,7 +237,7 @@ SUBSYSTEM_DEF(jobs)
 		return FALSE
 
 	var/ai_selected = 0
-	var/datum/job/job = GetJob("AI")
+	var/datum/job/job = GetJob("ИИ")
 	if(!job)
 		return 0
 
@@ -247,7 +247,7 @@ SUBSYSTEM_DEF(jobs)
 			candidates = FindOccupationCandidates(job, level)
 			if(candidates.len)
 				var/mob/new_player/candidate = pick(candidates)
-				if(AssignRole(candidate, "AI"))
+				if(AssignRole(candidate, "ИИ"))
 					ai_selected++
 					break
 
@@ -295,7 +295,7 @@ SUBSYSTEM_DEF(jobs)
 	Debug("AC1, Candidates: [assistant_candidates.len]")
 	for(var/mob/new_player/player in assistant_candidates)
 		Debug("AC1 pass, Player: [player]")
-		AssignRole(player, "Assistant")
+		AssignRole(player, "Ассистент")
 		assistant_candidates -= player
 	Debug("DO, AC1 end")
 
@@ -378,15 +378,15 @@ SUBSYSTEM_DEF(jobs)
 			if(player.client.prefs.active_character.alternate_option != BE_ASSISTANT)
 				GiveRandomJob(player)
 				if(player in unassigned)
-					AssignRole(player, "Assistant")
+					AssignRole(player, "Ассистент")
 			else
-				AssignRole(player, "Assistant")
+				AssignRole(player, "Ассистент")
 
 	// Then we assign what we can to everyone else.
 	for(var/mob/new_player/player in unassigned)
 		if(player.client.prefs.active_character.alternate_option == BE_ASSISTANT)
 			Debug("AC2 Assistant located, Player: [player]")
-			AssignRole(player, "Assistant")
+			AssignRole(player, "Ассистент")
 		else if(player.client.prefs.active_character.alternate_option == RETURN_TO_LOBBY)
 			player.ready = FALSE
 			unassigned -= player
@@ -528,7 +528,7 @@ SUBSYSTEM_DEF(jobs)
 		J.total_positions = text2num(joblist[job])
 		J.spawn_positions = text2num(joblist[job])
 
-		if(job == "AI" || job == "Cyborg") //I dont like this here but it will do for now
+		if(job == "ИИ" || job == "Киборг") //I dont like this here but it will do for now
 			J.total_positions = 0
 
 	return TRUE
@@ -667,7 +667,7 @@ SUBSYSTEM_DEF(jobs)
 		return
 	var/datum/data/pda/app/messenger/PM = target_pda.find_program(/datum/data/pda/app/messenger)
 	if(PM && PM.can_receive())
-		PM.notify("<b>Automated Notification: </b>\"[antext]\" (Unable to Reply)", 0) // the 0 means don't make the PDA flash
+		PM.notify("<b>Автоматическое уведомление: </b>\"[antext]\" (Невозможно ответить)", 0) // the 0 means don't make the PDA flash
 
 /datum/controller/subsystem/jobs/proc/notify_by_name(target_name, antext)
 	// Used to notify a specific crew member based on their real_name
@@ -682,7 +682,7 @@ SUBSYSTEM_DEF(jobs)
 		return
 	var/datum/data/pda/app/messenger/PM = target_pda.find_program(/datum/data/pda/app/messenger)
 	if(PM && PM.can_receive())
-		PM.notify("<b>Automated Notification: </b>\"[antext]\" (Unable to Reply)", 0) // the 0 means don't make the PDA flash
+		PM.notify("<b>Автоматическое уведомление: </b>\"[antext]\" (Невозможно ответить)", 0) // the 0 means don't make the PDA flash
 
 /datum/controller/subsystem/jobs/proc/format_job_change_records(centcom)
 	var/list/formatted = list()
