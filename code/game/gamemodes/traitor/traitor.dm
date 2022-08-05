@@ -37,7 +37,7 @@
 
 	// stop setup if no possible traitors
 	if(!length(possible_traitors))
-		return FALSE
+		return TRUE
 
 	var/num_traitors = 1
 
@@ -55,7 +55,7 @@
 		traitor.restricted_roles = restricted_jobs
 
 	if(!length(pre_traitors))
-		return FALSE
+		return TRUE
 	return TRUE
 
 

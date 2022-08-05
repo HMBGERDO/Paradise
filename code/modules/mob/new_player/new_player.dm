@@ -49,32 +49,32 @@
 	var/real_name = client.prefs.active_character.real_name
 	if(client.prefs.toggles2 & PREFTOGGLE_2_RANDOMSLOT)
 		real_name = "Random Character Slot"
-	var/output = {"<meta charset="UTF-8"><center><p><a href='byond://?src=[UID()];show_preferences=1'>Setup Character</A><br /><i>[real_name]</i></p>"}
+	var/output = {"<meta charset="UTF-8"><center><p><a href='byond://?src=[UID()];show_preferences=1'>Настройка персонажа</A><br /><i>[real_name]</i></p>"}
 
 	if(!SSticker || SSticker.current_state <= GAME_STATE_PREGAME)
-		if(!ready)	output += "<p><a href='byond://?src=[UID()];ready=1'>Declare Ready</A></p>"
-		else	output += "<p><b>You are ready</b> (<a href='byond://?src=[UID()];ready=2'>Cancel</A>)</p>"
+		if(!ready)	output += "<p><a href='byond://?src=[UID()];ready=1'>Объявить готовность</A></p>"
+		else	output += "<p><b>Вы готовы к началу раунда</b> (<a href='byond://?src=[UID()];ready=2'>Отменить</A>)</p>"
 	else
-		output += "<p><a href='byond://?src=[UID()];manifest=1'>View the Crew Manifest</A></p>"
-		output += "<p><a href='byond://?src=[UID()];late_join=1'>Join Game!</A></p>"
+		output += "<p><a href='byond://?src=[UID()];manifest=1'>Просмотреть список экипажа</A></p>"
+		output += "<p><a href='byond://?src=[UID()];late_join=1'>Вступить в игру!</A></p>"
 
 	var/list/antags = client.prefs.be_special
 	if(antags && antags.len)
-		if(!client.skip_antag) output += "<p><a href='byond://?src=[UID()];skip_antag=1'>Global Antag Candidacy</A>"
-		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Global Antag Candidacy</A>"
-		output += "<br /><small>You are <b>[client.skip_antag ? "ineligible" : "eligible"]</b> for all antag roles.</small></p>"
+		if(!client.skip_antag) output += "<p><a href='byond://?src=[UID()];skip_antag=1'>Глобальное переключение антагонистов</A>"
+		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Глобальное переключение антагонистов</A>"
+		output += "<br /><small>Вы <b>[client.skip_antag ? "отключили" : "включили"]</b> все роли антагонистов.</small></p>"
 
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
-		output += "<p>Observe (Please wait...)</p>"
+		output += "<p>Наблюдать (Пожалуйста, подождите...)</p>"
 	else
-		output += "<p><a href='byond://?src=[UID()];observe=1'>Observe</A></p>"
+		output += "<p><a href='byond://?src=[UID()];observe=1'>Наблюдать</A></p>"
 
 	if(GLOB.join_tos)
-		output += "<p><a href='byond://?src=[UID()];tos=1'>Terms of Service</A></p>"
+		output += "<p><a href='byond://?src=[UID()];tos=1'>Пользовательское соглашение</A></p>"
 
 	output += "</center>"
 
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Player Options</div>", 240, 330)
+	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>Параметры нового игрока</div>", 240, 330)
 	popup.set_window_options("can_close=0")
 	popup.set_content(output)
 	popup.open(0)
@@ -132,7 +132,7 @@
 		new_player_panel_proc()
 	if(href_list["consent_rejected"])
 		client.tos_consent = FALSE
-		to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
+		to_chat(usr, "<span class='warning'>Вы должны согласиться с пользовательским соглашением перед началом игры!</span>")
 		var/datum/db_query/query = SSdbcore.NewQuery("REPLACE INTO privacy (ckey, datetime, consent) VALUES (:ckey, Now(), 0)", list(
 			"ckey" = ckey
 		))
@@ -146,7 +146,7 @@
 
 	if(href_list["ready"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с пользовательским соглашением перед началом игры!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
@@ -164,7 +164,7 @@
 
 	if(href_list["observe"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с пользовательским соглашением перед началом игры!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
@@ -185,7 +185,6 @@
 			observer.started_as_observer = 1
 			close_spawn_windows()
 			var/obj/O = locate("landmark*Observer-Start")
-			to_chat(src, "<span class='notice'>Now teleporting.</span>")
 			observer.forceMove(O.loc)
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 			client.prefs.active_character.update_preview_icon(1)
@@ -208,7 +207,7 @@
 
 	if(href_list["late_join"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>Вы должны согласиться с условиями использования перед началом игры!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с пользовательским соглашением перед началом игры!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
