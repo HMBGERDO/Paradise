@@ -60,8 +60,8 @@
 
 	var/list/antags = client.prefs.be_special
 	if(antags && antags.len)
-		if(!client.skip_antag) output += "<p><a href='byond://?src=[UID()];skip_antag=1'>Глобальное переключение антагонистов</A>"
-		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Глобальное переключение антагонистов</A>"
+		if(!client.skip_antag) output += "<p><a href='byond://?src=[UID()];skip_antag=1'>Переключение антагонистов</A>"
+		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Переключение антагонистов</A>"
 		output += "<br /><small>Вы <b>[client.skip_antag ? "отключили" : "включили"]</b> все роли антагонистов.</small></p>"
 
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)

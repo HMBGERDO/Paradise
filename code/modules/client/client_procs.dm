@@ -326,6 +326,7 @@
 		chatOutput.start()
 
 	var/_2fa_alert = FALSE // This is so we can display the message where it will be seen
+	add_shuttle_vote()
 	if(holder)
 		if(GLOB.configuration.system.is_production && (holder.rights & R_ADMIN) && prefs._2fa_status == _2FA_DISABLED) // If they are an admin and their 2FA is disabled
 			// No, check_rights() does not work in the above proc, because we dont have a mob yet

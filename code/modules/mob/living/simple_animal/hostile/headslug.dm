@@ -18,7 +18,7 @@
 	stat_attack = DEAD
 	obj_damage = 0
 	environment_smash = 0
-	speak_emote = list("squeaks")
+	speak_emote = list("пищит")
 	pass_flags = PASSTABLE | PASSMOB
 	density = FALSE
 	ventcrawler = 2
@@ -30,7 +30,7 @@
 /mob/living/simple_animal/hostile/headslug/examine(mob/user)
 	. = ..()
 	if(stat == DEAD)
-		. += "It appears to be dead."
+		. += "Похоже, оно мертво."
 
 /mob/living/simple_animal/hostile/headslug/proc/Infect(mob/living/carbon/victim)
 	var/obj/item/organ/internal/body_egg/changeling_egg/egg = new(victim)

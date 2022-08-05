@@ -171,7 +171,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "BG"
 	item = /obj/item/grenade/clown_grenade
 	cost = 5
-	job = list("Clown")
+	job = list(/datum/job/clown)
 
 /datum/uplink_item/jobspecific/clownslippers
 	name = "Clown Acrobatic Shoes"
@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/clothing/shoes/clown_shoes/slippers
 	cost = 3
 	surplus = 75
-	job = list("Clown")
+	job = list(/datum/job/clown)
 
 /datum/uplink_item/jobspecific/trick_revolver
 	name = "Trick Revolver"
@@ -188,7 +188,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "CTR"
 	item = /obj/item/storage/box/syndie_kit/fake_revolver
 	cost = 1
-	job = list("Clown")
+	job = list(/datum/job/clown)
 //mime
 /datum/uplink_item/jobspecific/caneshotgun
 	name = "Cane Shotgun and Assassination Shells"
@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "MCS"
 	item = /obj/item/storage/box/syndie_kit/caneshotgun
 	cost = 10
-	job = list("Mime")
+	job = list(/datum/job/mime)
 
 /datum/uplink_item/jobspecific/mimery
 	name = "Guide to Advanced Mimery Series"
@@ -204,7 +204,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "AM"
 	item = /obj/item/storage/box/syndie_kit/mimery
 	cost = 10
-	job = list("Mime")
+	job = list(/datum/job/mime)
 
 /datum/uplink_item/jobspecific/pressure_mod
 	name = "Kinetic Accelerator Pressure Mod"
@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "KPM"
 	item = /obj/item/borg/upgrade/modkit/indoors
 	cost = 5 //you need two for full damage, so total of 10 for maximum damage
-	job = list("Shaft Miner")
+	job = list(/datum/job/mining)
 
 //Chef
 /datum/uplink_item/jobspecific/specialsauce
@@ -221,7 +221,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "CESS"
 	item = /obj/item/reagent_containers/food/condiment/syndisauce
 	cost = 2
-	job = list("Chef")
+	job = list(/datum/job/chef)
 
 /datum/uplink_item/jobspecific/meatcleaver
 	name = "Meat Cleaver"
@@ -229,7 +229,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "MC"
 	item = /obj/item/kitchen/knife/butcher/meatcleaver
 	cost = 10
-	job = list("Chef")
+	job = list(/datum/job/chef)
 
 /datum/uplink_item/jobspecific/syndidonk
 	name = "Syndicate Donk Pockets"
@@ -237,7 +237,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "SDP"
 	item = /obj/item/storage/box/syndidonkpockets
 	cost = 2
-	job = list("Chef")
+	job = list(/datum/job/chef)
 
 //Chaplain
 
@@ -247,7 +247,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "MK"
 	item = /obj/item/storage/box/syndie_kit/missionary_set
 	cost = 15
-	job = list("Chaplain")
+	job = list(/datum/job/chaplain)
 
 /datum/uplink_item/jobspecific/artistic_toolbox
 	name = "His Grace"
@@ -258,7 +258,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "HG"
 	item = /obj/item/his_grace
 	cost = 20
-	job = list("Chaplain")
+	job = list(/datum/job/chaplain)
 	surplus = 0 //No lucky chances from the crate; if you get this, this is ALL you're getting
 	hijack_only = TRUE //This is a murderbone weapon, as such, it should only be available in those scenarios.
 
@@ -270,7 +270,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "PM"
 	item = /obj/item/caution/proximity_sign
 	cost = 4
-	job = list("Janitor")
+	job = list(/datum/job/janitor)
 	surplus = 0
 
 //Virology
@@ -281,7 +281,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "VI"
 	item = /obj/item/reagent_containers/dropper/precision/viral_injector
 	cost = 3
-	job = list("Virologist")
+	job = list(/datum/job/virologist)
 
 /datum/uplink_item/jobspecific/cat_grenade
 	name = "Feral Cat Delivery Grenade"
@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/grenade/spawnergrenade/feral_cats
 	reference = "CCLG"
 	cost = 4
-	job = list("Psychiatrist")//why? Becuase its funny that a person in charge of your mental wellbeing has a cat granade..
+	job = list(/datum/job/psychiatrist)//why? Becuase its funny that a person in charge of your mental wellbeing has a cat granade..
 
 //Assistant
 
@@ -299,7 +299,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "PPG"
 	item = /obj/item/clothing/gloves/color/black/thief
 	cost = 6
-	job = list("Assistant")
+	job = list(/datum/job/assistant)
 
 //Bartender
 
@@ -309,7 +309,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "BSS"
 	item = /obj/item/storage/box/syndie_kit/boolets
 	cost = 3
-	job = list("Bartender")
+	job = list(/datum/job/bartender)
 
 //Barber
 
@@ -319,7 +319,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "CTS"
 	item = /obj/item/scissors/safety
 	cost = 5
-	job = list("Barber")
+	job = list(/datum/job/barber)
 
 //Botanist
 
@@ -329,7 +329,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "BEE"
 	item = /obj/item/bee_briefcase
 	cost = 10
-	job = list("Botanist")
+	job = list(/datum/job/hydro)
 
 //Engineer
 
@@ -339,7 +339,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "PG"
 	item = /obj/item/clothing/gloves/color/yellow/power
 	cost = 10
-	job = list("Station Engineer", "Chief Engineer")
+	job = list(/datum/job/engineer, /datum/job/chief_engineer)
 
 //RD
 
@@ -349,7 +349,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "TG"
 	item = /obj/item/gun/energy/telegun
 	cost = 12
-	job = list("Research Director")
+	job = list(/datum/job/rd)
 
 //Roboticist
 /datum/uplink_item/jobspecific/syndiemmi
@@ -358,7 +358,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "SMMI"
 	item = /obj/item/mmi/syndie
 	cost = 2
-	job = list("Roboticist")
+	job = list(/datum/job/roboticist)
 	surplus = 0
 
 //Librarian
@@ -368,7 +368,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "ETW"
 	item = /obj/item/dice/d20/e20
 	cost = 3
-	job = list("Librarian")
+	job = list(/datum/job/librarian)
 
 //Botanist
 /datum/uplink_item/jobspecific/ambrosiacruciatus
@@ -377,7 +377,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "BRO"
 	item = /obj/item/seeds/ambrosia/cruciatus
 	cost = 2
-	job = list("Botanist")
+	job = list(/datum/job/hydro)
 
 //Atmos Tech
 /datum/uplink_item/jobspecific/contortionist
@@ -386,7 +386,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "AIRJ"
 	item = /obj/item/clothing/under/contortionist
 	cost = 6
-	job = list("Life Support Specialist")
+	job = list(/datum/job/atmos)
 
 /datum/uplink_item/jobspecific/energizedfireaxe
 	name = "Energized Fire Axe"
@@ -394,7 +394,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "EFA"
 	item = /obj/item/twohanded/fireaxe/energized
 	cost = 10
-	job = list("Life Support Specialist")
+	job = list(/datum/job/atmos)
 
 //Stimulants
 
@@ -404,7 +404,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "ST"
 	item = /obj/item/reagent_containers/hypospray/autoinjector/stimulants
 	cost = 7
-	job = list("Scientist", "Research Director", "Geneticist", "Chief Medical Officer", "Medical Doctor", "Psychiatrist", "Chemist", "Paramedic", "Coroner", "Virologist")
+	job = list(/datum/job/scientist, /datum/job/rd, /datum/job/geneticist, /datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist, /datum/job/chemist, /datum/job/paramedic, /datum/job/coroner, /datum/job/virologist)
 
 //Tator Poison Bottles
 
@@ -414,7 +414,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	reference = "TPB"
 	item = /obj/item/reagent_containers/glass/bottle/traitor
 	cost = 2
-	job = list("Research Director", "Chief Medical Officer", "Medical Doctor", "Psychiatrist", "Chemist", "Paramedic", "Virologist", "Bartender", "Chef")
+	job = list(/datum/job/rd, /datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist, /datum/job/chemist, /datum/job/paramedic, /datum/job/virologist, /datum/job/bartender, /datum/job/chef)
 
 // Paper contact poison pen
 
@@ -425,7 +425,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/pen/poison
 	cost = 2
 	excludefrom = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
-	job = list("Head of Personnel", "Quartermaster", "Cargo Technician", "Librarian")
+	job = list(/datum/job/hop, /datum/job/qm, /datum/job/cargo_tech, /datum/job/librarian)
 
 
 // DANGEROUS WEAPONS

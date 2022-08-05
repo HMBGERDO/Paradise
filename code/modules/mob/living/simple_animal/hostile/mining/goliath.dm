@@ -1,6 +1,6 @@
 //A slow but strong beast that tries to stun using its tentacles
 /mob/living/simple_animal/hostile/asteroid/goliath
-	name = "goliath"
+	name = "голиаф"
 	desc = "A massive beast that uses long tentacles to ensare its prey, threatening them is not advised under any conditions."
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "Goliath"
@@ -14,7 +14,7 @@
 	ranged = TRUE
 	ranged_cooldown_time = 120
 	friendly = "wails at"
-	speak_emote = list("bellows")
+	speak_emote = list("рычит")
 	vision_range = 4
 	speed = 3
 	maxHealth = 300
@@ -23,7 +23,7 @@
 	obj_damage = 100
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attacktext = "pulverizes"
+	attacktext = "кусает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	throw_message = "does nothing to the rocky hide of the"
 	vision_range = 5
@@ -62,7 +62,7 @@
 	if(!isturf(tturf))
 		return
 	if(get_dist(src, target) <= 7)//Screen range check, so you can't get tentacle'd offscreen
-		visible_message("<span class='warning'>[src] digs its tentacles under [target]!</span>")
+		visible_message("<span class='warning'>[src] вонзает щупальца под [target]!</span>")
 		new /obj/effect/temp_visual/goliath_tentacle/original(tturf, src)
 		ranged_cooldown = world.time + ranged_cooldown_time
 		icon_state = icon_aggro
@@ -81,7 +81,7 @@
 
 //Lavaland Goliath
 /mob/living/simple_animal/hostile/asteroid/goliath/beast
-	name = "goliath"
+	name = "голиаф"
 	desc = "A hulking, armor-plated beast with long tendrils arching from its back."
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "goliath"
@@ -103,7 +103,7 @@
 		return INITIALIZE_HINT_QDEL
 
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient
-	name = "ancient goliath"
+	name = "древний голиаф"
 	desc = "Goliaths are biologically immortal, and rare specimens have survived for centuries. This one is clearly ancient, and its tentacles constantly churn the earth around it."
 	icon_state = "Goliath"
 	icon_living = "Goliath"
@@ -145,7 +145,7 @@
 
 //Tentacles
 /obj/effect/temp_visual/goliath_tentacle
-	name = "goliath tentacle"
+	name = "щупальце голиафа"
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "Goliath_tentacle_spawn"
 	layer = BELOW_MOB_LAYER
@@ -183,7 +183,7 @@
 	for(var/mob/living/L in loc)
 		if((!QDELETED(spawner) && spawner.faction_check_mob(L)) || L.stat == DEAD)
 			continue
-		visible_message("<span class='danger'>[src] grabs hold of [L]!</span>")
+		visible_message("<span class='danger'>[src] схватывает [L]!</span>")
 		L.Stun(10 SECONDS)
 		L.adjustBruteLoss(rand(10,15))
 		latched = TRUE

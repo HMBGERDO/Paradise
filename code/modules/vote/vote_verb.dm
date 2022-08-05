@@ -4,8 +4,30 @@
 
 	if(SSvote.active_vote)
 		SSvote.active_vote.ui_interact(usr)
-	else
-		to_chat(usr, "There is no active vote")
+		return
+	to_chat(usr, "There is no active vote")
+
+/client/proc/vote_shuttle_call()
+	set category = "OOC"
+	set name = "Shuttle Call Vote"
+	if(SSticker.current_state < GAME_STATE_PLAYING)
+		return
+
+	if(SSvote.active_vote)
+		return
+
+	if(usr.ckey in SSvote.shuttle_call_users)
+		to_chat(usr, "Вы уже использовали запуск голосования на вызов шаттла. Вы сможете использовать функцию снова в следующем раунде.")
+		return
+
+	if(!(alert(usr, "Вы уверены, что хотите запустить голосование на вызов шаттла? Вы можете запустить голосование таким образом только один раз.", "Голосование", "Да", "Нет") == "Да"))
+		return
+
+	SSvote.start_vote(new /datum/vote/crew_transfer(usr.ckey))
+	SSvote.shuttle_call_users.Add(usr.ckey)
+
+/client/proc/add_shuttle_vote()
+	verbs.Add(/client/proc/vote_shuttle_call)
 
 /client/proc/start_vote()
 	set category = "Admin"

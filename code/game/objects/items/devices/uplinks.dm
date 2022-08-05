@@ -20,7 +20,7 @@ GLOBAL_LIST_EMPTY(world_uplinks)
 	var/uplink_owner = null//text-only
 	var/used_TC = 0
 
-	var/job = null
+	var/datum/job/job = null
 	var/temp_category
 	var/uplink_type = UPLINK_TYPE_TRAITOR
 	/// Whether the uplink is jammed and cannot be used to order items.
@@ -53,7 +53,9 @@ GLOBAL_LIST_EMPTY(world_uplinks)
   */
 /obj/item/uplink/proc/generate_item_lists(mob/user)
 	if(!job)
-		job = user.mind.assigned_role
+		for(var/datum/job/jobdatum in get_job_datums())
+			if(jobdatum.title == user.mind.assigned_role)
+				job = jobdatum
 
 	var/list/cats = list()
 
@@ -61,10 +63,9 @@ GLOBAL_LIST_EMPTY(world_uplinks)
 		cats[++cats.len] = list("cat" = category, "items" = list())
 		for(var/datum/uplink_item/I in uplink_items[category])
 			if(I.job && I.job.len)
-				if(!(I.job.Find(job)))
-					continue
-			cats[cats.len]["items"] += list(list("name" = sanitize(I.name), "desc" = sanitize(I.description()),"cost" = I.cost, "hijack_only" = I.hijack_only, "obj_path" = I.reference, "refundable" = I.refundable))
-			uplink_items[I.reference] = I
+				if(job.type in I.job)
+					cats[cats.len]["items"] += list(list("name" = sanitize(I.name), "desc" = sanitize(I.description()),"cost" = I.cost, "hijack_only" = I.hijack_only, "obj_path" = I.reference, "refundable" = I.refundable))
+					uplink_items[I.reference] = I
 
 	uplink_cats = cats
 

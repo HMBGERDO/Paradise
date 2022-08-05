@@ -10,15 +10,15 @@
 	maxHealth = 10
 	health = 10
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/hugemushroomslice = 1)
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "whacks"
+	response_help  = "гладит"
+	response_disarm = "мягко отодвигает в сторону"
+	response_harm   = "бьет"
 	harm_intent_damage = 5
 	obj_damage = 0
 	melee_damage_lower = 1
 	melee_damage_upper = 1
 	attack_same = 2 // this is usually a bool, but mushrooms are a special case
-	attacktext = "chomps"
+	attacktext = "грызет"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = list("mushroom")
 	environment_smash = 0
@@ -27,8 +27,8 @@
 	speed = 1
 	ventcrawler = 2
 	robust_searching = TRUE
-	speak_emote = list("squeaks")
-	deathmessage = "fainted"
+	speak_emote = list("пищит")
+	deathmessage = "обмер"
 	var/powerlevel = 0 //Tracks our general strength level gained from eating other shrooms
 	var/bruised = 0 //If someone tries to cheat the system by attacking a shroom to lower its health, punish them so that it wont award levels to shrooms that eat it
 	var/recovery_cooldown = 0 //So you can't repeatedly revive it during a fight

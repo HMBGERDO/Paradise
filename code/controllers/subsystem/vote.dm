@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(vote)
 
 	/// Active vote, if any
 	var/datum/vote/active_vote
+	var/list/shuttle_call_users = list()
 
 /datum/controller/subsystem/vote/fire()
 	if(active_vote)

@@ -6,10 +6,10 @@
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
 	icon_resting = "mouse_gray_sleep"
-	speak = list("Squeek!","SQUEEK!","Squeek?")
-	speak_emote = list("squeeks","squeaks","squiks")
-	emote_hear = list("squeeks","squeaks","squiks")
-	emote_see = list("runs in a circle", "shakes", "scritches at something")
+	speak = list("Писк!","ПИСК!","Писк?")
+	speak_emote = list("пищит",)
+	emote_hear = list("пищит",)
+	emote_see = list("бегает по кругу", "трясется", "скрипит на что-то")
 	var/squeak_sound = 'sound/creatures/mousesqueak.ogg'
 	speak_chance = 1
 	turns_per_move = 5
@@ -97,7 +97,7 @@
 	if(ishuman(AM))
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>[bicon(src)] Squeek!</span>")
+			to_chat(M, "<span class='notice'>[bicon(src)] Писк!</span>")
 	..()
 
 /mob/living/simple_animal/mouse/proc/toast()
