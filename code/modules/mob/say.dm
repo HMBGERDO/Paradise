@@ -105,16 +105,16 @@
 
 
 /mob/proc/say_quote(message, datum/language/speaking = null)
-	var/verb = "says"
-	var/ending = copytext(message, length(message))
+	var/verb = "говорит"
+	var/ending = copytext_char(message, length_char(message))
 
 	if(speaking)
 		verb = speaking.get_spoken_verb(ending)
 	else
 		if(ending == "!")
-			verb = pick("exclaims", "shouts", "yells")
+			verb = pick("вскрикнул", "кричит")
 		else if(ending == "?")
-			verb = "asks"
+			verb = "спрашивает"
 	return verb
 
 /mob/proc/get_ear()
