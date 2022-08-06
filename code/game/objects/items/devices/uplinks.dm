@@ -63,9 +63,10 @@ GLOBAL_LIST_EMPTY(world_uplinks)
 		cats[++cats.len] = list("cat" = category, "items" = list())
 		for(var/datum/uplink_item/I in uplink_items[category])
 			if(I.job && I.job.len)
-				if(job.type in I.job)
-					cats[cats.len]["items"] += list(list("name" = sanitize(I.name), "desc" = sanitize(I.description()),"cost" = I.cost, "hijack_only" = I.hijack_only, "obj_path" = I.reference, "refundable" = I.refundable))
-					uplink_items[I.reference] = I
+				if(!(job.type in I.job))
+					continue
+			cats[cats.len]["items"] += list(list("name" = sanitize(I.name), "desc" = sanitize(I.description()),"cost" = I.cost, "hijack_only" = I.hijack_only, "obj_path" = I.reference, "refundable" = I.refundable))
+			uplink_items[I.reference] = I
 
 	uplink_cats = cats
 
