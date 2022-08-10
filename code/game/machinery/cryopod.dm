@@ -537,7 +537,7 @@
 	time_till_despawn = initial(time_till_despawn)
 
 	if(L.client)
-		if(alert(L,"Хотите войти в криосон??",,"Да","Нет") == "Да")
+		if(alert(L,"Хотите войти в криосон?",,"Да","Нет") == "Да")
 			if(!L) return
 			willing = willing_time_divisor
 	else
