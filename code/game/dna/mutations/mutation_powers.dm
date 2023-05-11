@@ -252,21 +252,25 @@
 	activation_messages = list("You feel one with your surroundings.")
 	deactivation_messages = list("You feel oddly visible.")
 	activation_prob = 25
+	var/last_location = null
 
 /datum/mutation/stealth/chameleon/New()
 	..()
 	block = GLOB.chameleonblock
 
 /datum/mutation/stealth/chameleon/on_life(mob/living/M) //look if a ghost gets this, its an admins problem
-	if((world.time - M.last_movement) >= 30 && !M.stat && (M.mobility_flags & MOBILITY_STAND) && !M.restrained())
+	var/current_location = get_turf(M)
+	if((world.time - M.last_movement) >= 3 SECONDS && !M.stat && (M.mobility_flags & MOBILITY_STAND) && !M.restrained() && current_location == last_location && !M.pulledby && !length(M.grabbed_by))
 		if(M.invisibility != INVISIBILITY_LEVEL_TWO)
 			M.alpha -= 25
 	else
 		M.reset_visibility()
 		M.alpha = round(255 * 0.80)
+
 	if(M.alpha == 0)
 		M.make_invisible()
 
+	last_location = current_location
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/mutation/grant_spell
