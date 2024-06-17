@@ -922,7 +922,8 @@
 			if(2)
 				to_chat(usr, "<span class='notice'>Unable to comply.</span>")
 			if(3)
-				atom_say("Shuttle has already received a pending movement request. Please wait until the movement request is processed.")
+				var/obj/docking_port/mobile/M = getShuttle(shuttleId)getShuttle(shuttleId)
+				atom_say("Shuttle is recharging. Standby...")
 
 
 /obj/machinery/computer/shuttle/emag_act(mob/user)
