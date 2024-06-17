@@ -922,7 +922,6 @@
 			if(2)
 				to_chat(usr, "<span class='notice'>Unable to comply.</span>")
 			if(3)
-				var/obj/docking_port/mobile/M = getShuttle(shuttleId)getShuttle(shuttleId)
 				atom_say("Shuttle is recharging. Standby...")
 
 
