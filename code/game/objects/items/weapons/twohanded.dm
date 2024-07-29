@@ -514,14 +514,13 @@
 	. = ..()
 	if(HAS_TRAIT(src, TRAIT_WIELDED))
 		playsound(loc, 'sound/weapons/chainsaw.ogg', 100, TRUE, -1) //incredibly loud; you ain't goin' for stealth with this thing. Credit to Lonemonk of Freesound for this sound.
-		if(isnull(.)) //necessary check, successful attacks return null, without it target will drop any shields they may have before they get a chance to block
-			target.KnockDown(8 SECONDS)
 
 /obj/item/butcher_chainsaw/afterattack(mob/living/target, mob/living/user, proximity)
 	if(!proximity) //only works on adjacent targets, no telekinetic chainsaws
 		return
 	if(!HAS_TRAIT(src, TRAIT_WIELDED))
 		return
+	target.KnockDown(8 SECONDS)
 	if(isrobot(target)) //no buff from attacking robots
 		return
 	if(!isliving(target)) //no buff from attacking inanimate objects
